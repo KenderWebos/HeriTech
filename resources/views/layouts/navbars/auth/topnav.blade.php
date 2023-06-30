@@ -27,11 +27,11 @@
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ route('profile') }}">Editar Perfil</a></li>
-                            <!-- <li><a class="dropdown-item" href="#">iFuncion()</a></li> -->
-                            <li class="dropdown-item nav-item d-flex align-items-center">
+
+                            <li class="dropdown-item">
                                 <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                                     @csrf
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link text-red font-weight-bold px-0">
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="">
                                         <span class="d-sm-inline d-none">Cerrar Sesion</span>
                                     </a>
                                 </form>

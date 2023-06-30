@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Evento;
 
-class kcalendarController extends Controller
+class kCalendarController extends Controller
 {
     public function index()
     {
-        return view('partials/kcalendar');
+        $eventos = Evento::all();
+
+        return view('pages/partials/kcalendar')->with('eventos', $eventos)->with('success', 'Evento canonico desbloqueado');
     }
 }

@@ -11,7 +11,7 @@ class kNotesController extends Controller
     public function index()
     {
         // $datos = kNotes::all();
-        $datos = kNotes::with('user')->get();
+        $datos = kNotes::with('user')->orderByDesc('created_at')->get();
 
         return view('pages/partials/knotes', compact('datos'));
     }
@@ -22,6 +22,7 @@ class kNotesController extends Controller
 
         kNotes::insert($datos);
 
-        return redirect()->route('/');
+        return redirect()->route('knotes');
+        //->with('success', 'Nota guardada con exito')
     }
 }

@@ -14,21 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/kenderwebos', function () {
-    return view('index');
-})->name('kenderwebos');
-
-Route::get('/test', function () {
-    return view('testing');
-});
-
 Auth::routes();
 
 Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->name('knotes');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/testing', [App\Http\Controllers\TestingController::class, 'index'])->name('testing');
+Route::get('/kcalendar', [App\Http\Controllers\kCalendarController::class, 'index'])->name('kcalendar');
 
 Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
 

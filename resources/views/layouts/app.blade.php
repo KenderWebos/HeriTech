@@ -19,6 +19,9 @@
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
+
+    <!-- news -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -80,6 +83,36 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/argon-dashboard.js"></script>
+
+    <!-- news -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var clipboardBtns = document.querySelectorAll('.clipboard-btn');
+            var clipboard = new ClipboardJS(clipboardBtns);
+
+            clipboard.on('success', function(e) {
+                e.clearSelection();
+                showAlert('Texto copiado al portapapeles', 'success');
+            });
+
+            function showAlert(message, type) {
+                var alert = document.createElement('div');
+                alert.className = 'alert alert-' + type + ' alert-dismissible fade show';
+                alert.setAttribute('role', 'alert');
+                alert.innerHTML = message +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">' +
+                    '<span aria-hidden="true">&times;</span>' +
+                    '</button>';
+                document.getElementById('alerts-container').appendChild(alert);
+
+                setTimeout(function() {
+                    alert.remove();
+                }, 3000);
+            }
+        });
+    </script>
+
     @stack('js');
 </body>
 

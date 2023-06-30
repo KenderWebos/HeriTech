@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
+@include('layouts.navbars.auth.topnav', ['title' => 'wsp-direct'])
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -12,10 +12,18 @@
                     <p class="card-text">Puedes hablar directamente con un número de WhatsApp sin tener que agregarlo.</p>
                     <hr>
 
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <span class="input-group-text">+569</span>
                         <input type="number" maxlength="8" class="form-control" id="wspDirectInput" placeholder="Ingresa el número de WhatsApp" min="0" max="99999999" oninput="validity.valid||(value='');">
                         <button onclick="wspDirect()" type="button" class="btn btn-success">Contactar</button>
+                    </div> -->
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">+569</span>
+                        <input type="number" maxlength="8" class="form-control" id="wspDirectInput" placeholder="Ingresa el número de WhatsApp" aria-label="Ingresa el número de WhatsApp" aria-describedby="button-addon2" min="0" max="99999999" oninput="validity.valid||(value='');">
+                        <button onclick="wspDirect()" class="btn btn-outline-primary mb-0" type="button" >
+                            Contactar
+                        </button>
                     </div>
 
                 </div>

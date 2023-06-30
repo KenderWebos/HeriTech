@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $user = auth()->user();
+
+        // if($user->hasRole('admin')){
+        //     return view('pages.dashboard');
+        // }
+
+        return view('pages.dashboard', compact('user'));
     }
 }
