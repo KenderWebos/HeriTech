@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kNotesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,19 +22,15 @@ Route::get('/test', function () {
     return view('testing');
 });
 
-Route::get('/inicio', function () {
-    return view('partials/inicio');
-})->name('inicio');
-
-Route::get('/wsp-direct', function () {
-    return view('partials/wsp_direct');
-})->name('wsp-direct');
-
 Auth::routes();
+
+Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->name('knotes');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/testing', [App\Http\Controllers\TestingController::class, 'index'])->name('testing');
+
+Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;

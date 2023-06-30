@@ -1,16 +1,3 @@
-<?php
-// $conexion = mysqli_connect("localhost", "root", "", "ingsoft")
-require("conexion.php");
-
-$contabilidad = true;
-$economia = true;
-$comunicacion_de_datos = true;
-$taller_de_ingenieria_de_software = true;
-$arquitectura_de_computadores = true;
-$personal = true;
-
-?>
-
 <!DOCTYPE html>
 <html lang="en" style="font-family: arial">
 

@@ -24,26 +24,42 @@
 <body class="{{ $class ?? '' }}">
 
     @guest
-        @yield('content')
+    @yield('content')
     @endguest
 
     @auth
-        @if (in_array(request()->route()->getName(), ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
-            @yield('content')
-        @else
-            @if (!in_array(request()->route()->getName(), ['profile', 'profile-static']))
-                <div class="min-height-300 bg-primary position-absolute w-100"></div>
-            @elseif (in_array(request()->route()->getName(), ['profile-static', 'profile']))
-                <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
-                    <span class="mask bg-primary opacity-6"></span>
+    @if (in_array(request()->route()->getName(), ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
+    @yield('content')
+    @else
+    @if (!in_array(request()->route()->getName(), ['profile', 'profile-static']))
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+    @elseif (in_array(request()->route()->getName(), ['profile-static', 'profile']))
+    <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+        <span class="mask bg-primary opacity-6"></span>
+    </div>
+    @endif
+    @include('layouts.navbars.auth.sidenav')
+    <main class="main-content border-radius-lg">
+
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card md-4 bg-dark">
+                        <!-- <div class="card-header pb-0">
+                            <h1>HOLAAA MISTERIOOO PORQUE TE FUISTEEE!!!</h1>
+                        </div> -->
+
+                        <div class="card-body pb-0">
+                            @yield('content')
+                        </div>
+                    </div>
                 </div>
-            @endif
-            @include('layouts.navbars.auth.sidenav')
-                <main class="main-content border-radius-lg">
-                    @yield('content')
-                </main>
-            @include('components.fixed-plugin')
-        @endif
+            </div>
+        </div>
+
+    </main>
+    @include('components.fixed-plugin')
+    @endif
     @endauth
 
     <!--   Core JS Files   -->

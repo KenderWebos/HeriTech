@@ -3,7 +3,7 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
     <div class="container-fluid py-4">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                 <div class="card">
                     <div class="card-body p-3">
@@ -103,8 +103,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row mt-4">
+            
             <div class="col-lg-7 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100">
                     <div class="card-header pb-0 pt-3 bg-transparent">
@@ -121,6 +122,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-5">
                 <div class="card card-carousel overflow-hidden h-100 p-0">
                     <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
@@ -171,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
+        <!-- <div class="row mt-4">
             <div class="col-lg-7 mb-lg-0 mb-4">
                 <div class="card ">
                     <div class="card-header pb-0 p-3">
@@ -389,8 +391,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        @include('layouts.footers.auth.footer')
+        </div> -->
     </div>
 @endsection
 
