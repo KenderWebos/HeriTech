@@ -15,9 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                        <i class="fas fa-home text-primary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
+                    <span class="nav-link-text ms-1">Inicio</span>
                 </a>
             </li>
 
@@ -70,10 +70,46 @@
                     <span class="nav-link-text ms-1">kTerminal</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'kTerminal') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.kTerminal'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">kTask</span>
+                </a>
+            </li>
+
+            <hr>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-toggle="collapse" href="#mantenedores-collapse" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-settings-gear-65 text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Mantenedores</span>
+                    <!-- <i class="fas fa-angle-right ms-auto"></i> -->
+                </a>
+                <div class="collapse" id="mantenedores-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tipo Evento</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Roles</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Modulos</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
         </ul>
     </div>
     <div class="sidenav-footer mx-3 ">
         <hr>
-        <a href="{{ route('home') }}" class="btn btn-dark btn-sm w-100 mb-3">Get back to reality</a>
+        <a href="{{ url('politicas-de-privacidad') }}" class="btn btn-primary btn-sm w-100 mb-3">Terminos y Condiciones</a>
     </div>
 </aside>

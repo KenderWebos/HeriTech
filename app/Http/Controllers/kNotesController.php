@@ -22,7 +22,15 @@ class kNotesController extends Controller
 
         kNotes::insert($datos);
 
-        return redirect()->route('knotes');
-        //->with('success', 'Nota guardada con exito')
+        return redirect()->route('knotes')->with('success', 'Nota guardada con exito');
+    }
+
+    public function borrar($id)
+    {
+        $nota = kNotes::findOrFail($id);
+        $nota->delete();
+
+        // luego enviamos un mensaje de confirmación
+        return redirect()->route('knotes')->with('success', 'Nota eliminada con exito');
     }
 }

@@ -21,8 +21,11 @@ Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/kcalendar', [App\Http\Controllers\kCalendarController::class, 'index'])->name('kcalendar');
+Route::post('/evento/guardar', [App\Http\Controllers\kCalendarController::class, 'guardar'])->name('evento.guardar');
+Route::delete('/evento/borrar/{id}', [App\Http\Controllers\kCalendarController::class, 'borrar'])->name('evento.borrar');
 
 Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
+Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('notas.destroy');
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;

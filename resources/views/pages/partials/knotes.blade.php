@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'knotes'])
+@include('layouts.navbars.auth.topnav', ['title' => 'kNotes'])
 
 <div class="container">
     <div class="row mt-4 justify-content-center">
@@ -11,7 +11,7 @@
             {{ session('success') }}
         </div>
         @endif
-        
+
         <div class="col-md-6">
             <div class="card bg-dark text-white">
                 <div class="card-body text-center">
@@ -58,9 +58,22 @@
 
                 <!-- <button class="btn btn-primary" onclick="copyToClipboard('{{ $nota->content }}')"><i class="fa fa-bicycle"></i></button> -->
 
-                <button class="btn btn-primary clipboard-btn" data-clipboard-text="{{ $nota->content }}">
-                    <i class="fa fa-copy"></i>
-                </button>
+                <div class="row">
+                    <div class="col-1">
+                        <button class="btn btn-primary clipboard-btn" data-clipboard-text="{{ $nota->content }}">
+                            <i class="fa fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="col-1">
+                        <form action="{{ route('notas.destroy', $nota->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
             </div>
         </div>

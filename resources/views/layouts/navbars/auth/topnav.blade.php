@@ -1,4 +1,3 @@
-<!-- Navbar -->
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl
         {{ str_contains(Request::url(), 'virtual-reality') == true ? ' mt-3 mx-3 bg-primary' : '' }}" id="navbarBlur" data-scroll="false">
     <div class="container-fluid py-1 px-3">
@@ -9,6 +8,7 @@
             </ol>
             <h6 class="font-weight-bolder text-white mb-0">{{ $title }}</h6>
         </nav>
+
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div class="input-group">
@@ -20,23 +20,33 @@
 
                 <li class="nav-item d-flex align-items-center">
                     <div class="dropdown">
-                        <a href="" class="nav-link text-white font-weight-bold px-0 dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">{{ Auth::user()->username }}</span>
+                        <a href="" class="nav-link text-white font-weight-bold px-0" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar avatar-xl position-relative">
+                                <img src="/img/team-1.jpg" alt="profile_image" class="w-80 border-radius-lg shadow-sm">
+                            </div>
+
+                            <!-- <i class="fa fa-user me-sm-1"></i> -->
+                            <!-- <span class="d-sm-inline d-none">{{ Auth::user()->username }}</span> -->
                         </a>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('profile') }}">Editar Perfil</a></li>
-
-                            <li class="dropdown-item">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                    <i class="fas fa-user"></i> <!-- Agrega el ícono Font Awesome -->
+                                    Editar Perfil
+                                </a>
+                            </li>
+                            <li>
                                 <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                                     @csrf
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="">
-                                        <span class="d-sm-inline d-none">Cerrar Sesion</span>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt"></i> <!-- Agrega el ícono Font Awesome -->
+                                        <span class="d-sm-inline d-none">Cerrar Sesión</span>
                                     </a>
                                 </form>
                             </li>
                         </ul>
+
                     </div>
                 </li>
 
@@ -49,12 +59,14 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item px-3 d-flex align-items-center">
+
+                <!-- <li class="nav-item px-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-white p-0">
                         <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                     </a>
-                </li>
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                </li> -->
+
+                <!-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-bell cursor-pointer"></i>
                     </a>
@@ -127,9 +139,10 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
 </nav>
-<!-- End Navbar -->
+
+<hr>

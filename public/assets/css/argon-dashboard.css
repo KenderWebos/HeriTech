@@ -19029,6 +19029,12 @@ textarea.form-control-lg {
 .avatar img {
   width: 100%;
 }
+
+.avatar img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 .avatar + .avatar-content {
   display: inline-block;
   margin-left: 0.75rem;
