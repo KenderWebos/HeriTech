@@ -108,68 +108,48 @@
         <div class="col-lg-12 mb-lg-0 mb-4">
             <div class="card z-index-2 h-100">
                 <div class="card-header pb-0 pt-3 bg-transparent">
-                    <h1>Hola <strong>{{ $user->username }}</strong> </h1>
-                    <h3>Que gusto verte!</h3>
+                    <!-- <h1>Hola <strong>{{ $user->username }}</strong> </h1>
+                    <h3>Que gusto verte!</h3> -->
                 </div>
                 <div class="card-body p-3">
-                    <center>
-                        <img src="{{asset('images/presentation/welcome.gif')}}" alt="a simple welcome content">
-                    </center>
 
-                    <div class="row mt-4">
-                        <div class="col-lg-1">
-                            <div style="height:500px"></div>
-                        </div>
-                        <div class="col-lg-10">
+                    <div class="row p-4 m-4 bg-dark">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1>Eventos < {{$events_count}} ></h1>
 
-                            <div class="card card-carousel overflow-hidden h-100 p-0">
-                                <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
-                                    <div class="carousel-inner border-radius-lg h-100">
-
-                                        <div class="carousel-item h-100 active" style="background-image: url('./img/carousel-1.jpg');background-size: cover;">
-                                            <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                                                <!-- <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                                    <i class="ni ni-camera-compact text-dark opacity-10"></i>
-                                </div> -->
-                                                <h5 class="text-white mb-1">Primer slide</h5>
-                                                <p>never ever.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="carousel-item h-100" style="background-image: url('./img/carousel-2.jpg');background-size: cover;">
-                                            <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                                                <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                                                    <i class="ni ni-bulb-61 text-dark opacity-10"></i>
-                                                </div>
-                                                <h5 class="text-white mb-1">Segundo Slide</h5>
-                                                <p>That’s my skill. I’m not really specifically talented at anything except for the
-                                                    ability to learn.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="carousel-item h-100" style="background-image: url('./img/carousel-3.jpg');background-size: cover;">
-                                            <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                                                <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                                                    <i class="ni ni-trophy text-dark opacity-10"></i>
-                                                </div>
-                                                <h5 class="text-white mb-1">T3rC3r Slid3</h5>
-                                                <p>Don’t be afraid to be wrong because you can’t learn anything from a compliment.</p>
-                                            </div>
-                                        </div>
-
+                                    @foreach($events as $event)
+                                    <div class="row">
+                                        <div class="col">{{$event->fecha}}</div>
+                                        <div class="col">{{$event->descripcion}}</div>
                                     </div>
-                                    <button class="carousel-control-prev w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Anterior</span>
-                                    </button>
-                                    <button class="carousel-control-next w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Siguiente</span>
-                                    </button>
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h1> {{ $current_time }} </h1>
+                                </div>
+                            </div>
 
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1>{{$current_date}}</h1>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

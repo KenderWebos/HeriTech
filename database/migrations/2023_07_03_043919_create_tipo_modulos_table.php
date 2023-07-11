@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_modulo', function (Blueprint $table) {
+        Schema::create('tipo_modulos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon');
+            $table->string('slug');
             $table->timestamps();
         });
     }

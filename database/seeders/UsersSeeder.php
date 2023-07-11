@@ -16,11 +16,18 @@ class UsersSeeder extends Seeder
     public function run()
     {
         // Crea un usuario de ejemplo
-        User::create([
-            'username' => 'KenderWebos',
-            'email' => 'kenderman.8@gmail.com',
-            'password' => bcrypt('password'),
-        ]);
+
+        // User::create([
+        //     'username' => 'KenderWebos',
+        //     'email' => 'kenderman.8@gmail.com',
+        //     'password' => bcrypt('password'),
+        // ]);
+
+        // User::create([
+        //     'username' => 'kCampos',
+        //     'email' => 'kcampos@ing.ucsc.cl',
+        //     'password' => bcrypt('asdf123'),
+        // ]);
 
         // Crea más usuarios de ejemplo utilizando el factory
         // User::factory()->count(10)->create();

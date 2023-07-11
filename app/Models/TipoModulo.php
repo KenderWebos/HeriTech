@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class TipoEvento
+ * Class TipoModulo
  *
  * @property $id
  * @property $name
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class TipoEvento extends Model
+class TipoModulo extends Model
 {
     
     static $rules = [

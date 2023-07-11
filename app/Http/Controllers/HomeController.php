@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Evento;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -24,11 +26,15 @@ class HomeController extends Controller
     public function index()
     {
         $user = auth()->user();
+        $current_date = date('d-m-y');
 
-        // if($user->hasRole('admin')){
-        //     return view('pages.dashboard');
-        // }
+        $events = Evento::all();
+        $events_count = Evento::all()->count();
 
-        return view('pages.dashboard', compact('user'));
+        $current_time = Carbon::now()->format('h:i A');
+
+        $data = get_defined_vars();
+
+        return view('pages.dashboard', $data);
     }
 }

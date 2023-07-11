@@ -54,6 +54,7 @@
                 <hr>
 
                 <p class="card-text">{{ $nota->created_at->locale('es')->format('l d \d\e F \d\e\l Y - h:i A') }}</p>
+                
                 <!-- <p class="card-text">Tags: {{ $nota->tags }}</p> -->
 
                 <!-- <button class="btn btn-primary" onclick="copyToClipboard('{{ $nota->content }}')"><i class="fa fa-bicycle"></i></button> -->

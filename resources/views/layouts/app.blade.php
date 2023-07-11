@@ -18,10 +18,14 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('assets/css/argon-dashboard.css')}}" rel="stylesheet" />
 
     <!-- news -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <!-- DATATABLES -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script> -->
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -48,6 +52,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card md-4 bg-dark">
+
                         <!-- <div class="card-header pb-0">
                             <h1>HOLAAA MISTERIOOO PORQUE TE FUISTEEE!!!</h1>
                         </div> -->

@@ -3,6 +3,9 @@
 use App\Http\Controllers\kNotesController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TipoEventoController;
+use App\Http\Controllers\TipoModuloController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +29,11 @@ Route::delete('/evento/borrar/{id}', [App\Http\Controllers\kCalendarController::
 
 Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
 Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('notas.destroy');
+
+//mantenedores
+// Route::resource('tipo-evento', [TipoEventoController::class])->name('*', 'tipo-evento');
+Route::resource('tipo-eventos', TipoEventoController::class);
+Route::resource('tipo-modulos', TipoModuloController::class);
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;

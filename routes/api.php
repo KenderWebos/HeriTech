@@ -18,12 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//hacemos la misma de test pero retornamos un Json de javaScript
-
-Route::get("/test", function() {
-    return ["message" => "HelloWorld", "status" => 200];
-});
-
 Route::get("/ping", function() {
-    return ["message" => "pong"];
+    return ["message" => "pong", "status" => 200];
 });

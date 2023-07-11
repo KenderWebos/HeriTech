@@ -27,24 +27,6 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'wsp_direct') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.wsp_direct'] ) }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">WSP -> direct</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'radiorowdie') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.radiorowdie'] ) }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">RadioRowdie</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'kcalendar') == true ? 'active' : '' }}" href="{{ route('kcalendar') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
@@ -62,7 +44,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'kTerminal') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.kTerminal'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
@@ -78,9 +60,28 @@
                     </div>
                     <span class="nav-link-text ms-1">kTask</span>
                 </a>
+            </li> -->
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'radiorowdie') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.radiorowdie'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">RadioRowdie</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'wsp_direct') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.wsp_direct'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">WSP -> direct</span>
+                </a>
             </li>
 
             <hr>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-toggle="collapse" href="#mantenedores-collapse" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -91,16 +92,17 @@
                 </a>
                 <div class="collapse" id="mantenedores-collapse">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tipo Evento</a>
-                        </li>
 
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Roles</a>
+                        </li> -->
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ str_contains(request()->url(), 'tipo-eventos') == true ? 'active' : '' }}" href="{{url('tipo-eventos')}}">Tipo Eventos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Modulos</a>
+                            <a class="nav-link {{ str_contains(request()->url(), 'tipo-modulos') == true ? 'active' : '' }}" href="{{url('tipo-modulos')}}">Tipo Modulos</a>
                         </li>
                     </ul>
                 </div>
@@ -108,8 +110,8 @@
 
         </ul>
     </div>
-    <div class="sidenav-footer mx-3 ">
+    <!-- <div class="sidenav-footer mx-3 ">
         <hr>
         <a href="{{ url('politicas-de-privacidad') }}" class="btn btn-primary btn-sm w-100 mb-3">Terminos y Condiciones</a>
-    </div>
+    </div> -->
 </aside>
