@@ -24,5 +24,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(UsersSeeder::class);
+        $this->call(TipoEventoSeeder::class);
+        $this->call(TipoModuloSeeder::class);
+
     }
 }
