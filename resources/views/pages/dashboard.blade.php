@@ -117,39 +117,65 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h1>Eventos < {{$events_count}} ></h1>
+                                    <h1>Eventos
+                                    </h1>
 
-                                    @foreach($events as $event)
-                                    <div class="row">
-                                        <div class="col">{{$event->fecha}}</div>
-                                        <div class="col">{{$event->descripcion}}</div>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Descripción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($events as $event)
+                                                <tr>
+                                                    <td>{{$event->fecha}}</td>
+                                                    <td>{{$event->descripcion}}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    @endforeach
 
                                 </div>
                             </div>
                         </div>
+
                         <div class="col">
                             <div class="card mb-4">
-                                <div class="card-body">
-                                    <h1> {{ $current_time }} </h1>
-                                </div>
-                            </div>
-
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <input type="text">
+                                <div class="card-body text-center d-flex justify-content-center">
+                                    <h1><i class="ni ni-time-alarm"></i> {{ $current_time }}</h1>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{$current_date}}</h1>
 
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
