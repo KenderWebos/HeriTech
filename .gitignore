@@ -4,6 +4,9 @@
 /public/storage
 /storage/*.key
 /vendor
+
+/vendor/*
+
 .env
 .env.backup
 .env.production
@@ -16,3 +19,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+!/vendor/laravel
