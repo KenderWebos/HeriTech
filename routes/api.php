@@ -21,3 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/ping", function() {
     return ["message" => "pong", "status" => 200];
 });
+
+Route::get("/hola", function() {
+    return ["message" => "hola", "status" => 200];
+});
+

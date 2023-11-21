@@ -3,9 +3,10 @@
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('home') }}">
             <center>
-                <!-- <img src="{{ asset('images/heritech/ht_logo.png') }}" class="navbar-brand-img" alt="main_logo"> -->
-                <span style="font-size: 20px" class="ms-1 font-weight-bold">{{ config('app.name') }}</span>
+                <img src="{{ asset('images/heritech/ht_logo.png') }}" class="navbar-brand-img" alt="main_logo">
+                <!-- <span style="font-size: 20px" class="ms-1 font-weight-bold">{{ config('app.name') }}</span> -->
             </center>
+            <!-- <img src="{{ asset('images/heritech/ht_logo.png') }}" alt="main_logo" style="width: 300px; height: 200px;"> -->
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -62,23 +63,23 @@
                 </a>
             </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'radiorowdie') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.radiorowdie'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">RadioRowdie</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'wsp_direct') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.wsp_direct'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">WSP -> direct</span>
                 </a>
-            </li>
+            </li> -->
 
             <hr>
 

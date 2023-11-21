@@ -28,9 +28,9 @@
     @include('components.alert')
 </div>
 <div class="container-fluid py-4">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card shadow-lg">
                 <form role="form" method="POST" action={{ route('profile.update') }} enctype="multipart/form-data">
                     @csrf
                     <div class="card-header pb-0">
@@ -67,7 +67,8 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="horizontal dark">
+
+                        <!-- <hr class="horizontal dark">
                         <p class="text-uppercase text-sm">INFORMACION DE CONTACTO</p>
                         <div class="row">
                             <div class="col-md-12">
@@ -94,7 +95,8 @@
                                     <input class="form-control" type="text" name="postal" value="{{ old('postal', auth()->user()->postal) }}">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
                         <hr class="horizontal dark">
                         <p class="text-uppercase text-sm">SOBRE MI</p>
                         <div class="row">
@@ -110,7 +112,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-header">
                     <h3>Configuraciones</h3>
@@ -180,7 +182,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 @endsection

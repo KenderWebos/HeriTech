@@ -19,9 +19,8 @@ use App\Http\Controllers\TipoModuloController;
 
 Auth::routes();
 
-Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->name('knotes');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->name('knotes');
 
 Route::get('/kcalendar', [App\Http\Controllers\kCalendarController::class, 'index'])->name('kcalendar');
 Route::post('/evento/guardar', [App\Http\Controllers\kCalendarController::class, 'guardar'])->name('evento.guardar');
@@ -34,6 +33,11 @@ Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('
 // Route::resource('tipo-evento', [TipoEventoController::class])->name('*', 'tipo-evento');
 Route::resource('tipo-eventos', TipoEventoController::class);
 Route::resource('tipo-modulos', TipoModuloController::class);
+
+//PUBLIC CONTENT
+Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo.index');
+Route::get('/games', function(){return view('pages.partials.games.games');})->name('games.index');
+
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;

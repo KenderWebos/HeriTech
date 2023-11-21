@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Evento;
+use App\Models\kNotes;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -35,6 +36,11 @@ class HomeController extends Controller
 
         $data = get_defined_vars();
 
-        return view('pages.dashboard', $data);
+        //NOTAS
+        $datos = kNotes::with('user')->orderByDesc('created_at')->get();
+
+        $days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+        return view('pages.dashboard', compact('data', 'datos', 'events', 'events_count', 'current_date', 'current_time', 'days'));
     }
 }

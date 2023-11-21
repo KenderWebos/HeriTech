@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-auto">
 
-                        <div class="card card-plain bg-white p-5">
+                        <div class="card card-plain bg-white p-5 rounded-0">
 
                             <div class="align-item-center bg-red">
                                 <a href="{{ route('home') }}">
@@ -54,7 +54,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                            <!-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-1 text-sm mx-auto">
                                     No recuerdas tu contraseña? Reseteala
                                     <a href="{{ route('reset-password') }}" class="text-dark font-weight-bolder text-gradient font-weight-bold">Aqui</a>
@@ -65,20 +65,19 @@
                                     No te has registrado?
                                     <a href="{{ route('register') }}" class="text-dark font-weight-bolder text-gradient font-weight-bold">Registrate aqui</a>
                                 </p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <!-- <div
-                            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                                style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+
+                    <!-- <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+                        <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
               background-size: cover;">
-                                <span class="mask bg-gradient-primary opacity-6"></span>
-                                <h4 class="mt-5 text-white font-weight-bolder position-relative">"La atencion es la nueva moneda"</h4>
-                                <p class="text-white position-relative">Cuanto más fácil se vea la escritura, más
+                            <span class="mask bg-gradient-primary opacity-6"></span>
+                            <h4 class="mt-5 text-white font-weight-bolder position-relative">"La atencion es la nueva moneda"</h4>
+                            <p class="text-white position-relative">Cuanto más fácil se vea la escritura, más
                                 esfuerzo es el que el escritor realmente puso en el proceso.</p>
-                            </div>
-                        </div> -->
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
