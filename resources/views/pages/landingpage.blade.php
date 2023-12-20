@@ -1,22 +1,12 @@
 @extends('layouts.appStatic', ['class' => ''])
 
+@section('title', 'Landing Page- Heritech')
+
 @section('content')
 
 <div class="">
     <div class="">
         <div class="">
-            <!DOCTYPE html>
-            <html lang="es">
-
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Landing Page - HeriTech</title>
-                <!-- Enlace a Bootstrap CSS -->
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            </head>
-
-            <body>
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
 
@@ -156,11 +146,6 @@
                 <!-- Enlace a Bootstrap JS y jQuery (Requeridos para el funcionamiento de Bootstrap) -->
                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-            </body>
-
-            </html>
-
-
         </div>
     </div>
 
