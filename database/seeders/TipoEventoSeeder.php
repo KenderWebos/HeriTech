@@ -16,15 +16,15 @@ class TipoEventoSeeder extends Seeder
     public function run()
     {
         TipoEvento::create([
-            'nombre' => 'Personal',
+            'name' => 'Personal',
         ]);
 
         TipoEvento::create([
-            'nombre' => 'Universidad',
+            'name' => 'Universidad',
         ]);
 
         TipoEvento::create([
-            'nombre' => 'Grupo de amigos',
+            'name' => 'Grupo de amigos',
         ]);
     }
 }

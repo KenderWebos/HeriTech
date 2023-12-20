@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\TipoModulo;
 
-class TipoEventoSeeder extends Seeder
+class TipoModuloSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,27 +16,27 @@ class TipoEventoSeeder extends Seeder
     public function run()
     {
         TipoModulo::create([
-            'nombre' => 'wsp direct',
+            'name' => 'wsp direct',
         ]);
 
         TipoModulo::create([
-            'nombre' => 'radio rowdie',
+            'name' => 'radio rowdie',
         ]);
 
         TipoModulo::create([
-            'nombre' => 'kCalendar',
+            'name' => 'kCalendar',
         ]);
 
         TipoModulo::create([
-            'nombre' => 'kNotes',
+            'name' => 'kNotes',
         ]);
 
         TipoModulo::create([
-            'nombre' => 'kTerminal',
+            'name' => 'kTerminal',
         ]);
 
         TipoModulo::create([
-            'nombre' => 'kTask',
+            'name' => 'kTask',
         ]);
     }
 }
