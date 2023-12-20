@@ -42,5 +42,6 @@ class HomeController extends Controller
         $days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
         return view('pages.dashboard', compact('data', 'datos', 'events', 'events_count', 'current_date', 'current_time', 'days'));
+        // return kNotes::all();
     }
 }
