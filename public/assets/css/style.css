@@ -29,15 +29,51 @@
     border-radius: 50%;
     background-color: black;
     animation: shrinkCircle 2s forwards;
-  }
-  
-  @keyframes shrinkCircle {
+}
+
+@keyframes shrinkCircle {
     0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
     }
     100% {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
     }
-  }
+}
+
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Ajusta el tamaño según tu preferencia */
+}
+
+.outer-circle {
+    width: 200px; /* Ajusta el tamaño según tu preferencia */
+    height: 200px; /* Ajusta el tamaño según tu preferencia */
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.inner-circle {
+    width: 123px; /* Ajusta el tamaño según la proporción áurea */
+    height: 123px; /* Ajusta el tamaño según la proporción áurea */
+    border-radius: 50%;
+    background-color: white;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.outer-circle:hover {
+  transform: scale(1.2); /* Escala al 120% al hacer hover */
+}
+
+.inner-circle:hover {
+  transform: scale(0.8); /* Escala al 80% al hacer hover */
+}
