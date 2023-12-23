@@ -27,19 +27,37 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#portafolio">Portafolio</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#clientes">Clientes</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
+
             </nav>
 
-            <div class="hero">
-                <center>
-                    <img class="img-fluid hero-image" style="max-height: 400px;" src="{{ asset('images/landingpage/hero.jpg') }}" alt="hero">
-                </center>
+            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('images/landingpage/hero01.jpg') }}" class="d-block w-100 hero-image" alt="some carrousel image">
 
-                <div class="circle-effect"></div>
+                        <!-- <div class="carousel-caption d-none d-md-block">
+                            <h4>HeriTech</h4>
+                            <p>Transformando el Futuro con Innovación Tecnológica.</p>
+                        </div> -->
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('images/landingpage/hero02.jpg') }}" class="d-block w-100 hero-image" alt="some carrousel image">
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
 
             <!-- Sección Nosotros -->
@@ -48,12 +66,12 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="text-center text-md-left">
-                                <h2>Nosotros</h2>
-                                <p class="lead">Somos una empresa emergente en el campo de la informática.</p>
-                                <h3>Misión</h3>
-                                <p>Nuestra misión es crear soluciones tecnológicas que permitan a nuestros clientes optimizar y organizar sus procesos.</p>
-                                <h3>Visión</h3>
-                                <p>Aspiramos a destacar como una empresa líder en el ámbito tecnológico.</p>
+                                <h2>¿Quienes somos? </h2>
+                                <p class="lead">Somos un grupo de Ingenieros Civiles en Informatica.</p>
+                                <h3>¿Que estamos haciendo?</h3>
+                                <p>Creamos soluciones tecnológicas que permiten a nuestros clientes optimizar y organizar sus procesos.</p>
+                                <h3>¿Hacia donde apuntamos?</h3>
+                                <p>Aspiramos a destacar como una empresa líder en desarrollo y mantencion de sistemas para empresas.</p>
                             </div>
                         </div>
 
@@ -84,6 +102,7 @@
                         <div class="col-md-4 mb-4">
                             <div class="card">
                                 <div class="card-body">
+                                    <h1><i class="fa {{$servicio->icono}}"></i></h1>
                                     <h4 class="card-title">{{$servicio->nombre}}</h4>
                                     <p class="card-text">{{$servicio->descripcion}}</p>
 
@@ -102,25 +121,50 @@
                 <div class="container">
                     <h2 class="text-center mb-4">Portafolio</h2>
                     <div class="row">
-                        <div class="col-md-4">
-                            <h4>App NFC</h4>
-                            <p>Gestión de mantenciones de equipos industriales por medio de NFC</p>
+
+                        <div class="col-md-4 mb-4">
+                            <a target="_blank" href="{{ url('calendargo') }}" class="card-link text-center text-decoration-none">
+                                <div class="card p-3 border-0 shadow">
+                                    <i class="far fa-calendar-alt fa-3x"></i>
+                                    <div class="card-body mt-3">
+                                        <h5 class="card-title">CalendarGO</h5>
+                                        <p class="card-text">Aplicacion de gestion de eventos geograficos</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="col-md-4">
-                            <h4>Landing Page GlobalTom</h4>
-                            <p>Sitio web de aterrizaje</p>
+
+                        <div class="col-md-4 mb-4">
+                            <a target="_blank" href="{{ url('home') }}" class="card-link text-center text-decoration-none">
+                                <div class="card p-3 border-0 shadow">
+                                    <i class="far fa-clock fa-3x"></i>
+                                    <div class="card-body mt-3">
+                                        <h5 class="card-title">DailyU</h5>
+                                        <p class="card-text">Aplicacion de gestion y organizacion del dia a dia</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="col-md-4">
-                            <h4>App RA ODS</h4>
-                            <p>App de realidad aumentada para difundir los Objetivos de Desarrollo Sostenible</p>
+
+                        <div class="col-md-4 mb-4">
+                            <a target="_blank" href="{{ url('games') }}" class="card-link text-center text-decoration-none">
+                                <div class="card p-3 border-0 shadow">
+                                    <i class="fas fa-gamepad fa-3x"></i>
+                                    <div class="card-body mt-3">
+                                        <h5 class="card-title">Games</h5>
+                                        <p class="card-text">Desarrollo de Videojuegos</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <!-- Repite este bloque para cada proyecto del portafolio -->
+
                     </div>
                 </div>
             </section>
 
             <!-- Sección Clientes -->
-            <section id="clientes" class="bg-light py-5">
+            
+            <!-- <section id="clientes" class="bg-light py-5">
                 <div class="container">
                     <h2 class="text-center mb-4">Clientes</h2>
                     <div class="row">
@@ -133,10 +177,9 @@
                         <div class="col-md-4">
                             <p>Cliente 3</p>
                         </div>
-                        <!-- Repite este bloque para cada cliente -->
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <!-- Footer -->
             <footer class="bg-dark text-white text-center py-3">

@@ -33,6 +33,9 @@ Route::get('/routes', function () {
     return response()->json($routes);
 });
 
+Route::get('allusers', function () {
+	return App\Models\User::all();
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
