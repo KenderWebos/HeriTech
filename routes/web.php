@@ -20,6 +20,15 @@ use App\Http\Controllers\TipoModuloController;
 // Autenticación y páginas públicas
 Auth::routes();
 
+Route::get('chatingBruh', [App\Http\Controllers\PusherController::class, 'index)']);
+Route::get('chating', [function() {
+	return view('pages.partials.chat.chating');
+}]);
+
+Route::post('chating/broadcast', [App\Http\Controllers\PusherController::class, 'broadcast)']);
+Route::post('chating/receive', [App\Http\Controllers\PusherController::class, 'receive)']);
+
+
 Route::get('/routes', function () {
     $routes = [];
 
@@ -38,6 +47,8 @@ Route::get('allusers', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index'])->name('chat');
 
 Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingpage');
 

@@ -129,6 +129,22 @@
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped bg-success" id="current-time-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
+
+                <div class="row">
+                    <div class=" col-5 d-flex text-center d-flex justify-content-center">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+
+                    <div class="col-2 d-flex text-center d-flex justify-content-center">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+
+                    <div class=" col-5 d-flex text-center d-flex justify-content-center">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
