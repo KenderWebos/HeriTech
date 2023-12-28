@@ -104,159 +104,18 @@
                 </div>
             </div>
         </div> -->
-    <div class="row mt-4">
-        <div class="col-3">
-            <div class="card mb-4">
-                <div class="card-body text-center d-flex justify-content-center">
-                    <div>
-                        <h3><i class="ni ni-time-alarm"></i></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
 
+    <div class="row mt-4">
         <div class="col-6">
-            <div class="card mb-4">
-                <div class="card-body text-center d-flex justify-content-center">
-                    <div>
-                        <h3><i class="ni ni-time-alarm"></i></h3>
-                        <h3 id="current-time">
-                            {{ $current_date }}
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-success" id="current-time-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-
-                <div class="row">
-                    <div class=" col-5 d-flex text-center d-flex justify-content-center">
-                        <i class="fas fa-arrow-up"></i>
-                    </div>
-
-                    <div class="col-2 d-flex text-center d-flex justify-content-center">
-                        <i class="fas fa-arrow-up"></i>
-                    </div>
-
-                    <div class=" col-5 d-flex text-center d-flex justify-content-center">
-                        <i class="fas fa-arrow-up"></i>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-        <div class="col-3">
-            <div class="card mb-4">
-                <div class="card-body text-center d-flex justify-content-center">
-                    <div>
-                        <h3><i class="ni ni-time-alarm"></i></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row mt-4">
-
-        @foreach($days as $day)
-        <div class="col">
+            <!-- EVENTOS -->
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{$day}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{20}}/11/2023</h6>
+                <div class="card-body text-center">
 
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <!-- Encabezados de la tabla, si los necesitas -->
-                                <th>Días</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($days as $day)
-                            <tr>
-                                <td>{{$day}}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-
-
-                    <!-- Botón verde con ícono de palomita -->
-                    <a href="http://www.google.com" class="btn btn-success">
-                        <i class="fas fa-check-circle"></i>
-                    </a>
-
-                    <!-- Botón rojo con ícono de X -->
-                    <a href="http://www.youtube.com" class="btn btn-danger">
-                        <i class="fas fa-times-circle"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        @endforeach
-
-    </div>
-
-    <div class="row mt-4">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Objetivo de la semana</h5>
-
-                    <form method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <textarea class="form-control" name="objetivo" placeholder="Escribe tu objetivo de la semana aquí..." rows="4"></textarea>
-                        </div>
-                        <center>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </center>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Notas de la semana</h5>
-
-                    <form method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="titulo" class="form-label">Título de la nota:</label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título de la nota">
-                        </div>
-                        <div class="mb-3">
-                            <label for="descripcion" class="form-label">Descripción:</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Escribe la descripción de la nota..." rows="4"></textarea>
-                        </div>
-                        <center>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </center>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="row mt-4">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h1>Eventos
-                    </h1>
+                    <p class="card-title">
+                        <i class="far fa-calendar-alt"></i>
+                        Eventos
+                        <i class="far fa-calendar-alt"></i>
+                    </p>
 
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -264,6 +123,7 @@
                                 <tr>
                                     <th scope="col">Fecha</th>
                                     <th scope="col">Descripción</th>
+                                    <th scope="col">Dias restantes</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -271,6 +131,7 @@
                                 <tr>
                                     <td>{{$event->fecha}}</td>
                                     <td>{{$event->descripcion}}</td>
+                                    <td>{{$event->days_left}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -281,54 +142,109 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
+        <div class="col-6">
+            <div class="row">
+                <!-- RELOJ -->
+                <div class="card mb-4">
+                    <div class="card-body text-center d-flex justify-content-center">
+                        <div>
+                            <h3><i class="ni ni-time-alarm"></i></h3>
+                            <h3 id="current-time">
+                                {{ $current_date }}
+                            </h3>
+                        </div>
+                    </div>
 
-                    @foreach($datos as $nota)
-                    <div class="card mb-3 m-4">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $nota->user->username }}</h6>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" id="current-time-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
 
-                            <hr>
+                    <div class="row">
+                        <div class=" col-5 d-flex text-center d-flex justify-content-center">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
 
-                            <h5 class="card-title">{{ $nota->title }}</h5>
-                            <p class="card-text">{!! nl2br(e($nota->content)) !!}</p>
+                        <div class="col-2 d-flex text-center d-flex justify-content-center">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
 
-                            <hr>
+                        <div class=" col-5 d-flex text-center d-flex justify-content-center">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            <p class="card-text">{{ $nota->created_at->locale('es')->format('l d \d\e F \d\e\l Y - h:i A') }}</p>
+            <div class="row">                
+                <div class="col-6">
+                    <!-- NOTA RAPIDA -->
+                    <div class="card">
 
-                            <!-- <p class="card-text">Tags: {{ $nota->tags }}</p> -->
+                        <div class="card-body text-center">
 
-                            <!-- <button class="btn btn-primary" onclick="copyToClipboard('{{ $nota->content }}')"><i class="fa fa-bicycle"></i></button> -->
+                            <p class="card-title">
+                                <i class="fas fa-bolt"></i>
+                                Nota rapida
+                                <i class="fas fa-bolt"></i>
+                            </p>
 
-                            <div class="row">
-                                <div class="col-6">
-                                    <button class="btn btn-primary clipboard-btn" data-clipboard-text="{{ $nota->content }}">
-                                        <i class="fa fa-copy"></i>
-                                    </button>
+                            <form action="{{ route('guardar_nota') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <textarea class="form-control" style="display:none;" name="title" rows="1" placeholder="Título">*</textarea>
                                 </div>
-                                <div class="col-6">
-                                    <form action="{{ route('notas.destroy', $nota->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
+
+                                <div class="form-group">
+                                    <textarea class="form-control" name="content" rows="2" placeholder="Contenido"></textarea>
+                                </div>
+
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_watch_notes">
+                                    <i class="far fa-eye"></i>
+                                </button>
+
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-bolt"></i>
+                                    POSTEAR
+                                    <i class="fas fa-bolt"></i>
+                                </button>
+                            </form>
+
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Contenido</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Contenido del modal -->
+                                            <p>Aquí va tu contenido dentro del modal.</p>
+                                            <!-- Puedes agregar cualquier contenido HTML -->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            <!-- Puedes agregar más botones aquí si es necesario -->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
-                    </div>
-                    @endforeach
 
+                    </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 
+    <!-- WSP DIRECT -->
     <div class="row mt-4">
         <div class="col-6">
             <div class="card">
@@ -351,42 +267,6 @@
 
         <div class="col-6">
             <div class="card">
-                <div class="card-body text-center">
-
-                    <p class="card-title">
-                        <i class="fas fa-bolt"></i>
-                        Nota rapida
-                        <i class="fas fa-bolt"></i>
-                    </p>
-
-                    <form action="{{ route('guardar_nota') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <textarea class="form-control" style="display:none;" name="title" rows="1" placeholder="Título">*</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea class="form-control" name="content" rows="8" placeholder="Contenido"></textarea>
-                        </div>
-
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-bolt"></i>
-                            POSTEAR
-                            <i class="fas fa-bolt"></i>
-                        </button>
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-
-        <div class="col">
-            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
                         Utilidades
@@ -394,6 +274,78 @@
                     <a class="btn btn-dark" target="_blank" href="https://www.youtube.com/watch?v=FPXRB6UOyYA&list=PLhqQblXS9-ETQ6uxIXL_FB4T4XSp3x44S&index=56"><i class="fas fa-dumbbell"></i> Musica para hacer ejercicio</a>
                     <a class="btn btn-dark" target="_blank" href="https://www.youtube.com/embed/5nrt2CgKtak?start=30"><i class="fas fa-dumbbell"></i> Pausa activa</a>
 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALES -->
+
+    <!-- Modal Notas-->
+    <div class="modal fade" id="modal_watch_notes" tabindex="-1" role="dialog" aria-labelledby="modal_watch_notes" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_notes_title">Watch Notes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="notes_container">
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        @foreach($datos as $nota)
+                                        <div class="card mb-3 m-4">
+                                            <div class="card-body">
+                                                <h6 class="card-subtitle mb-2 text-muted">{{ $nota->user->username }}</h6>
+
+                                                <hr>
+
+                                                <h5 class="card-title">{{ $nota->title }}</h5>
+                                                <p class="card-text">{!! nl2br(e($nota->content)) !!}</p>
+
+                                                <hr>
+
+                                                <p class="card-text">{{ $nota->created_at->locale('es')->format('l d \d\e F \d\e\l Y - h:i A') }}</p>
+
+                                                <!-- <p class="card-text">Tags: {{ $nota->tags }}</p> -->
+
+                                                <!-- <button class="btn btn-primary" onclick="copyToClipboard('{{ $nota->content }}')"><i class="fa fa-bicycle"></i></button> -->
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <button class="btn btn-primary clipboard-btn" data-clipboard-text="{{ $nota->content }}">
+                                                            <i class="fa fa-copy"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <form action="{{ route('notas.destroy', $nota->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        @endforeach
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    <!-- <button type="button" class="btn btn-primary">OK</button> -->
                 </div>
             </div>
         </div>
@@ -565,7 +517,6 @@
     actualizarBarraDeProgreso();
     // Llama a la función para actualizar la barra de progreso cada minuto
     setInterval(actualizarBarraDeProgreso, 60000);
-
 
     // function actualizarHorasBarra() {
     //     var fecha = new Date();

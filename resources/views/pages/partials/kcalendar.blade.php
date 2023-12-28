@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('layouts.navbars.auth.topnav', ['title' => 'kCalendar'])
+@include('layouts.navbars.auth.topnav', ['title' => 'Calendar'])
 
 <center>
     <center>
@@ -13,7 +13,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">kCalendar</h5>
+                            <h5 class="card-title">Calendar</h5>
 
                             <div class="col-4">
                                 <form action="{{ route('evento.guardar') }}" method="POST">
