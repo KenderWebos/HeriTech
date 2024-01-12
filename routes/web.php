@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\kNotesController;
+use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TipoEventoController;
@@ -20,14 +21,14 @@ use App\Http\Controllers\TipoModuloController;
 // Autenticación y páginas públicas
 Auth::routes();
 
-Route::get('chatingBruh', [App\Http\Controllers\PusherController::class, 'index)']);
+// Route::get('chatingBruh', [App\Http\Controllers\PusherController::class, 'index)']);
+
+// Route::post('chating/broadcast', [App\Http\Controllers\PusherController::class, 'broadcast)']);
+// Route::post('chating/receive', [App\Http\Controllers\PusherController::class, 'receive)']);
+
 Route::get('chating', [function() {
 	return view('pages.partials.chat.chating');
 }]);
-
-Route::post('chating/broadcast', [App\Http\Controllers\PusherController::class, 'broadcast)']);
-Route::post('chating/receive', [App\Http\Controllers\PusherController::class, 'receive)']);
-
 
 Route::get('/routes', function () {
     $routes = [];
@@ -53,10 +54,10 @@ Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index'])->name
 Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingpage');
 
 Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->name('knotes');
-Route::get('/kcalendar', [App\Http\Controllers\kCalendarController::class, 'index'])->name('kcalendar');
+Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'index'])->name('calendar');
 
-Route::post('/evento/guardar', [App\Http\Controllers\kCalendarController::class, 'guardar'])->name('evento.guardar');
-Route::delete('/evento/borrar/{id}', [App\Http\Controllers\kCalendarController::class, 'borrar'])->name('evento.borrar');
+Route::post('/evento/guardar', [App\Http\Controllers\CalendarController::class, 'guardar'])->name('evento.guardar');
+Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::class, 'borrar'])->name('evento.borrar');
 
 Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
 Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('notas.destroy');

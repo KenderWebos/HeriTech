@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use \App\Models\Evento;
 use \App\Models\TipoEvento;
 
-class kCalendarController extends Controller
+class CalendarController extends Controller
 {
     public function index()
     {

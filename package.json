@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "chat": "node node_scripts/websocket-server.js"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
