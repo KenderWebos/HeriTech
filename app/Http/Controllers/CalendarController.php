@@ -14,7 +14,7 @@ class CalendarController extends Controller
 
         $tiposEventos = TipoEvento::all();
 
-        return view('pages/partials/kcalendar', compact('eventos', 'tiposEventos'));
+        return view('pages/partials/calendar', compact('eventos', 'tiposEventos'));
     }
 
     public function guardar()
@@ -23,7 +23,7 @@ class CalendarController extends Controller
 
         Evento::insert($datos);
 
-        return redirect()->route('kcalendar')->with('success', 'Nota guardada con exito');
+        return redirect()->route('calendar')->with('success', 'Nota guardada con exito');
     }
 
     public function borrar($id)
@@ -31,6 +31,6 @@ class CalendarController extends Controller
         $evento = Evento::findOrFail($id);
         $evento->delete();
 
-        return redirect()->route('kcalendar')->with('success', 'Evento eliminado con exito');
+        return redirect()->route('calendar')->with('success', 'Evento eliminado con exito');
     }
 }

@@ -24,7 +24,7 @@ class TipoModuloSeeder extends Seeder
         ]);
 
         TipoModulo::create([
-            'name' => 'kCalendar',
+            'name' => 'calendar',
         ]);
 
         TipoModulo::create([

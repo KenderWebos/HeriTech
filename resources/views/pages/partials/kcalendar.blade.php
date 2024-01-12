@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="table-responsive">
-                                <table id="datatables-kcalendar" class="table table-striped table-hover text-center">
+                                <table id="datatables-calendar" class="table table-striped table-hover text-center">
                                     <thead>
                                         <tr>
                                             <th>DIAS RESTANTES</th>
