@@ -18,17 +18,20 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TipoEvento extends Model
 {
+    
+    static $rules = [
+		'name' => 'required',
+    ];
 
-  static $rules = [
-    'name' => 'required',
-  ];
+    protected $perPage = 20;
 
-  protected $perPage = 20;
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name','slug'];
 
-  /**
-   * Attributes that should be mass-assignable.
-   *
-   * @var array
-   */
-  protected $fillable = ['name', 'slug'];
+
+
 }
