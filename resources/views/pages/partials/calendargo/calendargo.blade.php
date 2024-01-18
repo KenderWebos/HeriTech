@@ -8,9 +8,15 @@
             <div class="col-lg-8 mx-auto">
                 <h1 class="display-4">Descubre eventos cercanos con Calendar Go</h1>
                 <p class="lead mb-4">Explora eventos emocionantes y actividades cerca de ti con nuestra app fácil de usar.</p>
+
+                <hr>
+                <div id="calendar"></div>
+                <hr>
+
                 <div class="mt-4">
                     <a href="#" class="btn btn-primary btn-lg">¡Descargar Ahora!</a>
                 </div>
+
             </div>
         </div>
     </div>
@@ -84,7 +90,7 @@
 
         <div class="container row shadow-lg">
 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1597.4341595365818!2d-73.0564543144277!3d-36.797707489595325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5d061cae83d%3A0x8f2da2e9988cc125!2sUniversidad%20Cat%C3%B3lica%20de%20la%20Sant%C3%ADsima%20Concepci%C3%B3n!5e0!3m2!1ses!2scl!4v1705005085808!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1597.4341595365818!2d-73.0564543144277!3d-36.797707489595325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5d061cae83d%3A0x8f2da2e9988cc125!2sUniversidad%20Cat%C3%B3lica%20de%20la%20Sant%C3%ADsima%20Concepci%C3%B3n!5e0!3m2!1ses!2scl!4v1705005085808!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
     </div>
@@ -164,3 +170,73 @@
 
 
 @endsection
+
+@push('js')
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+
+<script src='fullcalendar/core/index.global.js'></script>
+<script src='fullcalendar/core/locales/es.global.js'></script>
+
+<script>
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Carga exitosa",
+        showConfirmButton: false,
+        timer: 2000
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            firstDay: 1,
+            events: @json($events),
+
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+
+            // eventDidMount: function(info) {
+            //     var tooltip = new Tooltip(info.el, {
+            //         title: info.event.extendedProps.description,
+            //         placement: 'top',
+            //         trigger: 'hover',
+            //         container: 'body'
+            //     });
+            // },
+
+            eventClick: function(info) {
+
+                Swal.fire({
+                    title: info.event.title,
+                    text: 'Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY,
+                    icon: "question"
+                });
+
+                // change the border color just for fun
+                info.el.style.borderColor = 'red';
+            },
+
+            eventMouseEnter: function(mouseEnterInfo) {
+                mouseEnterInfo.el.style.borderColor = 'black';
+                // mouseEnterInfo.el.style.backgroundColor = 'blue';
+
+            },
+
+            eventMouseLeave: function(mouseLeaveInfo) {
+                mouseLeaveInfo.el.style.borderColor = 'white';
+                // mouseLeaveInfo.el.style.backgroundColor = 'black';
+            },
+
+            locale: 'es'
+        });
+
+        calendar.render();
+    });
+</script>
+@endpush

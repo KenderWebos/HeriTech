@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Evento;
+
 class CalendarGoController extends Controller
 {
     /**
@@ -13,8 +15,18 @@ class CalendarGoController extends Controller
      */
     public function index()
     {
-        //
-        return view('pages.partials.calendargo.calendargo');
+        $all_events = Evento::all();
+        $events = [];
+
+        foreach($all_events as $event){
+            $events[] = [
+                'title' => $event->descripcion,
+                'start' => $event->fecha
+            ];
+        }
+
+
+        return view('pages.partials.calendargo.calendargo', compact('events'));
     }
 
     /**

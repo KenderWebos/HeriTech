@@ -27,9 +27,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#portafolio">Portafolio</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#clientes">Clientes</a>
-                        </li> -->
+
+                        <li class="nav-item">
+                            <span class="navbar-text mx-2">|</span>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('login') }}">Iniciar Sesion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ url('register') }}" style="background-color: black; color: white;">Registrarse</a>
+                        </li>
+
                     </ul>
                 </div>
 
@@ -135,7 +145,7 @@
                         </div>
 
                         <div class="col-md-4 mb-4">
-                            <a target="_blank" href="{{ url('home') }}" class="card-link text-center text-decoration-none">
+                            <a target="_blank" href="{{ url('dashboard') }}" class="card-link text-center text-decoration-none">
                                 <div class="card p-3 border-0 shadow">
                                     <i class="far fa-clock fa-3x"></i>
                                     <div class="card-body mt-3">
@@ -163,7 +173,7 @@
             </section>
 
             <!-- Sección Clientes -->
-            
+
             <!-- <section id="clientes" class="bg-light py-5">
                 <div class="container">
                     <h2 class="text-center mb-4">Clientes</h2>
