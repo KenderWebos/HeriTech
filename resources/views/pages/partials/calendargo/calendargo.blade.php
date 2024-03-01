@@ -214,7 +214,8 @@
 
                 Swal.fire({
                     title: info.event.title,
-                    text: 'Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY,
+                    //text: 'Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY,
+                    text: info.event.extendedProps.extra,
                     icon: "question"
                 });
 

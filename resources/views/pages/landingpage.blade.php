@@ -32,13 +32,27 @@
                             <span class="navbar-text mx-2">|</span>
                         </li>
 
+                        @if (Auth::guest())
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('login') }}">Iniciar Sesion</a>
+                            <a class="nav-link" href="{{ url('login') }}">Iniciar Sesión</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ url('register') }}" style="background-color: black; color: white;">Registrarse</a>
                         </li>
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('dashboard') }}">Dashboard</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <form action="{{ url('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="nav-link btn btn-link">Cerrar Sesión</button>
+                            </form>
+                        </li>
+                        @endif
+
 
                     </ul>
                 </div>

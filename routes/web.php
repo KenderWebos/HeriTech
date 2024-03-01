@@ -80,7 +80,7 @@ use App\Http\Controllers\ChangePassword;
 
 Route::get('/', function () {
 	return redirect('/landingpage');
-})->middleware('auth');
+});
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');

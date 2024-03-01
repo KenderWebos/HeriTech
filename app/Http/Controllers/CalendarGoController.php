@@ -21,7 +21,9 @@ class CalendarGoController extends Controller
         foreach($all_events as $event){
             $events[] = [
                 'title' => $event->descripcion,
-                'start' => $event->fecha
+                'start' => $event->fecha,
+                'description' => $event->title,
+                'extra' => "skibidi toilet",
             ];
         }
 
