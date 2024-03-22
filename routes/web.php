@@ -18,25 +18,35 @@ use App\Http\Controllers\TipoModuloController;
 |
 */
 
+Route::middleware('guest')->group(function () {
+	Route::get("/kevincampos", function () {
+		return view('pages.kevincampos');
+	});
+
+	Route::get("/rand", function () {
+		return view('pages.rand');
+	});
+});
+
 // Autenticación y páginas públicas
 Auth::routes();
 
-Route::get('chating', [function() {
+Route::get('chating', [function () {
 	return view('pages.partials.chat.chating');
 }]);
 
 //muestra todas las rutas en la ruta /routes
 Route::get('/routes', function () {
-    $routes = [];
+	$routes = [];
 
-    foreach (Route::getRoutes() as $route) {
-        $routes[] = [
-            'url' => url($route->uri()),
-            'description' => $route->uri(),
-        ];
-    }
+	foreach (Route::getRoutes() as $route) {
+		$routes[] = [
+			'url' => url($route->uri()),
+			'description' => $route->uri(),
+		];
+	}
 
-    return response()->json($routes);
+	return response()->json($routes);
 });
 
 //muestra todos los usuarios en la ruta /allusers
