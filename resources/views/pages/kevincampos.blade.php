@@ -27,6 +27,16 @@
                         <img src="" alt="">
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-head">
+                        <h1>GitHub</h1>
+                    </div>
+                    <div class="card-body">
+                        <img src="" alt="">
+                        <a target="_blank" href="https://github.com/KenderWebos">Perfil de GitHub KenderWebos</a>
+                    </div>
+                </div>
             </center>
 
             <!-- Sección Clientes -->

@@ -19,13 +19,15 @@ use App\Http\Controllers\TipoModuloController;
 */
 
 Route::middleware('guest')->group(function () {
-	Route::get("/kevincampos", function () {
-		return view('pages.kevincampos');
-	});
+	
+});
 
-	Route::get("/rand", function () {
-		return view('pages.rand');
-	});
+Route::get("/kevincampos", function () {
+	return view('pages.kevincampos');
+});
+
+Route::get("/rand", function () {
+	return view('pages.rand');
 });
 
 // Autenticación y páginas públicas
@@ -35,7 +37,8 @@ Route::get('chating', [function () {
 	return view('pages.partials.chat.chating');
 }]);
 
-//muestra todas las rutas en la ruta /routes
+// muestra todas las rutas en la ruta /routes
+
 Route::get('/routes', function () {
 	$routes = [];
 
@@ -49,12 +52,18 @@ Route::get('/routes', function () {
 	return response()->json($routes);
 });
 
+
 //muestra todos los usuarios en la ruta /allusers
 Route::get('allusers', function () {
 	return App\Models\User::all();
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// some error advice
+Route::get('/error', function () {
+	return abort(404);
+})->name('error');
 
 Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index'])->name('chat');
 
@@ -103,13 +112,11 @@ Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
-	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
-	Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static');
-	Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
-	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
+	// Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static');
+	// Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
+	// Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
