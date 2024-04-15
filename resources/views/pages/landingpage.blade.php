@@ -59,36 +59,7 @@
 
             </nav>
 
-            <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <!-- <img src="{{ asset('images/landingpage/hero01.jpg') }}" class="d-block w-100 hero-image" alt="some carrousel image"> -->
-                        <iframe class="text-animation"width="100%" height="800" src="https://www.youtube.com/embed/viJEBsoXKi8?autoplay=1&controls=0&start=50&mute=1" frameborder="0" allowfullscreen></iframe>
-                        <div id="player"></div>
-                        <!-- <div class="carousel-caption d-none d-md-block">
-                            <h4>HeriTech</h4>
-                            <p>Transformando el Futuro con Innovación Tecnológica.</p>
-                        </div> -->
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('images/landingpage/hero02.jpg') }}" class="d-block w-100 hero-image" alt="some carrousel image">
-
-                    </div>
-                </div>
-
-                <!-- <iframe width="560" height="315" src="https://youtu.be/viJEBsoXKi8?si=0781xHovfTj3E7IQ&t=50" allowfullscreen></iframe> -->
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/viJEBsoXKi8?si=0781xHovfTj3E7IQcontrols=0&t=50&autoplay" frameborder="0" allowfullscreen></iframe> -->
-
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+            <video class="video" id="videoHome" style="width:100%;height:auto; display:block;" loop="" autoplay="" playsinline="" disableremoteplayback="" muted=""><source src="{{asset('assets/videos/home.mp4')}}" type="video/mp4"></video>
 
             <!-- Sección Nosotros -->
             <section id="nosotros" class="py-5">
@@ -99,7 +70,7 @@
                                 <h2>¿Quienes somos? </h2>
                                 <p>Somos un grupo de Ingenieros Civiles en Informatica.</p>
                                 <h3>¿Que estamos haciendo?</h3>
-                                <p>Creamos soluciones tecnológicas que permiten a nuestros clientes optimizar y organizar sus procesos.</p>
+                                <p>Creamos soluciones tecnológicas que permiten a nuestros clientes optimizar y organizar sus procesos, con enfoque en reducir los problemas y aumentar los <b>ingresos</b> de nuestros clientes.</p>
                                 <h3>¿Hacia donde apuntamos?</h3>
                                 <p>Aspiramos a destacar como una empresa líder en desarrollo y mantencion de sistemas para empresas.</p>
                             </div>
@@ -191,25 +162,6 @@
                 </div>
             </section>
 
-            <!-- Sección Clientes -->
-
-            <!-- <section id="clientes" class="bg-light py-5">
-                <div class="container">
-                    <h2 class="text-center mb-4">Clientes</h2>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p>Cliente 1</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p>Cliente 2</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p>Cliente 3</p>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-
             <!-- Footer -->
             <footer class="bg-dark text-white text-center py-3">
                 <p>© Copyright HeriTech. All Rights Reserved</p>
@@ -222,33 +174,5 @@
     </div>
 
 </div>
-
-<!-- <script src="https://www.youtube.com/iframe_api"></script>
-
-<script>
-    function onYouTubeIframeAPIReady() {
-        // Crear un nuevo reproductor
-        var player = new YT.Player('player', {
-            videoId: 'viJEBsoXKi8', // ID del video de YouTube
-            playerVars: {
-                'autoplay': 1, // Reproducir automáticamente
-                'controls': 0, // Ocultar los controles del reproductor
-                'start': 50, // Comenzar desde el segundo 50
-                'modestbranding': 1, // Ocultar el logo de YouTube
-                'rel': 0, // No mostrar videos relacionados al final
-                'showinfo': 0, // No mostrar información del video al inicio
-                'disablekb': 1 // Desactivar el control del teclado
-            },
-            events: {
-                'onReady': onPlayerReady // Llamar a la función onPlayerReady cuando el reproductor esté listo
-            }
-        });
-    }
-
-    function onPlayerReady(event) {
-        // Desactivar el sonido del video
-        event.target.mute();
-    }
-</script> -->
 
 @endsection

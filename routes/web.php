@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TipoEventoController;
 use App\Http\Controllers\TipoModuloController;
+use App\Http\Controllers\EdunetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::middleware('guest')->group(function () {
 Route::get("/kevincampos", function () {
 	return view('pages.kevincampos');
 });
+
+Route::resource('edunet', EdunetController::class);
 
 Route::get("/rand", function () {
 	return view('pages.rand');
