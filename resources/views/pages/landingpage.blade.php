@@ -62,8 +62,9 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('images/landingpage/hero01.jpg') }}" class="d-block w-100 hero-image" alt="some carrousel image">
-
+                        <!-- <img src="{{ asset('images/landingpage/hero01.jpg') }}" class="d-block w-100 hero-image" alt="some carrousel image"> -->
+                        <iframe class="text-animation"width="100%" height="800" src="https://www.youtube.com/embed/viJEBsoXKi8?autoplay=1&controls=0&start=50&mute=1" frameborder="0" allowfullscreen></iframe>
+                        <div id="player"></div>
                         <!-- <div class="carousel-caption d-none d-md-block">
                             <h4>HeriTech</h4>
                             <p>Transformando el Futuro con Innovación Tecnológica.</p>
@@ -71,8 +72,13 @@
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('images/landingpage/hero02.jpg') }}" class="d-block w-100 hero-image" alt="some carrousel image">
+
                     </div>
                 </div>
+
+                <!-- <iframe width="560" height="315" src="https://youtu.be/viJEBsoXKi8?si=0781xHovfTj3E7IQ&t=50" allowfullscreen></iframe> -->
+                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/viJEBsoXKi8?si=0781xHovfTj3E7IQcontrols=0&t=50&autoplay" frameborder="0" allowfullscreen></iframe> -->
+
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -89,9 +95,9 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-6">
-                            <div class="text-center text-md-left">
+                            <div class="text-center text-md-left text-animation">
                                 <h2>¿Quienes somos? </h2>
-                                <p class="lead">Somos un grupo de Ingenieros Civiles en Informatica.</p>
+                                <p>Somos un grupo de Ingenieros Civiles en Informatica.</p>
                                 <h3>¿Que estamos haciendo?</h3>
                                 <p>Creamos soluciones tecnológicas que permiten a nuestros clientes optimizar y organizar sus procesos.</p>
                                 <h3>¿Hacia donde apuntamos?</h3>
@@ -99,7 +105,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 text-animation">
                             <div class="text-center">
                                 <div class="circle-container">
                                     <div class="outer-circle">
@@ -123,7 +129,7 @@
                     <div class="row">
 
                         @foreach($serviciosInformaticos as $servicio)
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4 mb-4 dinamic-card">
                             <div class="card">
                                 <div class="card-body">
                                     <h1><i class="fa {{$servicio->icono}}"></i></h1>
@@ -139,14 +145,13 @@
                 </div>
             </section>
 
-
             <!-- Sección Portafolio -->
             <section id="portafolio" class="py-5">
                 <div class="container">
                     <h2 class="text-center mb-4">Portafolio</h2>
                     <div class="row">
 
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4 mb-4 dinamic-card">
                             <a target="_blank" href="{{ url('calendargo') }}" class="card-link text-center text-decoration-none">
                                 <div class="card p-3 border-0 shadow">
                                     <i class="far fa-calendar-alt fa-3x"></i>
@@ -158,7 +163,7 @@
                             </a>
                         </div>
 
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4 mb-4 dinamic-card">
                             <a target="_blank" href="{{ url('dashboard') }}" class="card-link text-center text-decoration-none">
                                 <div class="card p-3 border-0 shadow">
                                     <i class="far fa-clock fa-3x"></i>
@@ -170,7 +175,7 @@
                             </a>
                         </div>
 
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4 mb-4 dinamic-card">
                             <a target="_blank" href="{{ url('games') }}" class="card-link text-center text-decoration-none">
                                 <div class="card p-3 border-0 shadow">
                                     <i class="fas fa-gamepad fa-3x"></i>
@@ -217,4 +222,33 @@
     </div>
 
 </div>
+
+<!-- <script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+    function onYouTubeIframeAPIReady() {
+        // Crear un nuevo reproductor
+        var player = new YT.Player('player', {
+            videoId: 'viJEBsoXKi8', // ID del video de YouTube
+            playerVars: {
+                'autoplay': 1, // Reproducir automáticamente
+                'controls': 0, // Ocultar los controles del reproductor
+                'start': 50, // Comenzar desde el segundo 50
+                'modestbranding': 1, // Ocultar el logo de YouTube
+                'rel': 0, // No mostrar videos relacionados al final
+                'showinfo': 0, // No mostrar información del video al inicio
+                'disablekb': 1 // Desactivar el control del teclado
+            },
+            events: {
+                'onReady': onPlayerReady // Llamar a la función onPlayerReady cuando el reproductor esté listo
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        // Desactivar el sonido del video
+        event.target.mute();
+    }
+</script> -->
+
 @endsection

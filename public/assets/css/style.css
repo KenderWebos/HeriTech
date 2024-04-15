@@ -111,3 +111,40 @@
         transform: scale(1);
     }
 }
+
+/* .servicio {
+    transition: opacity 0.6s ease;
+}
+
+.servicio:hover > :not(:hover){
+    opacity: 0.4;
+} */
+
+/* Animación para tarjetas de servicio */
+.dinamic-card .card {
+    transition: transform 0.3s ease;
+}
+
+.dinamic-card .card:hover {
+    transform: translateY(-5px); /* Desplazar hacia arriba al hacer hover */
+}
+
+/* Opacidad al hacer hover */
+.dinamic-card .card:not(:hover) {
+    opacity: 0.7;
+}
+
+/* Ejemplo de animación fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.text-animation {
+    animation: fadeIn 1s ease-in-out;
+}
+
