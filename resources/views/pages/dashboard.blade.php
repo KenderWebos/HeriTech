@@ -175,7 +175,7 @@
                 </div>
             </div>
 
-            <div class="row">                
+            <div class="row">
                 <div class="col-6">
                     <!-- NOTA RAPIDA -->
                     <div class="card">
@@ -264,19 +264,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Utilidades
-                    </h5>
-                    <a class="btn btn-dark" target="_blank" href="https://www.youtube.com/watch?v=FPXRB6UOyYA&list=PLhqQblXS9-ETQ6uxIXL_FB4T4XSp3x44S&index=56"><i class="fas fa-dumbbell"></i> Musica para hacer ejercicio</a>
-                    <a class="btn btn-dark" target="_blank" href="https://www.youtube.com/embed/5nrt2CgKtak?start=30"><i class="fas fa-dumbbell"></i> Pausa activa</a>
-
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- MODALES -->
@@ -286,63 +273,54 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal_notes_title">Watch Notes</h5>
+                    <h5 class="modal-title" id="modal_notes_title">Apuntes</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="notes_container">
-                        <div class="row mt-4">
+                        <div class="row">
                             <div class="col-12">
-                                <div class="card">
+                                @foreach($datos as $nota)
+                                <div class="card mb-3">
                                     <div class="card-body">
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ "@".$nota->user->username." ➤ General" }}</h6>
 
-                                        @foreach($datos as $nota)
-                                        <div class="card mb-3 m-4">
-                                            <div class="card-body">
-                                                <h6 class="card-subtitle mb-2 text-muted">{{ $nota->user->username }}</h6>
+                                        <hr>
 
-                                                <hr>
+                                        <!-- <h5 class="card-title">{{ $nota->title }}</h5> -->
+                                        <p class="card-text">{!! nl2br(e($nota->content)) !!}</p>
 
-                                                <h5 class="card-title">{{ $nota->title }}</h5>
-                                                <p class="card-text">{!! nl2br(e($nota->content)) !!}</p>
+                                        <!-- <p class="card-text">{{ $nota->created_at->locale('es')->format('l d \d\e F \d\e\l Y - h:i A') }}</p> -->
 
-                                                <hr>
+                                        <!-- <p class="card-text">Tags: {{ $nota->tags }}</p> -->
 
-                                                <p class="card-text">{{ $nota->created_at->locale('es')->format('l d \d\e F \d\e\l Y - h:i A') }}</p>
-
-                                                <!-- <p class="card-text">Tags: {{ $nota->tags }}</p> -->
-
-                                                <!-- <button class="btn btn-primary" onclick="copyToClipboard('{{ $nota->content }}')"><i class="fa fa-bicycle"></i></button> -->
-
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <button class="btn btn-primary clipboard-btn" data-clipboard-text="{{ $nota->content }}">
-                                                            <i class="fa fa-copy"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <form action="{{ route('notas.destroy', $nota->id) }}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">
-                                                                <i class="fa fa-trash"></i>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-
+                                        <!-- <div class="row">
+                                            <div class="col-6">
+                                                <button class="btn btn-primary clipboard-btn" data-clipboard-text="{{ $nota->content }}">
+                                                    <i class="fa fa-copy"></i>
+                                                </button>
                                             </div>
-                                        </div>
-                                        @endforeach
+                                            <div class="col-6">
+                                                <form action="{{ route('notas.destroy', $nota->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div> -->
 
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                     <!-- <button type="button" class="btn btn-primary">OK</button> -->

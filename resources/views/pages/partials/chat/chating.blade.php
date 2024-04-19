@@ -3,13 +3,13 @@
 @section('content')
 
 <div class="container mt-4">
-    <a href="#" class="btn btn-primary" onclick="history.go(-1)">
+    <a href="{{ url('/') }}" class="btn btn-primary" onclick="">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver
     </a>
 </div>
 
 <div class="d-flex justify-content-center align-items-center">
-    <a href="{{ url('landingpage') }}">
+    <a href="{{ url('/') }}">
         <img class="navbar-icon text-center" src="{{ asset('images/heritech/ht_logo.png') }}" alt="some ht logo">
     </a>
 </div>
@@ -45,12 +45,13 @@
     socket.onmessage = function(event) {
         const message = event.data;
 
-        const ip = '192.168.1.1';
+        const ip = '1.1.1.1';
         const chatBox = document.getElementById('chat-box');
+        
         // chatBox.innerHTML += '<p class="mb-1">' + message + '</p>';
         chatBox.innerHTML += `
         <p class="mb-1">
-            <i class="fas fa-user-circle"></i> <span class="text-muted">(${ip})</span>: ${message}
+            ${message}
         </p>`;
         chatBox.scrollTop = chatBox.scrollHeight; // Desplazar hacia abajo para mostrar el último mensaje
     };
@@ -59,14 +60,17 @@
     function sendMessage() {
         const messageInput = document.getElementById('message');
         const message = messageInput.value.trim();
-        if (message !== '') {
-            socket.send(message);
 
-            const ip = '192.168.1.1';
-            const chatBox = document.getElementById('chat-box');
-            chatBox.innerHTML += `
-            <p class="mb-1">
-                <i class="fas fa-user-circle"></i> <span class="text-muted">(${ip})</span>: ${message}
+        const username = "{{ Auth::check() ? Auth::user()->username : 'Anónimo';}}";
+
+        if (message !== '') {
+            socket.send("@"+username+": "+message);
+
+            const ip = '1.1.1.1';
+            const chatBox = document.getElementById('chat-box');            
+
+            chatBox.innerHTML += `         
+                <span class="text-info">@${username}: </span>${message}
             </p>`;
             chatBox.scrollTop = chatBox.scrollHeight;
 

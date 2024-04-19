@@ -32,6 +32,24 @@ class User extends Authenticatable
         'about'
     ];
 
+    // LAS DOS COSAS DE ABAJO COMO QUE NO SE COMO SE USAN
+
+    public function rules()
+    {
+        return [
+            'username' => 'required|unique:users,username',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'username.unique' => 'El nombre de usuario ya está en uso. Por favor, elige otro.',
+        ];
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

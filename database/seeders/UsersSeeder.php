@@ -6,6 +6,9 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 class UsersSeeder extends Seeder
 {
     /**
@@ -23,11 +26,25 @@ class UsersSeeder extends Seeder
         //     'password' => bcrypt('password'),
         // ]);
 
-        // User::create([
-        //     'username' => 'kCampos',
-        //     'email' => 'kcampos@ing.ucsc.cl',
-        //     'password' => bcrypt('asdf123'),
-        // ]);
+        DB::table('users')->insert([
+            'username' => 'KenderWebos',
+            'email' => 'kenderman.8@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        
 
         // Crea más usuarios de ejemplo utilizando el factory
         // User::factory()->count(10)->create();
