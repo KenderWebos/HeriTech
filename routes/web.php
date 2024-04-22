@@ -3,10 +3,12 @@
 use App\Http\Controllers\kNotesController;
 use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\TipoEventoController;
 use App\Http\Controllers\TipoModuloController;
 use App\Http\Controllers\EdunetController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +21,18 @@ use App\Http\Controllers\EdunetController;
 |
 */
 
-Route::middleware('guest')->group(function () {
-	
-});
+Route::resource('mailit', App\Http\Controllers\MailItController::class);
 
 Route::get("/kevincampos", function () {
 	return view('pages.kevincampos');
+});
+
+Route::get("/fc/{name}", function ($name) {
+	return "🎉🥳 ¡Feliz Cumpleaños, $name! 🎂🎈";
+});
+
+Route::get("/buscar", function (Request $request) {
+	return $request->all();
 });
 
 Route::resource('edunet', EdunetController::class);
@@ -43,16 +51,15 @@ Route::get('chating', [function () {
 // muestra todas las rutas en la ruta /routes
 
 Route::get('/routes', function () {
-	$routes = [];
+    $menu = '<ul>';
 
-	foreach (Route::getRoutes() as $route) {
-		$routes[] = [
-			'url' => url($route->uri()),
-			'description' => $route->uri(),
-		];
-	}
+    foreach (Route::getRoutes() as $route) {
+        $menu .= '<li><a href="' . url($route->uri()) . '">' . $route->uri() . '</a></li>';
+    }
 
-	return response()->json($routes);
+    $menu .= '</ul>';
+
+    return $menu;
 });
 
 
