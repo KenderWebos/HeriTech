@@ -9,6 +9,8 @@ use App\Http\Controllers\TipoEventoController;
 use App\Http\Controllers\TipoModuloController;
 use App\Http\Controllers\EdunetController;
 
+use App\Http\Controllers\DataController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -88,14 +90,14 @@ Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::c
 Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
 Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('notas.destroy');
 
+Route::resource('/posts-feed', App\Http\Controllers\PostController::class);
+
 Route::resource('tipo-eventos', TipoEventoController::class);
 Route::resource('tipo-modulos', TipoModuloController::class);
+Route::resource('data', DataController::class);
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo.index');
 Route::get('/games', [App\Http\Controllers\gamesController::class, 'index'])->name('games');
-
-Route::prefix('public')->group(function () {
-});
 
 // Perfil de usuario y autenticación
 

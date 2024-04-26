@@ -27,5 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoEventoSeeder::class);
         $this->call(TipoModuloSeeder::class);
 
+        \App\Models\Name::factory(10)->create();
+        \App\Models\Post::factory(100)->create();
     }
 }

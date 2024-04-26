@@ -29,3 +29,11 @@ Route::get("/random", function() {
     return ["random" => $random, "status" => 200];
 });
 
+use App\Models\Name;
+
+Route::get("/names", function() {
+    $names = Name::all();
+
+    return ["names" => $names, "status" => 200];
+});
+
