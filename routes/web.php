@@ -96,8 +96,8 @@ Route::resource('tipo-eventos', TipoEventoController::class);
 Route::resource('tipo-modulos', TipoModuloController::class);
 Route::resource('data', DataController::class);
 
-Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo.index');
-Route::get('/games', [App\Http\Controllers\gamesController::class, 'index'])->name('games');
+Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
+Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
 
 // Perfil de usuario y autenticación
 

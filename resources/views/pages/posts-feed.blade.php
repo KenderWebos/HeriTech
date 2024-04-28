@@ -46,6 +46,8 @@
                     <a href=""> {{$post->title}} </a>
                     <br>
                 </p>
+
+                <span>{{ $post->user->username }}</span>
                 @endforeach
 
                 {{ $posts->links() }}

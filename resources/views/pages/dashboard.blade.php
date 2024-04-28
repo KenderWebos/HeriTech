@@ -3,111 +3,114 @@
 @section('content')
 @include('layouts.navbars.auth.topnav', ['title' => 'Inicio'])
 <div class="container-fluid py-4">
-    <!-- <div class="row">
-            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
-                                    <h5 class="font-weight-bolder">
-                                        $53,000
-                                    </h5>
-                                    <p class="mb-0">
-                                        <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday
-                                    </p>
-                                </div>
+    <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Eventos Registrados</p>
+                                <h5 class="font-weight-bolder">
+                                    1
+                                </h5>
+                                <p class="mb-0">
+                                    <span class="text-success text-sm font-weight-bolder">+1%</span>
+                                    desde el inicio
+                                </p>
                             </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                <i class="ni ni-bullet-list-67 text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
-                                    <h5 class="font-weight-bolder">
-                                        2,300
-                                    </h5>
-                                    <p class="mb-0">
-                                        <span class="text-success text-sm font-weight-bolder">+3%</span>
-                                        since last week
-                                    </p>
-                                </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Usuarios Registrados</p>
+                                <h5 class="font-weight-bolder">
+                                    1
+                                </h5>
+                                <p class="mb-0">
+                                    <span class="text-success text-sm font-weight-bolder">+1%</span>
+                                    desde el inicio
+                                </p>
                             </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-                                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow-danger text-center rounded-circle">
+                                <i class="ni ni-app text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
-                                    <h5 class="font-weight-bolder">
-                                        +3,462
-                                    </h5>
-                                    <p class="mb-0">
-                                        <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                                        since last quarter
-                                    </p>
-                                </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                                <h5 class="font-weight-bolder">
+                                    +8
+                                </h5>
+                                <p class="mb-0">
+                                    <span class="text-success text-sm font-weight-bolder">+4%</span>
+                                    since last quarter
+                                </p>
                             </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-                                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow-success text-center rounded-circle">
+                                <i class="ni ni-app text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
-                                    <h5 class="font-weight-bolder">
-                                        $103,430
-                                    </h5>
-                                    <p class="mb-0">
-                                        <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
-                                    </p>
-                                </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
+                                <h5 class="font-weight-bolder">
+                                    $88
+                                </h5>
+                                <p class="mb-0">
+                                    <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
+                                </p>
                             </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-                                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow-warning text-center rounded-circle">
+                                <i class="ni ni-app text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
+    </div>
 
     <div class="row mt-4">
-        <div class="col-6">
+        <div class="col-xl-6 col-sm-12 mb-4">
             <!-- EVENTOS -->
+            <div class="row">
+
+            </div>
             <div class="card">
                 <div class="card-body text-center">
 
@@ -116,6 +119,10 @@
                         Eventos
                         <i class="far fa-calendar-alt"></i>
                     </p>
+
+                    <div class="text-end">
+                        <span> <a href="{{ route('calendargo') }}">Ir al CalendarGO</a> </span>
+                    </div>
 
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -142,7 +149,7 @@
             </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-xl-6 col-sm-12 mb-4">
             <div class="row">
                 <!-- RELOJ -->
                 <div class="card mb-4">
@@ -176,76 +183,95 @@
             </div>
 
             <div class="row">
-                <div class="col-6">
-                    <!-- NOTA RAPIDA -->
-                    <div class="card">
 
-                        <div class="card-body text-center">
+            </div>
+        </div>
+    </div>
 
-                            <p class="card-title">
-                                <i class="fas fa-bolt"></i>
-                                Nota rapida
-                                <i class="fas fa-bolt"></i>
-                            </p>
-
-                            <form action="{{ route('guardar_nota') }}" method="POST">
-                                @csrf
-                                <div class="form-group">
-                                    <textarea class="form-control" style="display:none;" name="title" rows="1" placeholder="Título">*</textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <textarea class="form-control" name="content" rows="2" placeholder="Contenido"></textarea>
-                                </div>
-
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_watch_notes">
-                                    <i class="far fa-eye"></i>
-                                </button>
-
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-bolt"></i>
-                                    POSTEAR
-                                    <i class="fas fa-bolt"></i>
-                                </button>
-                            </form>
-
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Contenido</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <!-- Contenido del modal -->
-                                            <p>Aquí va tu contenido dentro del modal.</p>
-                                            <!-- Puedes agregar cualquier contenido HTML -->
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                            <!-- Puedes agregar más botones aquí si es necesario -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+    <div class="row mt-4">
+        <div class="col-xl-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row text-center justify-content-center">
+                        <div class="col-8">
+                            <!-- <h3>CalendarGO</h3>
+                            <div class="input-group mb-3">
+                                <a href="{{ route('calendargo') }}">Ir al CalendarGO</a>
+                            </div> -->
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="col-xl-6 col-sm-12 mb-4">
 
+            <div class="card">
+                <div class="card-body text-center">
+
+                    <p class="card-title">
+                        <i class="fas fa-bolt"></i>
+                        Nota rapida
+                        <i class="fas fa-bolt"></i>
+                    </p>
+
+                    <form action="{{ route('guardar_nota') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <textarea class="form-control" style="display:none;" name="title" rows="1" placeholder="Título">*</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="content" rows="4" placeholder="Contenido"></textarea>
+                        </div>
+
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_watch_notes">
+                            <i class="far fa-eye"></i>
+                        </button>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-bolt"></i>
+                            POSTEAR
+                            <i class="fas fa-bolt"></i>
+                        </button>
+                    </form>
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Contenido</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Contenido del modal -->
+                                    <p>Aquí va tu contenido dentro del modal.</p>
+                                    <!-- Puedes agregar cualquier contenido HTML -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <!-- Puedes agregar más botones aquí si es necesario -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </div>
 
+
+
     <!-- WSP DIRECT -->
-    <div class="row mt-4">
+
+    <!-- <div class="row mt-4">
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
@@ -264,7 +290,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+
 
     <!-- MODALES -->
 
@@ -320,7 +348,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                     <!-- <button type="button" class="btn btn-primary">OK</button> -->
