@@ -9,6 +9,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class UsersSeeder extends Seeder
 {
     /**
@@ -18,17 +21,18 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        // Crea un usuario de ejemplo
-
-        // User::create([
-        //     'username' => 'KenderWebos',
-        //     'email' => 'kenderman.8@gmail.com',
-        //     'password' => bcrypt('password'),
-        // ]);
-
         DB::table('users')->insert([
             'username' => 'KenderWebos',
             'email' => 'kenderman.8@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Mari',
+            'email' => 'mcastrop@ing.ucsc.cl',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'created_at' => now(),

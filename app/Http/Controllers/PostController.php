@@ -19,7 +19,7 @@ class PostController extends Controller
 
         $posts = Post::oldest("id")->paginate();
 
-        return view("pages.posts-feed", ['posts' => $posts] );
+        return view("posts.index", ['posts' => $posts]);
     }
 
     /**
@@ -54,7 +54,7 @@ class PostController extends Controller
         // $post = Post::where('id', $id)->first();
         $post = Post::find($id);
 
-        return($post);
+        return ($post);
     }
 
     /**
@@ -88,6 +88,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return back()->with('success', 'Post eliminado correctamente');
     }
 }

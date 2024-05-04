@@ -43,6 +43,10 @@ Route::get("/rand", function () {
 	return view('pages.rand');
 });
 
+Route::get("/search", function () {
+	return view('search');
+});
+
 // Autenticación y páginas públicas
 Auth::routes();
 
@@ -72,13 +76,6 @@ Route::get('allusers', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// some error advice
-Route::get('/error', function () {
-	return abort(404);
-})->name('error');
-
-Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index'])->name('chat');
-
 Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingpage');
 
 Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->name('knotes');
@@ -90,10 +87,13 @@ Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::c
 Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
 Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('notas.destroy');
 
-Route::resource('/posts-feed', App\Http\Controllers\PostController::class);
+Route::resource('/posts', App\Http\Controllers\PostController::class)->middleware(['auth']);
+
+// Route::resource('/posts', App\Http\Controllers\PostController::class)->except(["show"]);
 
 Route::resource('tipo-eventos', TipoEventoController::class);
 Route::resource('tipo-modulos', TipoModuloController::class);
+
 Route::resource('data', DataController::class);
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');

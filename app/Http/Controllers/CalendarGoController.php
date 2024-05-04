@@ -18,12 +18,14 @@ class CalendarGoController extends Controller
         $all_events = Evento::all();
         $events = [];
 
-        foreach($all_events as $event){
+        foreach($all_events as $event){ // esta mal de base pero para que funciones hicimos esto
             $events[] = [
                 'title' => $event->descripcion,
                 'start' => $event->fecha,
-                'description' => $event->title,
-                'extra' => "skibidi toilet",
+                // 'description' => $event->titulo,
+                // 'extra' => json_encode($event),
+                'extra' => $event->titulo,
+                'link' => 'www.kevincampos.cl/calendargo',
             ];
         }
 

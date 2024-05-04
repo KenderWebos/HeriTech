@@ -14,7 +14,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "pusher/pusher-php-server": "^7.2",
-        "spatie/laravel-permission": "^5.10",
+        "spatie/laravel-permission": "^5.8",
         "symfony/translation": "^6.0"
     },
     "require-dev": {

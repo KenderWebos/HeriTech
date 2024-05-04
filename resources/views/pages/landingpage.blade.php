@@ -42,7 +42,7 @@
                         </li>
                         @else
                         <li class="nav-item">
-                            <a class="nav-link btn btn-link" href="{{ url('dashboard') }}">Panel</a>
+                            <a class="nav-link btn btn-link" href="{{ url('dashboard') }}">Panel de Usuario</a>
                         </li>
 
                         <li class="nav-item">

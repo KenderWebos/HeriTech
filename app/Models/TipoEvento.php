@@ -17,8 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class TipoEvento extends Model
-{
-    
+{    
     static $rules = [
 		'name' => 'required',
     ];
@@ -31,7 +30,4 @@ class TipoEvento extends Model
      * @var array
      */
     protected $fillable = ['name','slug'];
-
-
-
 }

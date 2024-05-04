@@ -96,56 +96,14 @@
     </div>
 </section>
 
-<!-- FAQ o Preguntas Frecuentes -->
-<section class="py-5 bg-light">
+<footer class="bg-dark text-light text-center py-3">
     <div class="container">
-        <h2 class="text-center mb-4">Preguntas Frecuentes</h2>
-        <div class="accordion" id="faqAccordion">
-            <!-- Agrega aquí preguntas frecuentes y sus respuestas -->
-        </div>
-    </div>
-</section>
-
-<!-- Contacto / Soporte -->
-<section class="py-5 text-center">
-    <div class="container">
-        <h2 class="mb-4">Contacto / Soporte</h2>
-        <p>Para consultas o soporte adicional, contáctanos:</p>
-        <p>Correo Electrónico: info@calendargo.com</p>
-        <p>Redes Sociales: <a href="#">Facebook</a>, <a href="#">Twitter</a>, <a href="#">Instagram</a></p>
-    </div>
-</section>
-
-<footer class="bg-secondary text-light text-center py-3">
-    <div class="container">
-        <!-- Enlaces de Navegación -->
-        <div class="row">
-            <div class="col-md-4">
-                <h5>Enlaces de Navegación</h5>
-
-                <ul class="list-unstyled">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-            </div>
-            <!-- Información de Contacto -->
-            <div class="col-md-4">
-                <h5>Información de Contacto</h5>
-                <p>Correo Electrónico: info@calendargo.com</p>
-                <p>Teléfono: +123456789</p>
-                <p>Dirección: 123 Calle Principal, Ciudad</p>
-            </div>
-            <!-- Enlaces Legales -->
-            <div class="col-md-4">
-                <h5>Enlaces Legales</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
-                </ul>
-            </div>
+        <!-- Información de Contacto -->
+        <div class="row mt-3">
+            <h5>Información de Contacto</h5>
+            <p>Correo Electrónico: calendargo.project@gmail.com</p>
+            <p>Teléfono: +123456789</p>
+            <p>Dirección: Alonso de Ribera 2850, Concepcion</p>
         </div>
         <!-- Enlaces a Redes Sociales -->
         <div class="row mt-3">
@@ -162,7 +120,7 @@
         <!-- Créditos o Derechos de Autor -->
         <div class="row mt-3">
             <div class="col-md-12">
-                <p>&copy; {{ date('Y') }} Calendar Go. Todos los derechos reservados.</p>
+                <p>&copy; {{ date('Y') }} CalendarGO. Todos los derechos reservados.</p>
             </div>
         </div>
     </div>
@@ -178,12 +136,21 @@
 <script src='fullcalendar/core/locales/es.global.js'></script>
 
 <script>
-    Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Carga exitosa",
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
         showConfirmButton: false,
-        timer: 2000
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+
+    Toast.fire({
+        icon: "success",
+        title: "Carga exitosa"
     });
 </script>
 
@@ -201,21 +168,12 @@
                 right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
             },
 
-            // eventDidMount: function(info) {
-            //     var tooltip = new Tooltip(info.el, {
-            //         title: info.event.extendedProps.description,
-            //         placement: 'top',
-            //         trigger: 'hover',
-            //         container: 'body'
-            //     });
-            // },
-
             eventClick: function(info) {
 
                 Swal.fire({
                     title: info.event.title,
-                    //text: 'Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY,
                     text: info.event.extendedProps.extra,
+                    html: 'Mas informacion <a href="www.kevincampos.cl/calendargo">Aqui</a>.',
                     icon: "question"
                 });
 

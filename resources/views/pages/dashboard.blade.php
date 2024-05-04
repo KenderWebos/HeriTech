@@ -3,6 +3,8 @@
 @section('content')
 @include('layouts.navbars.auth.topnav', ['title' => 'Inicio'])
 <div class="container-fluid py-4">
+
+    @role('administrador')
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
@@ -104,6 +106,7 @@
             </div>
         </div>
     </div>
+    @endrole
 
     <div class="row mt-4">
         <div class="col-xl-6 col-sm-12 mb-4">
