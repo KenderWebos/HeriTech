@@ -84,19 +84,36 @@
             <hr>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-toggle="collapse" href="#roles-collapse" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-settings-gear-65 text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Panel de gestion</span>
+                </a>
+                <div class="collapse" id="roles-collapse">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ str_contains(request()->url(), 'roles') == true ? 'active' : '' }}" href="{{url('roles')}}">Roles</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ str_contains(request()->url(), 'data') == true ? 'active' : '' }}" href="{{url('data')}}">Datos</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            @role('administrador')
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-toggle="collapse" href="#mantenedores-collapse" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-settings-gear-65 text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Mantenedores</span>
-                    <!-- <i class="fas fa-angle-right ms-auto"></i> -->
                 </a>
                 <div class="collapse" id="mantenedores-collapse">
                     <ul class="navbar-nav">
-
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">Roles</a>
-                        </li> -->
 
                         <li class="nav-item">
                             <a class="nav-link {{ str_contains(request()->url(), 'tipo-eventos') == true ? 'active' : '' }}" href="{{url('tipo-eventos')}}">Tipo Eventos</a>
@@ -108,7 +125,7 @@
                     </ul>
                 </div>
             </li>
-
+            @endrole
         </ul>
     </div>
     <!-- <div class="sidenav-footer mx-3 ">

@@ -14,10 +14,10 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Eventos Registrados</p>
                                 <h5 class="font-weight-bolder">
-                                    1
+                                    {{ $events_count }}
                                 </h5>
                                 <p class="mb-0">
-                                    <span class="text-success text-sm font-weight-bolder">+1%</span>
+                                    <span class="text-success text-sm font-weight-bolder">+{{ $events_count }}</span>
                                     desde el inicio
                                 </p>
                             </div>
@@ -39,10 +39,10 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Usuarios Registrados</p>
                                 <h5 class="font-weight-bolder">
-                                    1
+                                    {{ $userCount }}
                                 </h5>
                                 <p class="mb-0">
-                                    <span class="text-success text-sm font-weight-bolder">+1%</span>
+                                    <span class="text-success text-sm font-weight-bolder">+{{ $userCount }}</span>
                                     desde el inicio
                                 </p>
                             </div>
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
@@ -104,7 +104,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     @endrole
 

@@ -10,7 +10,7 @@ use App\Http\Controllers\TipoModuloController;
 use App\Http\Controllers\EdunetController;
 
 use App\Http\Controllers\DataController;
-
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,26 +33,19 @@ Route::get("/fc/{name}", function ($name) {
 	return "🎉🥳 ¡Feliz Cumpleaños, $name! 🎂🎈";
 });
 
-Route::get("/buscar", function (Request $request) {
-	return $request->all();
-});
-
 Route::resource('edunet', EdunetController::class);
 
 Route::get("/rand", function () {
 	return view('pages.rand');
 });
 
-Route::get("/search", function () {
-	return view('search');
-});
-
-// Autenticación y páginas públicas
-Auth::routes();
-
 Route::get('chating', [function () {
 	return view('pages.partials.chat.chating');
 }]);
+
+Route::resource('roles', RolesController::class);
+
+Auth::routes();
 
 // muestra todas las rutas en la ruta /routes
 
@@ -70,6 +63,7 @@ Route::get('/routes', function () {
 
 
 //muestra todos los usuarios en la ruta /allusers
+
 Route::get('allusers', function () {
 	return App\Models\User::all();
 });

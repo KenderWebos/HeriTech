@@ -14,10 +14,16 @@ class PermissionsSeeder extends Seeder
     {
         $role = Role::create(['name' => 'administrador']);
         $permission = Permission::create(['name' => 'ver informacion rapida']);
+        $permission = Permission::create(['name' => 'gestionar datos']);
 
-        $role->givePermissionTo($permission); // dale al rol writer el permiso de edit articles
+        $role->givePermissionTo($permission); // dale al rol administrador el permiso de ver informacion rapida
+
+        $role = Role::create(['name' => 'estudiante']);
+        $permission = Permission::create(['name' => 'gestionar eventos']);
+
+        $role->givePermissionTo($permission); // dale al rol administrador el permiso de ver informacion rapida
 
         $user = USER::where('email', 'kenderman.8@gmail.com')->first();
-        $user->assignRole( 'administrador' );
+        $user->assignRole( 'administrador', 'estudiante' );
     }
 }

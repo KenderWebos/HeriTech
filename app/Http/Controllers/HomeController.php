@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Evento;
 use App\Models\kNotes;
+use App\Models\User;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -94,7 +95,9 @@ class HomeController extends Controller
             return Carbon::parse($event->fecha)->toDateString();
         });
 
-        return view('pages.dashboard', compact('data', 'datos', 'events', 'events_count', 'current_date', 'current_time', 'days', 'grouped_events'));
+        $userCount = User::count();
+
+        return view('pages.dashboard', compact('data', 'datos', 'events', 'events_count', 'current_date', 'current_time', 'days', 'grouped_events', 'userCount'));
         // return kNotes::all();
     }
 }
