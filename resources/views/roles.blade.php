@@ -1,20 +1,21 @@
-@extends('layouts.appStatic', ['class' => ''])
+@extends('layouts.app')
 
 @section('title', 'HeriTech')
 
 @section('content')
 
-<div class="container-fluid h-100 d-flex justify-content-center align-items-center">
+@include('layouts.navbars.auth.topnav', ['title' => 'Roles'])
+
+<div class="col-3">
     <div class="card text-center">
         <div class="card-body">
-            <a class="navbar-brand" href="/home">
-                <img class='navbar-icon' src="{{asset('images/heritech/ht_logo.png')}}" alt="">
-            </a>
 
-            <form class="form-inline justify-content-center mt-4">
-                <input class="form-control mr-sm-2" type="search" placeholder="calendargo, notas..." aria-label="Buscar">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar Rol</button>
+            <form action="{{ route('roles.index') }}" method="GET" class="form-inline">
+                <div class="input-group mb-2">
+                    <input class="form-control" type="text" name="search" placeholder="calendargo, notas..." aria-label="Buscar">
+                </div>
             </form>
+
 
             <div class="m-4">
                 @if(count($roles) > 0)
@@ -22,7 +23,7 @@
                 <ul>
                     @foreach($roles as $rol)
                     <li>{{$rol}}</li>
-                    
+
                     @endforeach
                 </ul>
                 @else
@@ -34,7 +35,7 @@
                 <ul>
                     @foreach($permissions as $permission)
                     <li>{{$permission}}</li>
-                    
+
                     @endforeach
                 </ul>
                 @else

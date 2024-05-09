@@ -29,11 +29,18 @@ Route::get("/random", function() {
     return ["random" => $random, "status" => 200];
 });
 
-use App\Models\Name;
+// COMIENZA EDUNET APLICACION
 
-Route::get("/names", function() {
-    $names = Name::all();
+use App\Models\User;
 
-    return ["names" => $names, "status" => 200];
+Route::get("/allusers", function() {
+    $users = User::all();
+    return $users;
 });
 
+use App\Models\kNotes;
+
+Route::get("/notes", function() {
+    $notes = kNotes::all();
+    return $notes;
+});

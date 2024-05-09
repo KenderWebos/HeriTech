@@ -54,19 +54,6 @@
     @include('layouts.navbars.auth.sidenav')
     <main class="main-content border-radius-lg">
 
-        <!-- <div class="container-fluid py-4">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card md-4 bg-dark">
-
-                        <div class="card-body pb-0">
-                            <p>here testing...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
         @yield('content')
 
     </main>
