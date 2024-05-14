@@ -25,7 +25,7 @@ class UsersSeeder extends Seeder
             'username' => 'KenderWebos',
             'email' => 'kenderman.8@gmail.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('password1234'),
+            'password' => Hash::make('password'),
             'created_at' => now(),
             'updated_at' => now()
         ]);

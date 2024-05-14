@@ -9,7 +9,9 @@
             <!-- <img src="{{ asset('images/heritech/ht_logo.png') }}" alt="main_logo" style="width: 300px; height: 200px;"> -->
         </a>
     </div>
+
     <hr class="horizontal dark mt-0">
+
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
 
@@ -32,7 +34,7 @@
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Calendar</span>
+                    <span class="nav-link-text ms-1">Calendario</span>
                 </a>
             </li>
 
@@ -41,11 +43,20 @@
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Notes</span>
+                    <span class="nav-link-text ms-1">Notas</span>
                 </a>
             </li>
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'proposito') == true ? 'active' : '' }}" href="{{ route('proposito') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Proposito</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'kTerminal') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.kTerminal'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
@@ -55,31 +66,22 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'kTerminal') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.kTerminal'] ) }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">kTask</span>
-                </a>
-            </li> -->
-
-            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'radiorowdie') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.radiorowdie'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">RadioRowdie</span>
                 </a>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'wsp_direct') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.wsp_direct'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">WSP -> direct</span>
                 </a>
-            </li> -->
+            </li>
 
             <hr>
 
@@ -90,6 +92,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Panel de gestion</span>
                 </a>
+                
                 <div class="collapse" id="roles-collapse">
                     <ul class="navbar-nav">
 
@@ -128,8 +131,9 @@
             @endrole
         </ul>
     </div>
-    <!-- <div class="sidenav-footer mx-3 ">
+    
+    <div class="sidenav-footer mx-3 ">
         <hr>
         <a href="{{ url('politicas-de-privacidad') }}" class="btn btn-primary btn-sm w-100 mb-3">Terminos y Condiciones</a>
-    </div> -->
+    </div>
 </aside>

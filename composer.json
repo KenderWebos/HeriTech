@@ -10,6 +10,7 @@
         "infyomlabs/laravel-generator": "^5.4",
         "laravel-frontend-presets/argon": "^2.0",
         "laravel/framework": "^9.19",
+        "laravel/passport": "^12.0",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
@@ -18,6 +19,7 @@
         "symfony/translation": "^6.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.9.1",
         "ibex/crud-generator": "1.4",
         "laravel/pint": "^1.0",

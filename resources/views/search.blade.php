@@ -7,11 +7,12 @@
 <div class="container-fluid h-100 d-flex justify-content-center align-items-center">
     <div class="card text-center">
         <div class="card-body">
-            <a class="navbar-brand" href="/search">
+            <a class="navbar-brand" href="/home">
                 <img class='navbar-icon' src="{{asset('images/heritech/ht_logo.png')}}" alt="">
             </a>
-            <form class="form-inline justify-content-center mt-4">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar en HeriTech" aria-label="Buscar">
+
+            <form class="form-inline justify-content-center mt-4" action="{{ route('roles.index') }}" method="GET">
+                <input class="form-control mr-sm-2" type="search" type="text" name="search" placeholder="Buscar en HeriTech" aria-label="Buscar">
                 <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>

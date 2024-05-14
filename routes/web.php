@@ -23,6 +23,14 @@ use App\Http\Controllers\RolesController;
 |
 */
 
+Route::get("/a", function () {
+	return view('search');
+});
+
+Route::get("/proposito", function () {
+	return view('proposito');
+})->name('proposito');
+
 Route::resource('mailit', App\Http\Controllers\MailItController::class);
 
 Route::get("/kevincampos", function () {

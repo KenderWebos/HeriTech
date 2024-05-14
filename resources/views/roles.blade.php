@@ -20,27 +20,26 @@
             <div class="m-4">
                 @if(count($roles) > 0)
                 <p>Lista de Roles:</p>
-                <ul>
-                    @foreach($roles as $rol)
-                    <li>{{$rol}}</li>
 
-                    @endforeach
-                </ul>
+                <table class="table">
+                    <tbody>
+                        @foreach($roles as $rol)
+                        <tr>
+                            <td>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheck{{ $loop->index }}" checked>
+                                    <label class="form-check-label" for="flexSwitchCheck{{ $loop->index }}">{{ $rol }}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
                 @else
                 <p>No se encontraron roles.</p>
                 @endif
 
-                @if(count($permissions) > 0)
-                <p>Lista de Permisos:</p>
-                <ul>
-                    @foreach($permissions as $permission)
-                    <li>{{$permission}}</li>
-
-                    @endforeach
-                </ul>
-                @else
-                <p>No se encontraron permisos.</p>
-                @endif
             </div>
         </div>
     </div>

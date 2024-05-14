@@ -14,13 +14,17 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $roles = Role::all()->pluck('name');
+        $search = $request->search;
 
-        $permissions = Permission::all()->pluck('name');
+        $roles = Role::where('name', 'LIKE', "%{$search}%")->pluck('name');
 
-        return view('roles', compact('roles', 'permissions'));
+        // $permissions = Permission::all()->pluck('name');
+
+        // $permissions = $roles->permissions;
+
+        return view('roles', compact('roles'));
     }
 
     /**
