@@ -5,16 +5,25 @@
 <section class="py-5 text-center">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-12 mx-auto">
+
                 <h1 class="display-4">Descubre eventos cercanos con Calendar Go</h1>
                 <p class="lead mb-4">Explora eventos emocionantes y actividades cerca de ti con nuestra app fácil de usar.</p>
 
-                <hr>
-                <div id="calendar"></div>
-                <hr>
+                <div class="row">
+                    <div class="col">
+                        <hr>
+                        <div id="calendar"></div>
+                        <hr>
+                    </div>
 
-                <div class="mt-4">
-                    <a href="#" class="btn btn-primary btn-lg">¡Descargar Ahora!</a>
+                    <div class="col">
+                        <div class="container row shadow-lg">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1597.4341595365818!2d-73.0564543144277!3d-36.797707489595325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5d061cae83d%3A0x8f2da2e9988cc125!2sUniversidad%20Cat%C3%B3lica%20de%20la%20Sant%C3%ADsima%20Concepci%C3%B3n!5e0!3m2!1ses!2scl!4v1705005085808!5m2!1ses!2scl" 
+                                width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -75,8 +84,8 @@
             <div class="col-lg-6 mx-auto">
                 <p>¡Descarga Calendar Go ahora y empieza a organizar tus eventos!</p>
                 <div class="mt-4">
-                    <a href="#" class="btn btn-primary btn-lg">Descargar para Android</a>
-                    <a href="#" class="btn btn-secondary btn-lg">Descargar para iOS</a>
+                    <a href="https://drive.google.com/drive/folders/1NaQd5rkvawHoi6KepioFF42nzaIVrh6X?usp=sharing" target="_blank" class="btn btn-primary btn-lg">Descargar para Android</a>
+                    <!-- <a href="#" class="btn btn-secondary btn-lg">Descargar para iOS</a> -->
                 </div>
             </div>
         </div>
@@ -84,7 +93,8 @@
 </section>
 
 <!-- Capturas de Pantalla / Demo -->
-<section class="py-5">
+
+<!-- <section class="py-5">
     <div class="container">
         <h2 class="text-center mb-4">Capturas de Pantalla</h2>
 
@@ -94,7 +104,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 <footer class="bg-dark text-light text-center py-3">
     <div class="container">

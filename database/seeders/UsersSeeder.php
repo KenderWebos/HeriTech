@@ -39,6 +39,35 @@ class UsersSeeder extends Seeder
             'updated_at' => now()
         ]);
 
+        // CUENTAS DE ACCESO
+
+        DB::table('users')->insert([
+            'username' => 'User',
+            'email' => 'user@heritech.cl',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Admin',
+            'email' => 'admin@heritech.cl',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Estudiante',
+            'email' => 'estudiante@heritech.cl',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
         // Crea más usuarios de ejemplo utilizando el factory
         // User::factory()->count(10)->create();
     }

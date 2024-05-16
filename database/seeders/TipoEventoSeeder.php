@@ -20,11 +20,15 @@ class TipoEventoSeeder extends Seeder
         ]);
 
         TipoEvento::create([
-            'name' => 'Universidad',
+            'name' => 'Iterativo',
+        ]);      
+
+        TipoEvento::create([
+            'name' => 'UCSC',
         ]);
 
         TipoEvento::create([
-            'name' => 'Grupo de amigos',
+            'name' => 'Festivos',
         ]);
     }
 }
