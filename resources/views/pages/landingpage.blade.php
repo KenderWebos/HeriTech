@@ -59,7 +59,9 @@
 
             </nav>
 
-            <video class="video" id="videoHome" style="width:100%;height:auto; display:block;" loop="" autoplay="" playsinline="" disableremoteplayback="" muted=""><source src="{{asset('assets/videos/home.mp4')}}" type="video/mp4"></video>
+            <video class="video" id="videoHome" style="width:100%;height:auto; display:block;" loop="" autoplay="" playsinline="" disableremoteplayback="" muted="">
+                <source src="{{asset('assets/videos/home.mp4')}}" type="video/mp4">
+            </video>
 
             <!-- Sección Nosotros -->
             <section id="nosotros" class="py-5">
@@ -156,6 +158,16 @@
                                     </div>
                                 </div>
                             </a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <iframe frameborder="0" src="https://itch.io/embed/1326509" width="552" height="167">
+                                    <a href="https://kenderwebos.itch.io/infinitychristmas">
+                                        Infinity Christmas by KenderWebos
+                                    </a>
+                                </iframe>
+                            </div>
                         </div>
 
                     </div>

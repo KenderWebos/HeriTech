@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('knotes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            
             $table->string('title');
             $table->text('content');
             $table->timestamp('created_at')->useCurrent();

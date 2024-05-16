@@ -1,9 +1,9 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
-        <div class="form-group">
+        <div class="form-group " hidden="true">
             {{ Form::label('user_id') }}
-            {{ Form::text('user_id', $data->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id']) }}
+            {{ Form::text('user_id',Auth()->id(), ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id']) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

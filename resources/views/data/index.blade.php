@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $data->links() !!}
+                <!-- aqui habia un $data->links -->
             </div>
         </div>
     </div>

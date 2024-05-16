@@ -53,7 +53,7 @@ Route::get("/notes", function () {
 
 use App\Http\Controllers\AuthController;
 
-    /*
+/*
     |--------------------------------------------------------------------------
     | API Routes
     |--------------------------------------------------------------------------
@@ -73,4 +73,8 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('/project', function () {
         return 'Projects Fetch Successfully!';
     });
+});
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
 
-            $table->string('title', 100);
+            $table->string('title', 100)->nullable();
             $table->text('content');
 
-            $table->string('type'); //(por ejemplo: nota, tarea, evento, etc.)
+            $table->string('type')->nullable(); //(por ejemplo: nota, tarea, evento, etc.)
 
             $table->string('visibility')->nullable();
 
