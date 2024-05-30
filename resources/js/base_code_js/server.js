@@ -13,6 +13,7 @@ let nextUserId = 1;
 io.on('connection', (socket) => {
   const userId = nextUserId++;
   console.log(`Usuario ${userId} conectado`);
+  io.emit(`Usuario ${userId} conectado 👀`);
 
   // Enviar el ID del usuario al cliente
   socket.emit('userId', userId);
@@ -25,6 +26,7 @@ io.on('connection', (socket) => {
   // Manejar la desconexión
   socket.on('disconnect', () => {
     console.log(`Usuario ${userId} desconectado`);
+    io.emit(`Usuario ${userId} desconectado 😵`);
   });
 });
 
