@@ -32,6 +32,7 @@ class AuthController extends Controller
     /**
      * Laravel Passport User Login  API Function
      */
+    
     public function login(Request $request)
     {
         $credentials = $request->validate([

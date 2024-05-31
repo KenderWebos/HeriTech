@@ -27,6 +27,10 @@ Route::get("/a", function () {
 	return view('search');
 });
 
+Route::get("/terminal", function () {
+	return view('terminal');
+});
+
 Route::get("/gametesting", function () {
 	return view('gametesting');
 })->name('gametesting');

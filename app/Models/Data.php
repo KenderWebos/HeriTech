@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Data
@@ -28,31 +29,30 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Data extends Model
 {
-    
-    static $rules = [
-		'user_id' => 'required',
-		'title' => 'required',
-		'content' => 'required',
-		'type' => 'required',
-    ];
+  use HasFactory;
 
-    protected $perPage = 20;
+  static $rules = [
+    'user_id' => 'required',
+    'title' => 'required',
+    'content' => 'required',
+    'type' => 'required',
+  ];
 
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['user_id','title','content','type','visibility','origin','meaning','example','location','start_time','end_time'];
+  protected $perPage = 20;
+
+  /**
+   * Attributes that should be mass-assignable.
+   *
+   * @var array
+   */
+  protected $fillable = ['user_id', 'title', 'content', 'type', 'visibility', 'origin', 'meaning', 'example', 'location', 'start_time', 'end_time'];
 
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function user()
-    {
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
-    }
-    
-
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function user()
+  {
+    return $this->hasOne('App\Models\User', 'id', 'user_id');
+  }
 }

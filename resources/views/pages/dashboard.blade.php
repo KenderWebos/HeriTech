@@ -184,10 +184,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-
-            </div>
         </div>
     </div>
 
@@ -197,10 +193,14 @@
                 <div class="card-body">
                     <div class="row text-center justify-content-center">
                         <div class="col-8">
-                            <!-- <h3>CalendarGO</h3>
-                            <div class="input-group mb-3">
-                                <a href="{{ route('calendargo') }}">Ir al CalendarGO</a>
-                            </div> -->
+                            <h3>FasterYouTube</h3>
+
+                            <input id="input-youtube-search" class="form-control mb-4" name="yt-input" type="text">
+                            <button id="btn-youtube-search" class="btn">Buscar en YouTube</button>
+
+                            <a target="_blank" href="https://www.youtube.com/playlist?list=WL" class="btn">Ver Mas Tarde</a>
+
+                            <a target="_blank" href="https://www.youtube.com/feed/subscriptions" class="btn">Ver Mas Tarde</a>
                         </div>
                     </div>
                 </div>
@@ -555,10 +555,28 @@
         window.open("https://api.whatsapp.com/send?phone=569" + wspDirectInput + "&text=Hola%20soy%20" + wspDirectInput + "%20y%20quiero%20contactarme%20con%20ustedes%20para%20saber%20más%20sobre%20sus%20servicios", "_blank");
     }
 </script>
+
+<script>
+    // function youtube_search() {
+    //     query = document.getElementById("input-youtube-search").value;
+    //     var url = "https://www.youtube.com/results?search_query=" + query; //+ "&max-results=1&v=2&alt=jsonc"
+
+    //     window.open(url);
+    //     document.getElementById("input-youtube-search").value = "";
+    // }
+
+    document.getElementById('btn-youtube-search').addEventListener('click', function() {
+        var query = document.getElementById('input-youtube-search').value;
+        if (query) {
+            var url = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(query);
+            window.open(url, '_blank');
+        }
+    });
+</script>
 @endpush
 
 @push('js')
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
 
@@ -577,5 +595,5 @@
 
         calendar.render();
     });
-</script>
+</script> -->
 @endpush

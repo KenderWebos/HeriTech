@@ -11,7 +11,7 @@
         "laravel-frontend-presets/argon": "^2.0",
         "laravel/framework": "^9.19",
         "laravel/passport": "^12.0",
-        "laravel/sanctum": "^3.0",
+        "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "pusher/pusher-php-server": "^7.2",
