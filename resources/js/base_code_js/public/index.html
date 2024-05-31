@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat con Sockets</title>
+  <style>
+    #chat {
+      list-style-type: none;
+      padding: 0;
+    }
+    #chat li {
+      margin-bottom: 10px;
+    }
+    #message-form {
+      display: flex;
+      margin-top: 20px;
+    }
+    #message-input {
+      flex: 1;
+      padding: 10px;
+    }
+    #send-button {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <ul id="chat"></ul>
+  <form id="message-form">
+    <input id="message-input" autocomplete="off" placeholder="Escribe un mensaje..." />
+    <button id="send-button">Enviar</button>
+  </form>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    const chat = document.getElementById('chat');
+    const messageForm = document.getElementById('message-form');
+    const messageInput = document.getElementById('message-input');
+
+    let userId = null;
+
+    socket.on('userId', (id) => {
+      userId = id;
+    });
+
+    socket.on('chatMessage', (data) => {
+      const item = document.createElement('li');
+      item.textContent = `Usuario ${data.userId}: ${data.msg}`;
+      chat.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+
+    messageForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const msg = messageInput.value;
+      socket.emit('chatMessage', msg);
+      messageInput.value = '';
+    });
+  </script>
+</body>
+</html>
