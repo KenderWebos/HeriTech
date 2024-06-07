@@ -37,8 +37,7 @@
 
 </head>
 
-<body class="{{ $class ?? '' }}">
-
+<body class="{{ $class ?? '' }} bg-color-main">
     @guest
     @yield('content')
     @endguest

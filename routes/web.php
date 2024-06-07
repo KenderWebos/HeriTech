@@ -12,6 +12,8 @@ use App\Http\Controllers\EdunetController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\RolesController;
 
+use App\Http\Controllers\SettingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +26,7 @@ use App\Http\Controllers\RolesController;
 */
 
 Route::get("/a", function () {
-	return view('search');
+	return view('a');
 });
 
 Route::get("/terminal", function () {
@@ -38,8 +40,6 @@ Route::get("/gametesting", function () {
 Route::get("/proposito", function () {
 	return view('proposito');
 })->name('proposito');
-
-Route::resource('mailit', App\Http\Controllers\MailItController::class);
 
 Route::get("/kevincampos", function () {
 	return view('pages.kevincampos');
@@ -99,15 +99,19 @@ Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('
 
 Route::resource('/posts', App\Http\Controllers\PostController::class)->middleware(['auth']);
 
-// Route::resource('/posts', App\Http\Controllers\PostController::class)->except(["show"]);
-
 Route::resource('tipo-eventos', TipoEventoController::class);
-Route::resource('tipo-modulos', TipoModuloController::class);
 
 Route::resource('data', DataController::class);
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
 Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
+
+//LANDINGPAGE CONFIG
+
+Route::resource('settings', SettingController::class);
+
+// Route::resource('knotes', kNotesController::class);
+
 
 // Perfil de usuario y autenticación
 

@@ -121,6 +121,10 @@
                         <li class="nav-item">
                             <a class="nav-link {{ str_contains(request()->url(), 'tipo-eventos') == true ? 'active' : '' }}" href="{{url('tipo-eventos')}}">Tipo Eventos</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ str_contains(request()->url(), 'settings') == true ? 'active' : '' }}" href="{{url('settings')}}">Landingpage Settings</a>
+                        </li>
                     </ul>
                 </div>
             </li>

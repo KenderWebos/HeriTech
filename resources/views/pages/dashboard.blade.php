@@ -193,14 +193,10 @@
                 <div class="card-body">
                     <div class="row text-center justify-content-center">
                         <div class="col-8">
-                            <h3>FasterYouTube</h3>
+                            <h3>Buscar</h3>
 
                             <input id="input-youtube-search" class="form-control mb-4" name="yt-input" type="text">
                             <button id="btn-youtube-search" class="btn">Buscar en YouTube</button>
-
-                            <a target="_blank" href="https://www.youtube.com/playlist?list=WL" class="btn">Ver Mas Tarde</a>
-
-                            <a target="_blank" href="https://www.youtube.com/feed/subscriptions" class="btn">Ver Mas Tarde</a>
                         </div>
                     </div>
                 </div>

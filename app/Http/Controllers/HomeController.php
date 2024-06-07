@@ -50,6 +50,8 @@ class HomeController extends Controller
             // Calcular los días restantes para el evento
             $days_left = $today->diffInDays($fecha_evento, false);
 
+            # hacemos que el titulo de los eventos tenga un maximo largo de 20 caracteres
+            $event->descripcion = substr($event->descripcion, 0, 20)."...";
 
             if ($days_left === 0) {
                 $event->days_left = 'Hoy';
