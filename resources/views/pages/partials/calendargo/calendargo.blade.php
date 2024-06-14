@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12 mx-auto">
 
-                <h1 class="display-4">Descubre eventos cercanos con Calendar Go</h1>
+                <h1 class="display-4">Descubre eventos cercanos con CalendarGO</h1>
                 <p class="lead mb-4">Explora eventos emocionantes y actividades cerca de ti con nuestra app fácil de usar.</p>
 
                 <div class="row">
@@ -185,6 +185,7 @@
                     text: info.event.extendedProps.extra,
                     html: 'Mas informacion <a href="www.kevincampos.cl/calendargo">Aqui</a>.',
                     icon: "question"
+                    
                 });
 
                 // change the border color just for fun

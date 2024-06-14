@@ -40,8 +40,12 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="text-uppercase text-sm">Mi Informacion</p>
                         <div class="row">
+                            <div class="col-12 form-group">
+                                <label for="example-text-input" class="form-control-label">FOTO DE PERFIL</label>
+                                <input type="file" class="form-control">
+                            </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">NOMBRE DE USUARIO</label>

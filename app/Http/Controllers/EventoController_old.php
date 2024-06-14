@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
-use Illuminate\Http\Request;
+use App\Http\Requests\EventoRequest;
 
 /**
  * Class EventoController
@@ -13,8 +13,6 @@ class EventoController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -26,8 +24,6 @@ class EventoController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -37,15 +33,10 @@ class EventoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventoRequest $request)
     {
-        request()->validate(Evento::$rules);
-
-        $evento = Evento::create($request->all());
+        Evento::create($request->validated());
 
         return redirect()->route('eventos.index')
             ->with('success', 'Evento created successfully.');
@@ -53,9 +44,6 @@ class EventoController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -66,9 +54,6 @@ class EventoController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -79,29 +64,18 @@ class EventoController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Evento $evento
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evento $evento)
+    public function update(EventoRequest $request, Evento $evento)
     {
-        request()->validate(Evento::$rules);
-
-        $evento->update($request->all());
+        $evento->update($request->validated());
 
         return redirect()->route('eventos.index')
             ->with('success', 'Evento updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
     public function destroy($id)
     {
-        $evento = Evento::find($id)->delete();
+        Evento::find($id)->delete();
 
         return redirect()->route('eventos.index')
             ->with('success', 'Evento deleted successfully');

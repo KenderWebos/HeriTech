@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-auto">
 
-                        <div class="card card-plain bg-white p-5 rounded-0">
+                        <div class="card card-plain bg-white p-5 rounded-5">
 
                             <div class="align-item-center bg-red">
                                 <a href="{{ route('home') }}">

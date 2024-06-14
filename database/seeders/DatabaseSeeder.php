@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoEventoSeeder::class);
         $this->call(PermissionsSeeder::class);
         $this->call(EventoSeeder::class);
+        $this->call(SettingsSeeder::class);
 
         \App\Models\Name::factory(10)->create();
         \App\Models\Post::factory(100)->create();

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Knote;
+use App\Models\Note;
 use Illuminate\Http\Request;
 
 /**
- * Class KnoteController
+ * Class NoteController
  * @package App\Http\Controllers
  */
-class KnoteController extends Controller
+class NoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class KnoteController extends Controller
      */
     public function index()
     {
-        $knotes = Knote::paginate();
+        $notes = Note::paginate();
 
-        return view('knote.index', compact('knotes'))
-            ->with('i', (request()->input('page', 1) - 1) * $knotes->perPage());
+        return view('note.index', compact('notes'))
+            ->with('i', (request()->input('page', 1) - 1) * $notes->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class KnoteController extends Controller
      */
     public function create()
     {
-        $knote = new Knote();
-        return view('knote.create', compact('knote'));
+        $note = new Note();
+        return view('note.create', compact('note'));
     }
 
     /**
@@ -43,12 +43,12 @@ class KnoteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Knote::$rules);
+        request()->validate(Note::$rules);
 
-        $knote = Knote::create($request->all());
+        $note = Note::create($request->all());
 
-        return redirect()->route('knotes.index')
-            ->with('success', 'Knote created successfully.');
+        return redirect()->route('notes.index')
+            ->with('success', 'Note created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class KnoteController extends Controller
      */
     public function show($id)
     {
-        $knote = Knote::find($id);
+        $note = Note::find($id);
 
-        return view('knote.show', compact('knote'));
+        return view('note.show', compact('note'));
     }
 
     /**
@@ -72,26 +72,26 @@ class KnoteController extends Controller
      */
     public function edit($id)
     {
-        $knote = Knote::find($id);
+        $note = Note::find($id);
 
-        return view('knote.edit', compact('knote'));
+        return view('note.edit', compact('note'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Knote $knote
+     * @param  Note $note
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Knote $knote)
+    public function update(Request $request, Note $note)
     {
-        request()->validate(Knote::$rules);
+        request()->validate(Note::$rules);
 
-        $knote->update($request->all());
+        $note->update($request->all());
 
-        return redirect()->route('knotes.index')
-            ->with('success', 'Knote updated successfully');
+        return redirect()->route('notes.index')
+            ->with('success', 'Note updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class KnoteController extends Controller
      */
     public function destroy($id)
     {
-        $knote = Knote::find($id)->delete();
+        $note = Note::find($id)->delete();
 
-        return redirect()->route('knotes.index')
-            ->with('success', 'Knote deleted successfully');
+        return redirect()->route('notes.index')
+            ->with('success', 'Note deleted successfully');
     }
 }

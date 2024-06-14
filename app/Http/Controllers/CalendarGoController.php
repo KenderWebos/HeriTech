@@ -20,7 +20,7 @@ class CalendarGoController extends Controller
 
         foreach($all_events as $event){ // esta mal de base pero para que funciones hicimos esto
             $events[] = [
-                'title' => $event->descripcion,
+                'title' => $event->titulo,
                 'start' => $event->fecha,
                 // 'description' => $event->titulo,
                 // 'extra' => json_encode($event),

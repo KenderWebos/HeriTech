@@ -78,7 +78,8 @@ class HomeController extends Controller
         $data = get_defined_vars();
 
         //NOTAS
-        $datos = kNotes::with('user')->orderByDesc('created_at')->get();
+        // $datos = kNotes::with('user')->orderByDesc('created_at')->get();
+        // nuevas notas *
 
         $days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
@@ -99,7 +100,7 @@ class HomeController extends Controller
 
         $userCount = User::count();
 
-        return view('pages.dashboard', compact('data', 'datos', 'events', 'events_count', 'current_date', 'current_time', 'days', 'grouped_events', 'userCount'));
+        return view('pages.dashboard', compact('data', 'events', 'events_count', 'current_date', 'current_time', 'days', 'grouped_events', 'userCount'));
         // return kNotes::all();
     }
 }

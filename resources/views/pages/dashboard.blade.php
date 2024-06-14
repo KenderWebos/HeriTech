@@ -132,7 +132,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Fecha</th>
-                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Titulo</th>
                                     <th scope="col">Dias restantes</th>
                                 </tr>
                             </thead>
@@ -140,7 +140,7 @@
                                 @foreach($events as $event)
                                 <tr>
                                     <td>{{$event->fecha}}</td>
-                                    <td>{{$event->descripcion}}</td>
+                                    <td>{{$event->titulo}}</td>
                                     <td>{{$event->days_left}}</td>
                                 </tr>
                                 @endforeach
@@ -214,7 +214,7 @@
                         <i class="fas fa-bolt"></i>
                     </p>
 
-                    <form action="{{ route('guardar_nota') }}" method="POST">
+                    <form action="{{ route('landingpage') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <textarea class="form-control" style="display:none;" name="title" rows="1" placeholder="Título">*</textarea>
@@ -227,9 +227,10 @@
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_watch_notes">
+                         
+                        <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_watch_notes">
                             <i class="far fa-eye"></i>
-                        </button>
+                        </button> -->
 
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-bolt"></i>
@@ -290,71 +291,6 @@
             </div>
         </div>
     </div> -->
-
-
-
-    <!-- MODALES -->
-
-    <!-- Modal Notas-->
-    <div class="modal fade" id="modal_watch_notes" tabindex="-1" role="dialog" aria-labelledby="modal_watch_notes" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal_notes_title">Apuntes</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="notes_container">
-                        <div class="row">
-                            <div class="col-12">
-                                @foreach($datos as $nota)
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <h6 class="card-subtitle mb-2 text-muted">{{ "@".$nota->user->username." ➤ General" }}</h6>
-
-                                        <hr>
-
-                                        <!-- <h5 class="card-title">{{ $nota->title }}</h5> -->
-                                        <p class="card-text">{!! nl2br(e($nota->content)) !!}</p>
-
-                                        <!-- <p class="card-text">{{ $nota->created_at->locale('es')->format('l d \d\e F \d\e\l Y - h:i A') }}</p> -->
-
-                                        <!-- <p class="card-text">Tags: {{ $nota->tags }}</p> -->
-
-                                        <!-- <div class="row">
-                                            <div class="col-6">
-                                                <button class="btn btn-primary clipboard-btn" data-clipboard-text="{{ $nota->content }}">
-                                                    <i class="fa fa-copy"></i>
-                                                </button>
-                                            </div>
-                                            <div class="col-6">
-                                                <form action="{{ route('notas.destroy', $nota->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div> -->
-
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                    <!-- <button type="button" class="btn btn-primary">OK</button> -->
-                </div>
-            </div>
-        </div>
-    </div>
 
 </div>
 @endsection

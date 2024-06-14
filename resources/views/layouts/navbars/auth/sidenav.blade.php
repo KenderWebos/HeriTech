@@ -29,6 +29,15 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'notes') == true ? 'active' : '' }}" href="{{ url('notes') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Apuntes</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'calendar') == true ? 'active' : '' }}" href="{{ route('calendar') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
@@ -38,53 +47,53 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'knotes') == true ? 'active' : '' }}" href="{{ route('knotes') }}">
+                <a class="nav-link {{ str_contains(request()->url(), 'eventos') == true ? 'active' : '' }}" href="{{ url('eventos') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Notas</span>
+                    <span class="nav-link-text ms-1">Eventos</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'proposito') == true ? 'active' : '' }}" href="{{ route('proposito') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Proposito</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'gametesting') == true ? 'active' : '' }}" href="{{ route('gametesting') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-controller text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Game Testing</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'radiorowdie') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.radiorowdie'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">RadioRowdie</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'wsp_direct') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'partials.wsp_direct'] ) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">WSP -> direct</span>
                 </a>
-            </li>
+            </li> -->
 
             <hr>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-toggle="collapse" href="#roles-collapse" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-settings-gear-65 text-secondary text-sm opacity-10"></i>
@@ -105,7 +114,7 @@
                         </li>
                     </ul>
                 </div>
-            </li>
+            </li> -->
 
             @role('administrador')
             <li class="nav-item">

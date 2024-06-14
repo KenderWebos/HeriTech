@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\kNotesController;
 use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -10,27 +9,20 @@ use App\Http\Controllers\TipoModuloController;
 use App\Http\Controllers\EdunetController;
 
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\RolesController;
 
 use App\Http\Controllers\SettingController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get("/a", function () {
-	return view('a');
-});
+// require_once __DIR__ ."web/testing.php";
 
 Route::get("/terminal", function () {
 	return view('terminal');
+});
+
+Route::get("/vr", function () {
+	return view('pages.argon.virtual-reality');
 });
 
 Route::get("/gametesting", function () {
@@ -45,15 +37,7 @@ Route::get("/kevincampos", function () {
 	return view('pages.kevincampos');
 });
 
-Route::get("/fc/{name}", function ($name) {
-	return "🎉🥳 ¡Feliz Cumpleaños, $name! 🎂🎈";
-});
-
 Route::resource('edunet', EdunetController::class);
-
-Route::get("/rand", function () {
-	return view('pages.rand');
-});
 
 Route::get('chating', [function () {
 	return view('pages.partials.chat.chating');
@@ -63,45 +47,20 @@ Route::resource('roles', RolesController::class);
 
 Auth::routes();
 
-// muestra todas las rutas en la ruta /routes
-
-Route::get('/routes', function () {
-    $menu = '<ul>';
-
-    foreach (Route::getRoutes() as $route) {
-        $menu .= '<li><a href="' . url($route->uri()) . '">' . $route->uri() . '</a></li>';
-    }
-
-    $menu .= '</ul>';
-
-    return $menu;
-});
-
-
-//muestra todos los usuarios en la ruta /allusers
-
-Route::get('allusers', function () {
-	return App\Models\User::all();
-});
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingpage');
 
-Route::get('/knotes', [App\Http\Controllers\kNotesController::class, 'index'])->name('knotes');
 Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'index'])->name('calendar');
-
 Route::post('/evento/guardar', [App\Http\Controllers\CalendarController::class, 'guardar'])->name('evento.guardar');
 Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::class, 'borrar'])->name('evento.borrar');
 
-Route::post('/guardar-nota', [kNotesController::class, 'guardar'])->name('guardar_nota');
-Route::delete('/destroy-nota/{id}', [kNotesController::class, 'borrar'])->name('notas.destroy');
-
 Route::resource('/posts', App\Http\Controllers\PostController::class)->middleware(['auth']);
 
-Route::resource('tipo-eventos', TipoEventoController::class);
-
 Route::resource('data', DataController::class);
+Route::resource('notes', NoteController::class);
+Route::resource('eventos', EventoController::class);
+Route::resource('tipo-eventos', TipoEventoController::class);
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
 Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
@@ -109,9 +68,6 @@ Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
 //LANDINGPAGE CONFIG
 
 Route::resource('settings', SettingController::class);
-
-// Route::resource('knotes', kNotesController::class);
-
 
 // Perfil de usuario y autenticación
 

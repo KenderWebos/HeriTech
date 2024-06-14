@@ -16,6 +16,8 @@ class CreateEventosTable extends Migration
 
             $table->string('duracion')->nullable();
             $table->string('ubicacion')->nullable();
+            $table->string('latitud')->nullable();
+            $table->string('longitud')->nullable();
             $table->timestamps();
         });
     }
