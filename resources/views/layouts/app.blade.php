@@ -126,7 +126,7 @@
         });
     </script>
 
-    @stack('js');
+    @stack('js')
 </body>
 
 </html>

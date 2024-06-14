@@ -1,24 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.appStatic')
 
 @section('content')
-<div class="container">
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header">{{ __('Verifica tu email 🔒 ✉️') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ __('A fresh verification link has been sent to your email address.') }}
+                    </div>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
+                    {{ __('Revisa tu email y verifica tu cuenta para acceder al contenido.') }}
+                    {{ __('Si no recibiste el email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('haz click aquí') }}</button>.
+                    </form>
+                    <form class="mt-4" action="{{ url('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn">Cerrar Sesión</button>
                     </form>
                 </div>
             </div>
