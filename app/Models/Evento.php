@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -23,22 +24,20 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Evento extends Model
 {
-    
-    static $rules = [
-		'fecha' => 'required',
-		'titulo' => 'required',
-		'descripcion' => 'required',
-    ];
+  use HasFactory;
 
-    protected $perPage = 20;
+  static $rules = [
+    'fecha' => 'required',
+    'titulo' => 'required',
+    'descripcion' => 'required',
+  ];
 
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['fecha','titulo','descripcion','duracion','ubicacion','latitud','longitud'];
+  protected $perPage = 20;
 
-
-
+  /**
+   * Attributes that should be mass-assignable.
+   *
+   * @var array
+   */
+  protected $fillable = ['fecha', 'titulo', 'descripcion', 'duracion', 'ubicacion', 'latitud', 'longitud'];
 }

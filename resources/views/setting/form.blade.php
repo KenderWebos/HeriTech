@@ -13,7 +13,10 @@
         </div>
         <div class="form-group">
             {{ Form::label('logo') }}
+            <!-- {{ Form::label( $setting->logo ) }} -->
             <!-- {{ Form::text('logo', $setting->logo, ['class' => 'form-control' . ($errors->has('logo') ? ' is-invalid' : ''), 'placeholder' => 'Logo']) }} -->
+            <br>
+            <img class="m-3 w-10" src="{{ asset('storage/'.$setting->logo) }}" alt="">
             {{ Form::file('logo', ['class' => 'form-control' . ($errors->has('logo') ? ' is-invalid' : ''), 'placeholder' => 'Logo', 'id' => 'logoInput']) }}
             {!! $errors->first('logo', '<div class="invalid-feedback">:message</div>') !!}
         </div>

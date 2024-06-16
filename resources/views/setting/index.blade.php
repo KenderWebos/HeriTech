@@ -1,10 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('template_title')
     Setting
 @endsection
 
 @section('content')
+
+@include('layouts.navbars.auth.topnav', ['title' => 'Productos'])
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">

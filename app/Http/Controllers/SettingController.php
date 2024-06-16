@@ -51,7 +51,7 @@ class SettingController extends Controller
 
         $setting = Setting::create($request->all());
 
-        $setting->update(['logo'=> $image_path]);
+        $setting->update(['logo' => $image_path]);
 
         return redirect()->route('settings.index')
             ->with('success', 'Setting created successfully.');
@@ -96,10 +96,13 @@ class SettingController extends Controller
 
         if ($request->hasFile('logo')) {
             $image_path = $request->file('logo')->store('logos', 'public');
-        }        
 
-        $setting->update($request->all());
-        $setting->update(['logo'=> $image_path]);
+            $setting->update($request->all());
+            $setting->update(['logo' => $image_path]);
+        }
+        else{
+            $setting->update($request->all());
+        }            
 
         return redirect()->route('settings.index')
             ->with('success', 'Setting updated successfully');
