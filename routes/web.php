@@ -3,6 +3,7 @@
 use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\TipoEventoController;
 use App\Http\Controllers\TipoModuloController;
@@ -47,6 +48,27 @@ Route::resource('roles', RolesController::class);
 
 Auth::routes();
 
+// muestra todas las rutas en la ruta /routes
+
+Route::get('/routes', function () {
+	$menu = '<ul>';
+
+	foreach (Route::getRoutes() as $route) {
+		$menu .= '<li><a href="' . url($route->uri()) . '">' . $route->uri() . '</a></li>';
+	}
+
+	$menu .= '</ul>';
+
+	return $menu;
+});
+
+
+//muestra todos los usuarios en la ruta /allusers
+
+Route::get('allusers', function () {
+	return App\Models\User::all();
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingpage');
@@ -78,6 +100,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
+use App\Http\Controllers\VerificationController;
 
 Route::get('/', function () {
 	return redirect('/landingpage');
@@ -91,14 +114,21 @@ Route::get('/reset-password', [ResetPassword::class, 'show'])->middleware('guest
 Route::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');
 Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
 Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+	// RUTAS VERIFICACION EMAIL
+	Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+	Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware(['signed']);
+	Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
 	// Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static');
 	// Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
 	// Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
-	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+	Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 });
