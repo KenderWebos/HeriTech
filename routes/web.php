@@ -15,6 +15,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SettingController;
 
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\FlashcardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,6 +112,15 @@ Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
 Route::get('/informe', [ReportController::class, 'showInforme'])->name('informe');
 Route::get('/pdf', [ReportController::class, 'showPdf'])->name('pdf');
 
+
+Route::get('/flashcards', [FlashcardController::class, 'index'])->name('flashcards.index');
+    Route::post('/flashcards', [FlashcardController::class, 'store'])->name('flashcards.store');
+    Route::delete('/flashcards/{flashcard}', [FlashcardController::class, 'destroy'])->name('flashcards.destroy');
+    Route::put('/flashcards/{flashcard}', [FlashcardController::class, 'update'])->name('flashcards.update');
+
+
+
+
 //LANDINGPAGE CONFIG
 
 Route::resource('settings', SettingController::class);
@@ -150,4 +160,7 @@ Route::group(['middleware' => 'auth'], function () {
 	// Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+	
 });
+
+
