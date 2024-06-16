@@ -14,6 +14,8 @@ use App\Http\Controllers\RolesController;
 
 use App\Http\Controllers\SettingController;
 
+use App\Http\Controllers\ReportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,6 +107,9 @@ Route::resource('data', DataController::class);
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
 Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
+
+Route::get('/informe', [ReportController::class, 'showInforme'])->name('informe');
+Route::get('/pdf', [ReportController::class, 'showPdf'])->name('pdf');
 
 //LANDINGPAGE CONFIG
 

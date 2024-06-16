@@ -9,10 +9,7 @@ class Evento extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['fecha', 'descripcion', 'titulo'];
+    protected $fillable = ['nombre', 'descripcion', 'duracion', 'ubicacion', 'created_at'];
 
-    public function tipo_evento()
-    {
-        return $this->belongsTo(TipoEvento::class);
-    }
+    public $timestamps = false;
 }
