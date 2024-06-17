@@ -40,4 +40,6 @@ class Evento extends Model
    * @var array
    */
   protected $fillable = ['fecha', 'titulo', 'descripcion', 'duracion', 'ubicacion', 'latitud', 'longitud'];
+  // protected $fillable = ['nombre', 'descripcion', 'duracion', 'ubicacion', 'created_at'];
+  // public $timestamps = false;
 }

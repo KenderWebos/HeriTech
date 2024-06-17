@@ -17,6 +17,23 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SettingController;
 
 // require_once __DIR__ ."web/testing.php";
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\FlashcardController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get("/a", function () {
+	return view('a');
+});
 
 Route::get("/terminal", function () {
 	return view('terminal');
@@ -72,6 +89,14 @@ Route::resource('tipo-eventos', TipoEventoController::class);
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
 Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
 
+Route::get('/informe', [ReportController::class, 'showInforme'])->name('informe');
+Route::get('/pdf', [ReportController::class, 'showPdf'])->name('pdf');
+
+Route::resource('flashcards', FlashcardController::class);
+
+
+
+
 //LANDINGPAGE CONFIG
 
 Route::resource('settings', SettingController::class);
@@ -116,4 +141,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 	// Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
+	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+	
 });
+
+
