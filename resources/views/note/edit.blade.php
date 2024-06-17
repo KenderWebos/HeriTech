@@ -29,3 +29,12 @@
         </div>
     </section>
 @endsection
+@section('scripts')
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#descriptionTextArea' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+@endsection

@@ -35,6 +35,9 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
 
+    <!-- Enriquecer el texto -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
 </head>
 
 <body class="{{ $class ?? '' }} bg-color-main">
@@ -126,6 +129,8 @@
         });
     </script>
 
+    @yield('scripts')
+    
     @stack('js')
 </body>
 
