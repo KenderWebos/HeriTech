@@ -31,27 +31,39 @@ class FlashcardController extends Controller
     }
 
     public function destroy(Flashcard $flashcard)
-    {
-        $this->authorize('delete', $flashcard);
-        $flashcard->delete();
-
-        return redirect()->route('flashcards.index');
+{
+    // Verificar si el usuario autenticado es el propietario del flashcard
+    if (auth()->id() !== $flashcard->user_id) {
+        abort(403, 'Unauthorized action.');
     }
 
-    public function update(Request $request, Flashcard $flashcard)
-    {
-        $request->validate([
-            'question' => 'required|string|max:255',
-            'answer' => 'required|string',
-        ]);
+    // Eliminar el flashcard
+    $flashcard->delete();
 
-        $this->authorize('update', $flashcard);
+    // Redirigir al usuario de vuelta a la página de flashcards
+    return redirect()->route('flashcards.index');
+}
 
-        $flashcard->update([
-            'question' => $request->question,
-            'answer' => $request->answer,
-        ]);
-
-        return redirect()->route('flashcards.index');
+public function update(Request $request, Flashcard $flashcard)
+{
+    // Verificar si el usuario autenticado es el propietario del flashcard
+    if (auth()->id() !== $flashcard->user_id) {
+        abort(403, 'Unauthorized action.');
     }
+
+    // Validar los datos recibidos del formulario
+    $request->validate([
+        'question' => 'required|string|max:255',
+        'answer' => 'required|string',
+    ]);
+
+    // Actualizar los datos del flashcard
+    $flashcard->update([
+        'question' => $request->question,
+        'answer' => $request->answer,
+    ]);
+
+    // Redirigir al usuario de vuelta a la página de flashcards
+    return redirect()->route('flashcards.index');
+}
 }

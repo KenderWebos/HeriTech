@@ -32,7 +32,7 @@
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>Fecha</th>
                 <th>Descripción</th>
                 <th>Duración</th>
                 <th>Ubicación</th>
@@ -42,7 +42,7 @@
         <tbody>
             @foreach ($events as $event)
                 <tr>
-                    <td>{{ $event->nombre }}</td>
+                    <td>{{ $event->fecha }}</td>
                     <td>{{ $event->descripcion }}</td>
                     <td>{{ $event->duracion }}</td>
                     <td>{{ $event->ubicacion }}</td>

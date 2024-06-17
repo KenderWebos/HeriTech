@@ -112,11 +112,7 @@ Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
 Route::get('/informe', [ReportController::class, 'showInforme'])->name('informe');
 Route::get('/pdf', [ReportController::class, 'showPdf'])->name('pdf');
 
-
-Route::get('/flashcards', [FlashcardController::class, 'index'])->name('flashcards.index');
-    Route::post('/flashcards', [FlashcardController::class, 'store'])->name('flashcards.store');
-    Route::delete('/flashcards/{flashcard}', [FlashcardController::class, 'destroy'])->name('flashcards.destroy');
-    Route::put('/flashcards/{flashcard}', [FlashcardController::class, 'update'])->name('flashcards.update');
+Route::resource('flashcards', FlashcardController::class);
 
 
 

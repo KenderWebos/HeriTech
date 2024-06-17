@@ -26,7 +26,7 @@ Informe de eventos
         <table id="datatable" class="display">
             <thead>
                 <tr>
-                    <th>Nombre</th>
+                    <th>Fecha</th>
                     <th>Descripción</th>
                     <th>Duración</th>
                     <th>Ubicación</th>
@@ -36,7 +36,7 @@ Informe de eventos
             <tbody>
                 @foreach ($events as $event)
                 <tr>
-                    <td>{{ $event->nombre }}</td>
+                    <td>{{ $event->fecha }}</td>
                     <td>{{ $event->descripcion }}</td>
                     <td>{{ $event->duracion }}</td>
                     <td>{{ $event->ubicacion }}</td>

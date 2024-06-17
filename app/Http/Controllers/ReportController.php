@@ -16,7 +16,7 @@ class ReportController extends Controller
         $events = Evento::query();
         
         if ($startDate && $endDate) {
-            $events->whereBetween('created_at', [$startDate, $endDate]);
+            $events->whereBetween('fecha', [$startDate, $endDate]);
         }
 
         $events = $events->get();
@@ -32,7 +32,7 @@ class ReportController extends Controller
         $events = Evento::query();
 
         if ($startDate && $endDate) {
-            $events->whereBetween('created_at', [$startDate, $endDate]);
+            $events->whereBetween('fecha', [$startDate, $endDate]);
         }
 
         $events = $events->get();
