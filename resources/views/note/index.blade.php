@@ -45,19 +45,19 @@ Note
                                     <th>Images</th>
                                     <th>Tags</th>
 
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($notes as $note)
-                                <tr>
-                                    <td>{{ ++$i }}</td>
-
-                                    <td>{{ $note->title }}</td>
-                                    <td>{{ $note->description }}</td>
-                                    <td>{{ $note->author }}</td>
-                                    <td>{{ $note->images }}</td>
-                                    <td>{{ $note->tags }}</td>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($notes as $note)
+                                        <tr>
+                                            <td>{{ ++$i }}</td>
+                                            
+											<td>{{ $note->title }}</td>
+											<td>{!! $note->description !!}</td>
+											<td>{{ $note->author }}</td>
+											<td>{{ $note->images }}</td>
+											<td>{{ $note->tags }}</td>
 
                                     <td>
                                         <form action="{{ route('notes.destroy',$note->id) }}" method="POST">
@@ -79,4 +79,13 @@ Note
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#descriptionTextArea' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 @endsection

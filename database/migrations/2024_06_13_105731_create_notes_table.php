@@ -16,16 +16,14 @@ return new class extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description')->nullable();
+            $table->string('description')->nullable();
             $table->string('author')->nullable();
 
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
 
-            $table->json('images')->nullable();
-            $table->json('tags')->nullable();
-
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('images')->nullable(); # pasar a JSON cuando tengamos la tabla de imagenes
+            $table->string('tags')->nullable(); # pasar a JSON cuando tengamos la tabla de tags
         });
     }
 
