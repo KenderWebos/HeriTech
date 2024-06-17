@@ -13,7 +13,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Calendar</h5>
+                            <h5 class="card-title">Calendar 📅</h5>
 
                             <div class="col-4">
                                 <form action="{{ route('evento.guardar') }}" method="POST">
@@ -45,6 +45,8 @@
                             <div id="alerts-container">
                                 <!-- Aquí se mostrarán las alertas -->
                             </div>
+
+                            <iframe style="width:100%; height:1000px" src="{{ url('calendargo') }}" frameborder="0"></iframe>
 
                             <div class="table-responsive">
                                 <table id="datatable" class="table table-striped table-hover text-center">

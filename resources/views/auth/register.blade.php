@@ -7,8 +7,19 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 text-center mx-auto">
-                    <h1 class="text-white mb-2 mt-5">Bienvenido!</h1>
-                    <p class="text-lead text-white">Consigue acceso a las funciones de la pagina con solo registrarte en el siguiente formulario.</p>
+
+                    <div class="card">
+                        <div class="card-header">
+                            ⚠️ Cuenta de prueba ⚠️
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <p>User: estudiante@heritech.cl </p>
+                            <p>password: password</p>
+                            <a href="url('login')">Login</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -17,8 +28,12 @@
         <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
             <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                 <div class="card z-index-0">
-                    <div class="card-header text-center pt-4">
-                        <h5>Registrarse con</h5>
+                    <div class="align-item-center m-4">
+                        <a href="{{ url('landingpage') }}">
+                            <center>
+                                <img style="width:280px" src="{{ asset('images/heritech/ht_logo.png') }}" alt="a simple ht_logo">
+                            </center>
+                        </a>
                     </div>
                     <div class="row px-xl-5 px-sm-4 px-3">
 
@@ -38,7 +53,7 @@
                                 </a> -->
                         </div>
                         <div class="col-3 px-1">
-                            <a class="btn btn-outline-light w-100" href="javascript:;">
+                            <!-- <a class="btn btn-outline-light w-100" href="javascript:;">
                                 <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <g transform="translate(3.000000, 2.000000)" fill-rule="nonzero">
@@ -49,7 +64,7 @@
                                         </g>
                                     </g>
                                 </svg>
-                            </a>
+                            </a> -->
                         </div>
                         <div class="col-3 me-auto px-1">
                             <!-- <a class="btn btn-outline-light w-100" href="javascript:;">
@@ -66,11 +81,11 @@
                             </a> -->
                         </div>
 
-                        <div class="mt-2 position-relative text-center">
+                        <!-- <div class="mt-2 position-relative text-center">
                             <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
                                 o
                             </p>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('register.perform') }}">

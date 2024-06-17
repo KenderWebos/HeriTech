@@ -19,7 +19,7 @@
                         <div class="card card-plain bg-white p-5 rounded-5">
 
                             <div class="align-item-center bg-red">
-                                <a href="{{ route('landingpage') }}">
+                                <a href="{{ url('landingpage') }}">
                                     <center>
                                         <img style="width:280px" src="{{ asset('images/heritech/ht_logo.png') }}" alt="a simple ht_logo">
                                     </center>

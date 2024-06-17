@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Evento;
 
-class CalendarGoController extends Controller
+class MiMateriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,10 +28,10 @@ class CalendarGoController extends Controller
                 'link' => 'www.kevincampos.cl/calendargo',
             ];
         }
-        
-        return view('pages.partials.calendargo.calendargo', compact('events'));
-    }
 
+
+        return view('pages.partials.mimateria.mimateria', compact('events'));
+    }
     /**
      * Show the form for creating a new resource.
      *

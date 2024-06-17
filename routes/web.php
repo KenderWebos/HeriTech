@@ -58,9 +58,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingpage');
 
-// Route::get("/landingpage", function () {
-// 	return view('pages.landingpage-mimateria');
-// });
+Route::get('/landingpage', function () {
+	return redirect('/mimateria');
+});
 
 Route::get('/top', [App\Http\Controllers\TopEducatorsController::class, 'index'])->name('top');
 
@@ -76,6 +76,8 @@ Route::resource('eventos', EventoController::class);
 Route::resource('tipo-eventos', TipoEventoController::class);
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
+Route::get('/mimateria', [App\Http\Controllers\MiMateriaController::class, 'index'])->name('mimateria');
+
 Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);
 
 Route::get('/informe', [ReportController::class, 'showInforme'])->name('informe');
