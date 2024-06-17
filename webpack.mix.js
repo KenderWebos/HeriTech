@@ -15,3 +15,13 @@ mix.js('resources/js/app.js', 'public/assets/js/argon-dashboard.js')
     .sass('resources/scss/argon-dashboard.scss', 'public/assets/css/argon-dashboard.css', [
         //
     ]);
+
+
+mix
+    .js(["resources/js/admin/admin.js"], "public/js")
+    .sass("resources/sass/admin/admin.scss", "public/css")
+    .vue();
+
+if (mix.inProduction()) {
+    mix.version();
+}
