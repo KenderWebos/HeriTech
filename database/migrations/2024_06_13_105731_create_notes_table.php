@@ -24,6 +24,8 @@ return new class extends Migration
 
             $table->json('images')->nullable();
             $table->json('tags')->nullable();
+
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         });
     }
 

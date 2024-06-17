@@ -48,30 +48,15 @@ Route::resource('roles', RolesController::class);
 
 Auth::routes();
 
-// muestra todas las rutas en la ruta /routes
-
-Route::get('/routes', function () {
-	$menu = '<ul>';
-
-	foreach (Route::getRoutes() as $route) {
-		$menu .= '<li><a href="' . url($route->uri()) . '">' . $route->uri() . '</a></li>';
-	}
-
-	$menu .= '</ul>';
-
-	return $menu;
-});
-
-
-//muestra todos los usuarios en la ruta /allusers
-
-Route::get('allusers', function () {
-	return App\Models\User::all();
-});
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingpage');
+
+// Route::get("/landingpage", function () {
+// 	return view('pages.landingpage-mimateria');
+// });
+
+Route::get('/top', [App\Http\Controllers\TopEducatorsController::class, 'index'])->name('top');
 
 Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'index'])->name('calendar');
 Route::post('/evento/guardar', [App\Http\Controllers\CalendarController::class, 'guardar'])->name('evento.guardar');

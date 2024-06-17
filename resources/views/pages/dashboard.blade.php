@@ -124,7 +124,7 @@
                     </p>
 
                     <div class="text-end">
-                        <span> <a href="{{ route('calendargo') }}">Ir al CalendarGO</a> </span>
+                        <span> <a target="_blank" href="{{ route('calendargo') }}">Ir al Calendario</a> </span>
                     </div>
 
                     <div class="table-responsive">
@@ -189,7 +189,7 @@
 
     <div class="row mt-4">
         <div class="col-xl-6 col-sm-12 mb-4">
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-body">
                     <div class="row text-center justify-content-center">
                         <div class="col-8">
@@ -200,70 +200,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="col-xl-6 col-sm-12 mb-4">
-
-            <div class="card">
-                <div class="card-body text-center">
-
-                    <p class="card-title">
-                        <i class="fas fa-bolt"></i>
-                        Nota rapida
-                        <i class="fas fa-bolt"></i>
-                    </p>
-
-                    <form action="{{ route('landingpage') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <textarea class="form-control" style="display:none;" name="title" rows="1" placeholder="Título">*</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea class="form-control" name="content" rows="4" placeholder="Contenido"></textarea>
-                        </div>
-
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-
-                        <!-- Button trigger modal -->
-                         
-                        <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_watch_notes">
-                            <i class="far fa-eye"></i>
-                        </button> -->
-
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-bolt"></i>
-                            POSTEAR
-                            <i class="fas fa-bolt"></i>
-                        </button>
-                    </form>
-
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Contenido</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Contenido del modal -->
-                                    <p>Aquí va tu contenido dentro del modal.</p>
-                                    <!-- Puedes agregar cualquier contenido HTML -->
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <!-- Puedes agregar más botones aquí si es necesario -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+            
         </div>
     </div>
 

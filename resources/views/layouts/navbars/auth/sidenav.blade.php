@@ -31,27 +31,45 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'notes') == true ? 'active' : '' }}" href="{{ url('notes') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                        📝
                     </div>
                     <span class="nav-link-text ms-1">Apuntes</span>
                 </a>
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'eventos') == true ? 'active' : '' }}" href="{{ url('eventos') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        📍
+                    </div>
+                    <span class="nav-link-text ms-1">Eventos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'data') == true ? 'active' : '' }}" href="{{ url('data') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🔮
+                    </div>
+                    <span class="nav-link-text ms-1">Facts</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'calendar') == true ? 'active' : '' }}" href="{{ route('calendar') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                        📅
                     </div>
                     <span class="nav-link-text ms-1">Calendario</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'eventos') == true ? 'active' : '' }}" href="{{ url('eventos') }}">
+                <a class="nav-link {{ str_contains(request()->url(), 'top') == true ? 'active' : '' }}" href="{{ url('top') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                        ⚔️
                     </div>
-                    <span class="nav-link-text ms-1">Eventos</span>
+                    <span class="nav-link-text ms-1">TOP Estudiantes</span>
                 </a>
             </li>
 
@@ -93,51 +111,32 @@
 
             <hr>
 
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-toggle="collapse" href="#roles-collapse" aria-expanded="false">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-settings-gear-65 text-secondary text-sm opacity-10"></i>
-                    </div>
-
-                    <span class="nav-link-text ms-1">Panel de gestion</span>
-                </a>
-                
-                <div class="collapse" id="roles-collapse">
-                    <ul class="navbar-nav">
-
-                        <li class="nav-item">
-                            <a class="nav-link {{ str_contains(request()->url(), 'roles') == true ? 'active' : '' }}" href="{{url('roles')}}">Roles</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link {{ str_contains(request()->url(), 'data') == true ? 'active' : '' }}" href="{{url('data')}}">Datos</a>
-                        </li>
-                    </ul>
-                </div>
-            </li> -->
-
             @role('administrador')
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-toggle="collapse" href="#mantenedores-collapse" aria-expanded="false">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-settings-gear-65 text-secondary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Mantenedores</span>
-                </a>
-                <div class="collapse" id="mantenedores-collapse">
-                    <ul class="navbar-nav">
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ str_contains(request()->url(), 'tipo-eventos') == true ? 'active' : '' }}" href="{{url('tipo-eventos')}}">Tipo Eventos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link {{ str_contains(request()->url(), 'settings') == true ? 'active' : '' }}" href="{{url('settings')}}">Landingpage Settings</a>
-                        </li>
-                    </ul>
-                </div>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6"><i class="ni ni-app"></i> Aplicaciones</h6>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'tipo-eventos') == true ? 'active' : '' }}" href="{{ url('tipo-eventos') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🗃️
+                    </div>
+                    <span class="nav-link-text ms-1">tipo-eventos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'settings/1/edit') == true ? 'active' : '' }}" href="{{ url('settings/1/edit') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        ⚙️
+                    </div>
+                    <span class="nav-link-text ms-1">Configurar Pagina</span>
+                </a>
+            </li>
+
             @endrole
+            
         </ul>
     </div>
 
