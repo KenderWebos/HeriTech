@@ -57,7 +57,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:api'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
-    Route::get('/project', function () {
+    Route::get('/project', function () {    
         return 'Projects Fetch Successfully!';
     });
 });

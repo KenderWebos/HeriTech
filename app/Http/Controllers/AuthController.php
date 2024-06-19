@@ -20,7 +20,6 @@ class AuthController extends Controller
             'password' => 'required|string|min:6|confirmed'
         ]);
 
-
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
@@ -39,14 +38,11 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
-        $userData = User::where('email', $request->input('email'))->first();
-        if ($userData) {
-            if (Hash::check($request->password, $userData->password)) {
-                $success['token'] = $userData->createToken('MY_New_Project')->accessToken;
-                $success['massage'] = "Login Successfully!";
-                return response()->json(['data' => $success], 200);
-            }
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $user = Auth::user();
+            $success['token'] = $user->createToken('MY_New_Project')->accessToken;
+            $success['massage'] = "Login Successfully!";
+            return response()->json(['data' => $success], 200);
         } else {
             return response()->json(['message' => 'User does not exist'], 422);
         }
