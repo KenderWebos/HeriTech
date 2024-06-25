@@ -15,6 +15,7 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\RolesController;
 
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
 
 // require_once __DIR__ ."web/testing.php";
 
@@ -79,6 +80,7 @@ Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::c
 
 Route::resource('/posts', App\Http\Controllers\PostController::class)->middleware(['auth']);
 
+Route::resource('users', UserController::class)->middleware('can:gestionar usuarios');
 Route::resource('data', DataController::class);
 Route::resource('notes', NoteController::class);
 Route::resource('eventos', EventoController::class);
