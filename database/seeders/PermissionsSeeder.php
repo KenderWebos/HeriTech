@@ -29,10 +29,9 @@ class PermissionsSeeder extends Seeder
 
         $user = USER::where('email', 'kenderman.8@gmail.com')->first();
         $user->assignRole( 'administrador', 'estudiante' );
-        
 
         $user = User::where('email', 'admin@heritech.cl')->first();
         $user->assignRole( 'administrador', 'estudiante' );
-        $role = Role::create(['name' => 'generador de eventos']);
+        $role = Role::create(['name' => 'gestor de eventos']);
     }
 }

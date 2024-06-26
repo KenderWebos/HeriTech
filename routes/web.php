@@ -80,6 +80,8 @@ Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::c
 
 Route::resource('/posts', App\Http\Controllers\PostController::class)->middleware(['auth']);
 
+Route::post('users/modify_rol', [UserController::class, 'modify_roles'])->name('users.modify_rol');
+
 Route::resource('users', UserController::class)->middleware('can:gestionar usuarios');
 Route::resource('data', DataController::class);
 Route::resource('notes', NoteController::class);

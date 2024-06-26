@@ -54,7 +54,22 @@
                     <span class="nav-link-text ms-1">Eventos</span>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'users') == true ? 'active' : '' }}" href="{{ url('users') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Usuarios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'roles') == true ? 'active' : '' }}" href="{{ url('roles') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Roles</span>
+                </a>
+            </li>
             <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'proposito') == true ? 'active' : '' }}" href="{{ route('proposito') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
