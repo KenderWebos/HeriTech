@@ -127,6 +127,22 @@
                     <span class="nav-link-text ms-1">Flashcards</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'mesas') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'mesas'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🧠
+                    </div>
+                    <span class="nav-link-text ms-1">Mesas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'reservas') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'reservas'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🧠
+                    </div>
+                    <span class="nav-link-text ms-1">Reservas</span>
+                </a>
+            </li>
 
 
 
