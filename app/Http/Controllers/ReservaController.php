@@ -19,34 +19,27 @@ class ReservaController extends Controller
 
     public function create()
 {
-    // Obtener todas las mesas
     $mesas = Mesa::all();
-
-    // Obtener horarios disponibles que no están reservados a partir de hoy
     $horarios = Horario::where('reservado', false)
                        ->where('fecha', '>=', Carbon::today()->format('Y-m-d'))
                        ->get();
-
-    // Obtener materias disponibles
-    $materias = Mesa::distinct()->pluck('materia');
-
-    // Agrupar capacidades por fecha y materia para mostrar en la vista
+    $fechas = $horarios->pluck('fecha')->unique();
     $capacidades = [];
-    foreach ($horarios as $horario) {
-        if (!isset($capacidades[$horario->fecha])) {
-            $capacidades[$horario->fecha] = [];
-        }
 
-        // Verificar que la materia de la mesa coincida con la materia seleccionada
-        if ($horario->mesa->materia == request()->get('materia')) {
-            $capacidades[$horario->fecha][$horario->mesa_id] = $horario->mesa->capacidad;
-        }
+    foreach ($fechas as $fecha) {
+        $capacidades[$fecha] = Mesa::whereHas('horarios', function ($query) use ($fecha) {
+                                       $query->where('fecha', $fecha)->where('reservado', false);
+                                   })
+                                   ->pluck('capacidad', 'id')
+                                   ->toArray();
     }
 
     $user = Auth::user();
 
-    return view('reservas.create', compact('materias', 'mesas', 'horarios', 'capacidades', 'user'));
+    return view('reservas.create', compact('mesas', 'horarios', 'fechas', 'capacidades', 'user'));
 }
+
+    
 
 
     public function store(Request $request)
