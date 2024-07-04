@@ -16,6 +16,20 @@ Flashcards
         <center>
             <div class="question-container hide mt-4 col-6" id="add-question-card">
                 <h2 id="form-title">Agregar Flashcard 🧠</h2>
+                <small>
+                    <pre>
+
+Las flashcards son tarjetas de estudio con:
+
+Cara frontal: Pregunta o concepto.
+Cara posterior: Respuesta o información.
+Se usan para memorizar información, mejorando la memoria y la concentración.
+Son portátiles, personalizables y pueden ser divertidas.
+
+¡Úsalas para aprender de forma efectiva!
+                    </pre>
+                </small>
+
                 <div class="wrapper">
                     <!-- Error message -->
                     <!-- <div class="error-con">
@@ -61,7 +75,7 @@ Flashcards
                             <div class="buttons-con d-flex justify-content-between align-items-center mt-2">
 
                                 <a href="#" class="btn btn-success show-hide-btn" data-answer-id="{{ $flashcard->id }}">💡 Respuesta</a>
-                                
+
                                 <button class="btn btn-warning edit" onclick="editFlashcard({{ $flashcard->id }}, '{{ $flashcard->question }}', '{{ $flashcard->answer }}')" data-toggle="modal" data-target="#editFlashcardModal">
                                     <i class="fas fa-edit"></i> Editar
                                 </button>

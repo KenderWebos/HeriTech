@@ -14,6 +14,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Calendar 📅</h5>
+                            <small>
+                                <pre>
+Agenda eventos para que otros puedan verlos.
+                                </pre>
+                            </small>
 
                             <div class="col-4">
                                 <form action="{{ route('evento.guardar') }}" method="POST">

@@ -10,6 +10,10 @@
     <div class="card-body">
         <div class="container my-5">
             <h2 class="text-center mb-4">TOP Educadores 🥇</h2>
+            <small><pre>
+                TOP Educadores:
+                Seccion que lista a los estudiantes que a nuestro criterio mas han aportado a la comunidad mimateria.cl
+            </pre></small>
             <div class="row">
                 @foreach($users as $user)
                 <div class="col-md-4">
