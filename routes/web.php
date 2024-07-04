@@ -20,6 +20,20 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\FlashcardController;
 
+
+use App\Http\Controllers\MesaController;
+use App\Http\Controllers\ReservaController;
+
+Route::resource('mesas', MesaController::class);
+
+Route::resource('reservas', ReservaController::class);
+Route::post('reservas/{id}/rechazar', [ReservaController::class, 'rechazar'])->name('reservas.rechazar');
+
+
+
+
+
+
 Route::get("/a", function () {
 	return view('a');
 });
