@@ -91,14 +91,9 @@ class ReservaController extends Controller
         return redirect()->route('reservas.index')->with('success', 'Reserva actualizada con éxito');
     }
 
-    public function destroy($id)
-    {
-        $reserva = Reserva::findOrFail($id);
-        $reserva->delete();
-        return redirect()->route('reservas.index')->with('success', 'Reserva eliminada con éxito');
-    }
+   
 
-    public function rechazar($id)
+    public function destroy($id)
     {
         $reserva = Reserva::findOrFail($id);
 
@@ -115,6 +110,6 @@ class ReservaController extends Controller
         $reserva->delete();
 
         // Redirigir a la página de user-actions
-        return redirect()->route('user-actions')->with('success', 'Reserva rechazada con éxito');
+        return redirect()->route('reservas.index')->with('success', 'Reserva eliminada con éxito');
     }
 }

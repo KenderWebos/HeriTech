@@ -13,6 +13,11 @@
             <h1 class="card-title">Lista de Reservas</h1>
         </div>
         <div class="card-body">
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
             <a href="{{ route('reservas.create') }}" class="btn btn-primary mb-3">Crear Nueva Reserva</a>
             <div class="table-responsive">
                 <table class="table table-striped">
