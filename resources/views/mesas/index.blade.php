@@ -43,9 +43,9 @@ Mesas
                                 <td>{{ $mesa->capacidad }}</td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="{{ route('mesas.show', $mesa->id) }}" class="btn btn-info btn-sm">
+                                        <!-- <a href="{{ route('mesas.show', $mesa->id) }}" class="btn btn-info btn-sm">
                                             <i class="bi bi-eye"></i>
-                                        </a>
+                                        </a> -->
                                         <form action="{{ route('mesas.destroy', $mesa->id) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('DELETE')
