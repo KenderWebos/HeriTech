@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 text-center mx-auto">
 
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-header">
                             ⚠️ Cuenta de prueba ⚠️
                             <hr>
@@ -18,7 +18,7 @@
                             <p>password: password</p>
                             <a href="url('login')">Login</a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
