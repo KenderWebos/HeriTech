@@ -87,6 +87,13 @@ Route::resource('data', DataController::class);
 Route::resource('notes', NoteController::class);
 Route::resource('eventos', EventoController::class);
 Route::resource('tipo-eventos', TipoEventoController::class);
+Route::get('/evento/solicitudes/crear', [App\Http\Controllers\EventoController::class, 'crear_solicitud'])->name('evento.crear_solicitudes');
+Route::get('/evento/solicitudes/ver', [App\Http\Controllers\EventoController::class, 'ver_solicitudes'])->name('evento.ver_solicitudes');
+Route::post('/evento/solicitudes/action', [App\Http\Controllers\EventoController::class, 'accion_solicitud'])->name('evento.accion_solicitud');
+
+Route::get('/maptesting', function (Request $request) {
+    return view('maptesting.maptesting');
+});
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
 Route::get('/games', [App\Http\Controllers\gamesController::class, 'index']);

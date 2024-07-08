@@ -26,6 +26,11 @@ class Evento extends Model
 {
   use HasFactory;
 
+  public function user()
+  {
+    return $this->belongsTo(User::class, 'id_generador');
+  }
+
   static $rules = [
     'fecha' => 'required',
     'titulo' => 'required',

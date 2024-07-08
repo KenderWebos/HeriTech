@@ -23,7 +23,7 @@ class PermissionsSeeder extends Seeder
         $role->givePermissionTo($permission); // dale al rol administrador el permiso de ver informacion rapida
 
         $role = Role::create(['name' => 'estudiante']);
-        $permission = Permission::create(['name' => '    eventos']);
+        $permission = Permission::create(['name' => 'Ver eventos']);
 
         $role->givePermissionTo($permission); // dale al rol administrador el permiso de ver informacion rapida
 

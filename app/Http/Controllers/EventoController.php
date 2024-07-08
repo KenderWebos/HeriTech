@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class EventoController
@@ -46,9 +47,9 @@ class EventoController extends Controller
         request()->validate(Evento::$rules);
 
         $evento = Evento::create($request->all());
-
+        $evento->id_generador = auth()->user()->id;
         return redirect()->route('eventos.index')
-            ->with('success', 'Evento created successfully.');
+            ->with('success', 'Evento Creado Satisfactoriamente');
     }
 
     /**
@@ -105,5 +106,39 @@ class EventoController extends Controller
 
         return redirect()->route('eventos.index')
             ->with('success', 'Evento deleted successfully');
+    }
+
+    public function crear_solicitud()
+    {  
+        $evento = new Evento();
+        return view('evento.solicitudes.crear', compact('evento'));
+    }
+    public function ver_solicitudes(){
+        $eventos = Evento::with('user')->orderBy('revisado', 'ASC')->paginate()->through(function(Evento $evento){
+            if(isset($evento->user->username)){
+                $evento->usuario = $evento->user->username;
+            }else{
+                $evento->usuario = "None";
+            }
+            
+            return $evento;
+        });
+        return view('evento.solicitudes.ver', compact('eventos'))
+        ->with('i', (request()->input('page', 1) - 1) * $eventos->perPage());
+    }
+
+    public function accion_solicitud(Request $request){
+        $evento = Evento::find($request->id_evento);
+        $evento->revisado = 1;
+        $accion = "rechazado";
+        if($request->accion == "rechazar"){
+            $evento->estado_solicitud = 0;
+        }else{
+            $evento->estado_solicitud = 1;
+            $accion = "aceptada";
+        }
+        $evento->save();
+        return redirect()->route('evento.ver_solicitudes')
+        ->with('success', 'Solicitud de evento '.$accion);
     }
 }

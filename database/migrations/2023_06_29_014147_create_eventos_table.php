@@ -18,7 +18,13 @@ class CreateEventosTable extends Migration
             $table->string('ubicacion')->nullable();
             $table->string('latitud')->nullable();
             $table->string('longitud')->nullable();
+            $table->boolean('revisado')->default(0);
+            $table->boolean('estado_solicitud')->default(0);
+            $table->unsignedBigInteger('id_generador')->nullable();
             $table->timestamps();
+
+
+            $table->foreign('id_generador')->references('id')->on('users')->onDelete('set null');
         });
     }
 

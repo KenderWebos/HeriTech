@@ -25,13 +25,17 @@ class EventoFactory extends Factory
         
         $latitud = $this->faker->latitude(0,0);
         $longitud = $this->faker->longitude(0,0);
-
+        $estado_solicitud = $this->faker->boolean();
+        $revisado = $this->faker->boolean();
         return [
             'fecha' => $this->faker->dateTimeBetween('-1 month', '+1 month'),
             'titulo' => $titulo,
             'descripcion' => "a simple event for ".$titulo."",
             'latitud' => $latitud,
             'longitud' => $longitud,
+            'estado_solicitud' => $estado_solicitud,
+            'revisado' => $revisado,
+            'id_generador'=> 1,
         ];
     }
 }
