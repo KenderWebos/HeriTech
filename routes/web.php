@@ -92,7 +92,8 @@ Route::get('/evento/solicitudes/ver', [App\Http\Controllers\EventoController::cl
 Route::post('/evento/solicitudes/action', [App\Http\Controllers\EventoController::class, 'accion_solicitud'])->name('evento.accion_solicitud');
 
 Route::get('/maptesting', function (Request $request) {
-    return view('maptesting.maptesting');
+	$gmap = env('GOOGLE_MAPS_API_KEY', false);
+    return view('maptesting.maptesting', compact('gmap'));
 });
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
