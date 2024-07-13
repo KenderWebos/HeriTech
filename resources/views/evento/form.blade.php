@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('fecha') }}
             {{ Form::date('fecha', $evento->fecha, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'placeholder' => 'Fecha']) }}
@@ -23,18 +23,14 @@
         </div>
         <div class="form-group">
             {{ Form::label('ubicacion') }}
-            {{ Form::text('ubicacion', $evento->ubicacion, ['class' => 'form-control' . ($errors->has('ubicacion') ? ' is-invalid' : ''), 'placeholder' => 'Ubicacion']) }}
+            <select class="form-control form-control-lg {{ $errors->has('duracion') ? ' is-invalid' : '' }}" id="id_ubicacion" name="id_ubicacion" required>
+                <option>Seleccione una ubicacion</option>
+                @foreach ($ubicaciones as $ubicacion)
+                    <option value="{{$ubicacion->id}}">{{$ubicacion->nombre}}</option>
+                @endforeach
+            </select>
+
             {!! $errors->first('ubicacion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('latitud') }}
-            {{ Form::text('latitud', $evento->latitud, ['class' => 'form-control' . ($errors->has('latitud') ? ' is-invalid' : ''), 'placeholder' => 'Latitud']) }}
-            {!! $errors->first('latitud', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('longitud') }}
-            {{ Form::text('longitud', $evento->longitud, ['class' => 'form-control' . ($errors->has('longitud') ? ' is-invalid' : ''), 'placeholder' => 'Longitud']) }}
-            {!! $errors->first('longitud', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>

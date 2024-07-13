@@ -22,17 +22,16 @@ class EventoFactory extends Factory
 
         // Concatenación de las palabras seleccionadas
         $titulo = $this->faker->randomElement($pre) . ' de ' . $this->faker->randomElement($post);
-        
-        $latitud = $this->faker->latitude(0,0);
-        $longitud = $this->faker->longitude(0,0);
         $estado_solicitud = $this->faker->boolean();
         $revisado = $this->faker->boolean();
+        $duracion = $this->faker->numberBetween(30,120);
+        $id_ubicacion = $this->faker->numberBetween(1,9);
         return [
             'fecha' => $this->faker->dateTimeBetween('-1 month', '+1 month'),
             'titulo' => $titulo,
             'descripcion' => "a simple event for ".$titulo."",
-            'latitud' => $latitud,
-            'longitud' => $longitud,
+            'duracion' => $duracion,
+            'id_ubicacion' => $id_ubicacion,
             'estado_solicitud' => $estado_solicitud,
             'revisado' => $revisado,
             'id_generador'=> 1,

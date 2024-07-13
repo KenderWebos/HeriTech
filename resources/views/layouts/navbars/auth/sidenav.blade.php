@@ -45,7 +45,7 @@
                     <span class="nav-link-text ms-1">Calendario</span>
                 </a>
             </li>
-
+            @can('Gestionar Eventos')
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'eventos') == true ? 'active' : '' }}" href="{{ url('eventos') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -54,14 +54,27 @@
                     <span class="nav-link-text ms-1">Eventos</span>
                 </a>
             </li>
+            @endcan
+            @can('Gestor solicitud de eventos')
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'eventos') == true ? 'active' : '' }}" href="{{ route('evento.ver_solicitudes') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'evento.ver_solicitudes' ? 'active' : '' }}" href="{{ route('evento.ver_solicitudes') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Solicitudes de Eventos</span>
                 </a>
             </li>
+            @endcan
+            @can('Crear solicitud de eventos')
+            <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'evento.crear_solicitudes' ? 'active' : '' }}" href="{{ route('evento.crear_solicitudes') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Crear Solicitud de Evento</span>
+                </a>
+            </li>
+            @endcan
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'users') == true ? 'active' : '' }}" href="{{ url('users') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">

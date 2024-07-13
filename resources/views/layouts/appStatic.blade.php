@@ -10,6 +10,7 @@
         @yield('title', 'Heritech')
     </title>
     <!--     Fonts and icons     -->
+    @yield('css-before')
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />

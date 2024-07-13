@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Ubicacion:</strong>
-                            {{ $evento->ubicacion }}
+                            {{ $evento->ubicacion->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Latitud:</strong>

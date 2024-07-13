@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Ubicaciones;
+use Illuminate\Database\Query\JoinClause;
+use Illuminate\Support\Facades\DB;
 /**
  * Class EventoController
  * @package App\Http\Controllers
@@ -111,16 +113,17 @@ class EventoController extends Controller
     public function crear_solicitud()
     {  
         $evento = new Evento();
-        return view('evento.solicitudes.crear', compact('evento'));
+        $ubicaciones = Ubicaciones::all();
+        return view('evento.solicitudes.crear', compact('evento', 'ubicaciones'));
     }
     public function ver_solicitudes(){
-        $eventos = Evento::with('user')->orderBy('revisado', 'ASC')->paginate()->through(function(Evento $evento){
+        $eventos = Evento::with(['user', 'ubicacion'])->orderBy('revisado', 'ASC')->paginate()->through(function(Evento $evento){
             if(isset($evento->user->username)){
                 $evento->usuario = $evento->user->username;
             }else{
                 $evento->usuario = "None";
             }
-            
+            isset($evento->ubicacion->nombre)? $evento->nombre_ubicacion = $evento->ubicacion->nombre:$evento->nombre_ubicacion = "No Definido";
             return $evento;
         });
         return view('evento.solicitudes.ver', compact('eventos'))
@@ -128,7 +131,7 @@ class EventoController extends Controller
     }
 
     public function accion_solicitud(Request $request){
-        $evento = Evento::find($request->id_evento);
+        $evento = Evento::with('user')->find($request->id_evento);
         $evento->revisado = 1;
         $accion = "rechazado";
         if($request->accion == "rechazar"){
@@ -139,6 +142,22 @@ class EventoController extends Controller
         }
         $evento->save();
         return redirect()->route('evento.ver_solicitudes')
-        ->with('success', 'Solicitud de evento '.$accion);
+        ->with('success', 'La solicitud de evento con título "'.$evento->titulo.'" creado por '.$evento->user->username.' ha sido '.$accion);
+    }
+
+    public function ver_eventos_mapa(){
+        $eventos = Evento::with('ubicacion')->where('estado_solicitud', '=', true)->where('revisado', '=', true)->orderBy('fecha', 'desc');
+        $ubicaciones = Ubicaciones::leftJoinSub($eventos, 'eventos_disponibles', function(JoinClause $join){
+            $join->on('ubicaciones.id', '=', 'eventos_disponibles.id_ubicacion');
+        })->select('ubicaciones.id', 'ubicaciones.nombre', 'ubicaciones.descripcion', 'ubicaciones.latitud', 'ubicaciones.longitud', db::raw('count(eventos_disponibles.id) as cantidad_eventos'))
+        ->groupBy('ubicaciones.id', 'ubicaciones.nombre', 'ubicaciones.descripcion', 'ubicaciones.latitud', 'ubicaciones.longitud')
+        ->get()->map(function(Ubicaciones $ubicacion){
+            $ubicacion->latitud = floatval($ubicacion->latitud);
+            $ubicacion->longitud = floatval($ubicacion->longitud);
+            return $ubicacion;
+        });
+        $eventos = $eventos->get();
+        $gmap = env('GOOGLE_MAPS_API_KEY', false);
+        return view('maptesting.maptesting', compact('eventos', 'gmap', 'ubicaciones'));
     }
 }

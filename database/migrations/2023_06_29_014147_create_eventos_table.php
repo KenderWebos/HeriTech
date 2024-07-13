@@ -15,16 +15,16 @@ class CreateEventosTable extends Migration
             $table->string('descripcion');
 
             $table->string('duracion')->nullable();
-            $table->string('ubicacion')->nullable();
-            $table->string('latitud')->nullable();
-            $table->string('longitud')->nullable();
             $table->boolean('revisado')->default(0);
             $table->boolean('estado_solicitud')->default(0);
-            $table->unsignedBigInteger('id_generador')->nullable();
+            
             $table->timestamps();
 
+            $table->unsignedBigInteger('id_ubicacion')->nullable();
+            $table->unsignedBigInteger('id_generador')->nullable();
 
             $table->foreign('id_generador')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('id_ubicacion')->references('id')->on('ubicaciones')->onDelete('set null');
         });
     }
 

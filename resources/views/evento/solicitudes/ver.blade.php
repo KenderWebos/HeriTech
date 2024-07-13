@@ -49,7 +49,7 @@
                                             <td>{{ $evento->titulo }}</td>
                                             <td>{{ $evento->descripcion }}</td>
                                             <td>{{ $evento->duracion }}</td>
-                                            <td>{{ $evento->ubicacion }}</td>
+                                            <td>{{ $evento->nombre_ubicacion }}</td>
                                             <td>
                                                 @if ($evento->revisado == 1 && $evento->estado_solicitud == 0)
                                                     Rechazado
