@@ -15,6 +15,7 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\RolesController;
 
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
 
 // require_once __DIR__ ."web/testing.php";
 use App\Http\Controllers\ReportController;
@@ -79,15 +80,23 @@ Route::get('/landingpage', [App\Http\Controllers\LandingPageController::class, '
 Route::get('/top', [App\Http\Controllers\TopEducatorsController::class, 'index'])->name('top');
 
 Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'index'])->name('calendar');
-Route::post('/evento/guardar', [App\Http\Controllers\CalendarController::class, 'guardar'])->name('evento.guardar');
-Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::class, 'borrar'])->name('evento.borrar');
+Route::post('/evento/guardar', [App\Http\Controllers\CalendarController::class, 'guardar'])->name('evento.guardar')->middleware('can:Gestionar Eventos');
+Route::delete('/evento/borrar/{id}', [App\Http\Controllers\CalendarController::class, 'borrar'])->name('evento.borrar')->middleware('can:Gestionar Eventos');;
 
 Route::resource('/posts', App\Http\Controllers\PostController::class)->middleware(['auth']);
 
+Route::post('users/modify_rol', [UserController::class, 'modify_roles'])->name('users.modify_rol');
+
+Route::resource('users', UserController::class)->middleware('can:gestionar usuarios');
 Route::resource('data', DataController::class);
 Route::resource('notes', NoteController::class);
-Route::resource('eventos', EventoController::class);
+Route::resource('eventos', EventoController::class)->middleware('can:Ver eventos');
 Route::resource('tipo-eventos', TipoEventoController::class);
+Route::get('/evento/solicitudes/crear', [App\Http\Controllers\EventoController::class, 'crear_solicitud'])->name('evento.crear_solicitudes')->middleware('can:Crear solicitud de eventos');
+Route::get('/evento/solicitudes/ver', [App\Http\Controllers\EventoController::class, 'ver_solicitudes'])->name('evento.ver_solicitudes')->middleware('can:Gestor solicitud de eventos');
+Route::post('/evento/solicitudes/action', [App\Http\Controllers\EventoController::class, 'accion_solicitud'])->name('evento.accion_solicitud')->middleware('can:Gestor solicitud de eventos');
+
+Route::get('/maptesting', [App\Http\Controllers\EventoController::class, 'ver_eventos_mapa'])->name('eventos.vermapa');
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
 Route::get('/mimateria', [App\Http\Controllers\MiMateriaController::class, 'index'])->name('mimateria');
@@ -143,8 +152,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 	// Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
-	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-	
 });
 
 

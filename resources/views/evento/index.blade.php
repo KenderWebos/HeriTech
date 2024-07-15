@@ -59,9 +59,9 @@
 											<td>{{ $evento->titulo }}</td>
 											<td>{{ $evento->descripcion }}</td>
 											<td>{{ $evento->duracion }}</td>
-											<td>{{ $evento->ubicacion }}</td>
-											<td>{{ $evento->latitud }}</td>
-											<td>{{ $evento->longitud }}</td>
+											<td>{{ $evento->ubicacion->nombre }}</td>
+											<td>{{ $evento->ubicacion->latitud }}</td>
+											<td>{{ $evento->ubicacion->longitud }}</td>
 
                                             <td>
                                                 <form action="{{ route('eventos.destroy',$evento->id) }}" method="POST">

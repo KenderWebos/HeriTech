@@ -26,10 +26,22 @@ class Evento extends Model
 {
   use HasFactory;
 
+  public function user()
+  {
+    return $this->belongsTo(User::class, 'id_generador');
+  }
+
+  public function ubicacion()
+  {
+    return $this->belongsTo(Ubicaciones::class, 'id_ubicacion');
+  }
+
   static $rules = [
     'fecha' => 'required',
     'titulo' => 'required',
     'descripcion' => 'required',
+    'duracion' => 'required',
+    'id_ubicacion' => 'required',
   ];
 
   protected $perPage = 20;
@@ -39,7 +51,5 @@ class Evento extends Model
    *
    * @var array
    */
-  protected $fillable = ['fecha', 'titulo', 'descripcion', 'duracion', 'ubicacion', 'latitud', 'longitud'];
-  // protected $fillable = ['nombre', 'descripcion', 'duracion', 'ubicacion', 'created_at'];
-  // public $timestamps = false;
+  protected $fillable = ['fecha', 'titulo', 'descripcion', 'duracion', 'id_ubicacion'];
 }
