@@ -16,10 +16,10 @@ class SettingsSeeder extends Seeder
     public function run()
     {
         Setting::create([
-            'company_name' => 'YourCompanyName',
-            'location' => 'YourLocation',
+            'company_name' => 'HeriTech',
+            'location' => 'Chile',
             'logo' => 'YourLogo',
-            'description' => 'YourCompanyDescription',
+            'description' => 'a simple startup company',
             // 'color_primary',
             // 'color_secondary',
             // 'color_tertiary'

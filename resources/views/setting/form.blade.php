@@ -29,7 +29,7 @@
             {{ Form::text('description', $setting->description, ['class' => 'form-control' . ($errors->has('description') ? ' is-invalid' : ''), 'placeholder' => 'Description']) }}
             {!! $errors->first('description', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             {{ Form::label('color_primary') }}
             {{ Form::color('color_primary', $setting->color_primary, ['class' => 'form-control' . ($errors->has('color_primary') ? ' is-invalid' : ''), 'placeholder' => 'Color Primary']) }}
             {!! $errors->first('color_primary', '<div class="invalid-feedback">:message</div>') !!}
@@ -43,7 +43,7 @@
             {{ Form::label('color_tertiary') }}
             {{ Form::color('color_tertiary', $setting->color_tertiary, ['class' => 'form-control' . ($errors->has('color_tertiary') ? ' is-invalid' : ''), 'placeholder' => 'Color Tertiary']) }}
             {!! $errors->first('color_tertiary', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        </div> -->
 
     </div>
     <div class="box-footer mt20">

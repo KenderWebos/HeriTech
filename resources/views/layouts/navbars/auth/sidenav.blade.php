@@ -24,6 +24,62 @@
 
             <hr>
 
+            @role('administrador')
+
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6"><i class="ni ni-app"></i> Administrador</h6>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'users') == true ? 'active' : '' }}" href="{{ url('users') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        👥
+                    </div>
+                    <span class="nav-link-text ms-1">Usuarios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'roles') == true ? 'active' : '' }}" href="{{ url('roles') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🔑
+                    </div>
+                    <span class="nav-link-text ms-1"> Roles</span>
+                </a>
+            </li>
+
+            @can('Gestor solicitud de eventos')
+            <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'evento.ver_solicitudes' ? 'active' : '' }}" href="{{ route('evento.ver_solicitudes') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🗓️
+                    </div>
+                    <span class="nav-link-text ms-1">Solicitudes de Eventos</span>
+                </a>
+            </li>
+            @endcan
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'settings/1/edit') == true ? 'active' : '' }}" href="{{ url('settings/1/edit') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        ⚙️
+                    </div>
+                    <span class="nav-link-text ms-1">Configurar Pagina</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'tipo-eventos') == true ? 'active' : '' }}" href="{{ url('tipo-eventos') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🗃️
+                    </div>
+                    <span class="nav-link-text ms-1">tipo-eventos</span>
+                </a>
+            </li>
+
+            @endrole
+
+            <hr>
+
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6"><i class="ni ni-app"></i> Estudiante</h6>
             </li>
@@ -43,6 +99,15 @@
                         📍
                     </div>
                     <span class="nav-link-text ms-1">Eventos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'map') == true ? 'active' : '' }}" href="{{ url('maptesting') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🗺️
+                    </div>
+                    <span class="nav-link-text ms-1">Mapa</span>
                 </a>
             </li>
 
@@ -73,42 +138,27 @@
                 </a>
             </li>
             @endcan
-            @can('Gestor solicitud de eventos')
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'evento.ver_solicitudes' ? 'active' : '' }}" href="{{ route('evento.ver_solicitudes') }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Solicitudes de Eventos</span>
-                </a>
-            </li>
-            @endcan
+
             @can('Crear solicitud de eventos')
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'evento.crear_solicitudes' ? 'active' : '' }}" href="{{ route('evento.crear_solicitudes') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                        ✏️
                     </div>
                     <span class="nav-link-text ms-1">Crear Solicitud de Evento</span>
                 </a>
             </li>
             @endcan
+
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'users') == true ? 'active' : '' }}" href="{{ url('users') }}">
+                <a class="nav-link {{ Route::currentRouteName() == '/' ? 'active' : '' }}" href="{{ route('evento.crear_solicitudes') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
+                        >
                     </div>
-                    <span class="nav-link-text ms-1">Usuarios</span>
+                    <img style="width:100px" src="{{ asset('images/heritech/musicat-logo.png') }}" alt="a simple ht_logo">
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'roles') == true ? 'active' : '' }}" href="{{ url('roles') }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-curved-next text-secondary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Roles</span>
-                </a>
-            </li>
+
             <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'proposito') == true ? 'active' : '' }}" href="{{ route('proposito') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -154,61 +204,36 @@
                 </a>
             </li> -->
 
+            <!-- FOR UPDATES -->
 
+            <!-- <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'flashcard') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'flashcards'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🧠
+                    </div>
+                    <span class="nav-link-text ms-1">Flashcards</span>
+                </a>
+            </li>
             <li class="nav-item">
-    <a class="nav-link {{ str_contains(request()->url(), 'flashcard') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'flashcards'] ) }}">
-        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            🧠
-        </div>
-        <span class="nav-link-text ms-1">Flashcards</span>
-    </a>
-</li>
-<li class="nav-item">
-    <a class="nav-link {{ str_contains(request()->url(), 'mesas') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'mesas'] ) }}">
-        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            🪑 <!-- Icono para Mesas -->
-        </div>
-        <span class="nav-link-text ms-1">Mesas</span>
-    </a>
-</li>
-<li class="nav-item">
-    <a class="nav-link {{ str_contains(request()->url(), 'reservas') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'reservas'] ) }}">
-        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            📅 <!-- Icono para Reservas -->
-        </div>
-        <span class="nav-link-text ms-1">Reservas</span>
-    </a>
-</li>
-
-
+                <a class="nav-link {{ str_contains(request()->url(), 'mesas') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'mesas'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        🪑
+                    </div>
+                    <span class="nav-link-text ms-1">Mesas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'reservas') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'reservas'] ) }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        📅
+                    </div>
+                    <span class="nav-link-text ms-1">Reservas</span>
+                </a>
+            </li> -->
 
             <hr>
 
-            @role('administrador')
 
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6"><i class="ni ni-app"></i> Administrador</h6>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'tipo-eventos') == true ? 'active' : '' }}" href="{{ url('tipo-eventos') }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        🗃️
-                    </div>
-                    <span class="nav-link-text ms-1">tipo-eventos</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'settings/1/edit') == true ? 'active' : '' }}" href="{{ url('settings/1/edit') }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        ⚙️
-                    </div>
-                    <span class="nav-link-text ms-1">Configurar Pagina</span>
-                </a>
-            </li>
-
-            @endrole
 
         </ul>
     </div>

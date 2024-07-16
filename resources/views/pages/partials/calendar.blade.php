@@ -13,43 +13,6 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Calendar 📅</h5>
-                            <small>
-                                <pre>
-Agenda eventos para que otros puedan verlos.
-                                </pre>
-                            </small>
-
-                            <div class="col-4">
-                                <form action="{{ route('evento.guardar') }}" method="POST">
-                                    @csrf
-
-                                    <div class="form-group">
-                                        <label for="fecha">Fecha</label>
-                                        <input type="date" class="form-control" id="fecha" name="fecha" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="descripcion">Descripción</label>
-                                        <input type="text" class="form-control" autocomplete="off" id="descripcion" name="descripcion" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="titulo">Tipo Evento</label>
-                                        <select class="form-control" id="titulo" name="titulo" required>
-                                            @foreach($tiposEventos as $tipoEvento)
-                                            <option value="{{ $tipoEvento->name }}">{{ $tipoEvento->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </form>
-                            </div>
-
-                            <div id="alerts-container">
-                                <!-- Aquí se mostrarán las alertas -->
-                            </div>
 
                             <iframe style="width:100%; height:1000px" src="{{ url('calendargo') }}" frameborder="0"></iframe>
 
@@ -95,6 +58,40 @@ Agenda eventos para que otros puedan verlos.
                                     </tbody>
                                 </table>
                             </div>
+
+                            <!-- <h5 class="card-title">Calendar 📅</h5>
+                            <small>
+                                <pre>
+Agenda eventos para que otros puedan verlos.
+                                </pre>
+                            </small> -->
+
+                            <!-- <div class="col-4">
+                                <form action="{{ route('evento.guardar') }}" method="POST">
+                                    @csrf
+
+                                    <div class="form-group">
+                                        <label for="fecha">Fecha</label>
+                                        <input type="date" class="form-control" id="fecha" name="fecha" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="descripcion">Descripción</label>
+                                        <input type="text" class="form-control" autocomplete="off" id="descripcion" name="descripcion" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="titulo">Tipo Evento</label>
+                                        <select class="form-control" id="titulo" name="titulo" required>
+                                            @foreach($tiposEventos as $tipoEvento)
+                                            <option value="{{ $tipoEvento->name }}">{{ $tipoEvento->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </form>
+                            </div> -->
                         </div>
                     </div>
                 </div>
