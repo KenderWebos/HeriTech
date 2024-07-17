@@ -210,6 +210,53 @@
                 </div>
             </a>
         </div>
+
+        <div class="col-md-4 mb-5">
+            <a href="http://167.99.128.137/info-test/7" class="card h-100 text-decoration-none ">
+
+                <div class="card-header text-center" cursorshover="true">
+                    <i class="fas fa-solid fa-code" data-toggle="tooltip" title="Vista Web"></i>
+                    <p class="card-text" cursorshover="true"> Ejecucion externa</p>
+                </div>
+
+                <div class="card-body text-center" cursorshover="true">
+
+                    <h2 class="card-title mt-3" cursorshover="true">2 -
+                        Metacognition</h2>
+                    <p class="card-text"> Perceptual Discrimination</p>
+                    <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
+                        15 minutos</p>
+                    <div class="card-footer ">
+                        <p class="card-text"><i class="fa-solid fa-globe"></i> Fuente:
+                            GitHub</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 mb-5">
+            <a href="http://167.99.128.137/info-test/7" class="card h-100 text-decoration-none ">
+
+                <div class="card-header text-center" cursorshover="true">
+                    <i class="fas fa-solid fa-code" data-toggle="tooltip" title="Vista Web"></i>
+                    <p class="card-text" cursorshover="true"> Ejecucion externa</p>
+                </div>
+
+                <div class="card-body text-center" cursorshover="true">
+
+                    <h2 class="card-title mt-3" cursorshover="true">2 -
+                        Metacognition</h2>
+                    <p class="card-text"> Perceptual Discrimination</p>
+                    <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
+                        15 minutos</p>
+                    <div class="card-footer ">
+                        <p class="card-text"><i class="fa-solid fa-globe"></i> Fuente:
+                            GitHub</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
     </div>
 
 

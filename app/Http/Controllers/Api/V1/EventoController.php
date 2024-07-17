@@ -17,7 +17,8 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return EventoResource::collection( Evento::latest()->paginate() );
+        // return EventoResource::collection( Evento::latest()->paginate() );
+        return Evento::all();
     }
 
     /**
