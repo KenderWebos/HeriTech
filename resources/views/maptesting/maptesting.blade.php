@@ -4,8 +4,11 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('assets/css/maps.css') }}" />
+<!-- Incluir los archivos CSS y JS de Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-<center>
+<!-- <center>
     <a class="navbar-brand m-0" href="{{ route('home') }}">
         <img style="width:140px" src="{{ asset('images/heritech/ht_logo.png') }}" alt="a simple ht_logo">
     </a>
@@ -21,19 +24,36 @@
     <a class="navbar-brand m-0" href="{{ route('home') }}">
         <img style="width:140px" src="{{ asset('images/heritech/mm-logo.png') }}" alt="a simple ht_logo">
     </a>
+
+    X
+
+    <a class="navbar-brand m-0" href="{{ route('home') }}">
+        <img style="width:140px" src="{{ asset('images/heritech/ucsc-logo.png') }}" alt="a simple ht_logo">
+    </a>
+</center> -->
+
+<center>
+    <div class="row">
+        <!-- <div class="col">
+            <a class="navbar-brand m-0" target="_blank" href="{{ route('landingpage') }}">
+                <img style="width:140px" src="{{ asset('images/heritech/ht_logo.png') }}" alt="a simple ht_logo">
+            </a>
+        </div> -->
+
+        <div class="col">
+            <a class="navbar-brand m-0" target="_blank" href="https://ucsc.cl/">
+                <img style="width:140px" src="{{ asset('images/heritech/ucsc-logo.png') }}" alt="a simple ht_logo">
+            </a>
+        </div>
+    </div>
 </center>
 
+<div id="map" style="height: 500px;"></div>
 
-
-<div id="map"></div>
-<!-- <script
-        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCO_Zx_iF1QjOrya0m1l_2xZva81tVpAFQ&map_ids=3a95192313ba8145&callback=initMap">
-    </script>
-                                                                                                          -->
-<div class="container">
+<div class="container p-5 bg-dark">
     <div class="row">
-        <div class="col">
-            <div class="card shadow overflow-auto mb-3" style="height: 18rem;">
+        <div class="col-12 col-md-4 mb-3">
+            <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">Ubicaciones</h5>
                     <div class="list-group list-group-flush">
@@ -46,10 +66,9 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-4 mb-3">
             <div class="card shadow">
-
-                <div class="card-body overflow-auto mb-3" style="height: 18rem;">
+                <div class="card-body">
                     <h5 class="card-title">Eventos</h5>
                     <span class="d-none" id="no_eventos">No hay Eventos</span>
                     <div class="list-group list-group-flush">
@@ -60,8 +79,8 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card shadow overflow-auto mb-3" style="height: 18rem;">
+        <div class="col-12 col-md-4 mb-3">
+            <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">Información del Evento</h5>
                     <span id="info_message">Seleccione un evento para obtener información</span>
@@ -78,158 +97,70 @@
         </div>
     </div>
 </div>
+
+
 <script>
-    ((g) => {
-        var h,
-            a,
-            k,
-            p = "The Google Maps JavaScript API",
-            c = "google",
-            l = "importLibrary",
-            q = "__ib__",
-            m = document,
-            b = window;
-        b = b[c] || (b[c] = {});
-        var d = b.maps || (b.maps = {}),
-            r = new Set(),
-            e = new URLSearchParams(),
-            u = () =>
-            h ||
-            (h = new Promise(async (f, n) => {
-                await (a = m.createElement("script"));
-                e.set("libraries", [...r] + "");
-                for (k in g)
-                    e.set(
-                        k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
-                        g[k]
-                    );
-                e.set("callback", c + ".maps." + q);
-                a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-                d[q] = f;
-                a.onerror = () => (h = n(Error(p + " could not load.")));
-                a.nonce = m.querySelector("script[nonce]")?.nonce || "";
-                m.head.append(a);
-            }));
-        d[l] ?
-            console.warn(p + " only loads once. Ignoring:", g) :
-            (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
-    })({
-        key: "{{ $gmap }}",
-        v: "weekly",
-        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-        // Add other bootstrap parameters as needed, using camel case.
-    });
+    let map;
+    let markers = [];
+    let currentPopup;
 
-    let map, activeWindows, markers = [];
-    let current_window;
-    async function initMap() {
-        const {
-            Map
-        } = await google.maps.importLibrary("maps");
-        const {
-            AdvancedMarkerElement,
-            PinElement
-        } = await google.maps.importLibrary(
-            "marker",
-        );
+    function initMap() {
+        map = L.map('map').setView([-36.798217652937225, -73.05635759079199], 18);
 
-        const pinGlyph = new PinElement({
-            glyphColor: "white",
-        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
 
-        map = new Map(document.getElementById("map"), {
-            center: {
-                lat: -36.798217652937225,
-                lng: -73.05635759079199
-            },
-            zoom: 18,
-            mapId: '3a95192313ba8145'
-        });
-        initMarker()
+        initMarkers();
     }
 
-    function initMarker() {
-
-        const ubications = <?php echo json_encode($ubicaciones); ?>;
+    function initMarkers() {
+        const ubications = @json($ubicaciones);
         ubications.forEach(element => {
+            const marker = L.marker([element.latitud, element.longitud]).addTo(map);
+            markers.push(marker);
 
-            const iconImage = document.createElement("img");
-            iconImage.src =
-                "https://cdn-icons-png.freepik.com/256/9353/9353832.png";
-            iconImage.style = "width:35px; height:auto;"
+            const popupContent = `<div id="content">
+                <h4 id="firstHeading" class="firstHeading">${element.nombre}</h4>
+                <div id="bodyContent">
+                    <h5> Cantidad de Eventos: ${element.cantidad_eventos} </h5><br>
+                    <p>${element.descripcion}</p>
+                </div>
+            </div>`;
 
+            marker.bindPopup(popupContent);
 
-            const marker = new google.maps.marker.AdvancedMarkerElement({
-                position: {
-                    lat: element.latitud,
-                    lng: element.longitud
-                },
-                map,
-                content: iconImage,
-                title: element.nombre,
-            });
-            markers.push(marker)
-            const infowindow = new google.maps.InfoWindow({
-                maxWidht: 50,
-                content: '<div id="content">' +
-                    '<div id="siteNotice">' +
-                    "</div>" +
-                    '<h4 id="firstHeading" class="firstHeading">' + element.nombre + '</h4>' +
-                    '<div id="bodyContent">' +
-                    "<h5> Cantidad de Eventos: " + element.cantidad_eventos + " </h5><br>" +
-                    "<p>" + element.descripcion + "</p>" +
-                    "</div>",
-                ariaLabel: element.name,
-            });
-            google.maps.event.addListener(marker, 'click', function() {
-                if (current_window) {
-                    current_window.close();
+            marker.on('click', () => {
+                if (currentPopup) {
+                    currentPopup.closePopup();
                 }
+                currentPopup = marker;
+                clickMarkerEvent(element);
             });
-            marker.addListener("click", () => {
-                current_window = infowindow;
-                infowindow.open({
-                    anchor: marker,
-                    map,
-                });
-                clickMarker_event(element);
-            });
-            google.maps.event.addListener(infowindow, 'closeclick', function() {
-                clickClose_InfoWindow();
-            });
-
         });
     }
 
-
-    function clickClose_InfoWindow() {
-        $(".evento_button").removeClass("d-none");
+    function clickMarkerEvent(element) {
         $(".ubicaciones_button").removeClass("active");
-        $("#no_eventos").addClass("d-none")
-    }
-
-    function clickMarker_event(element) {
-        $(".ubicaciones_button").removeClass("active");
-        $("#no_eventos").addClass("d-none")
+        $("#no_eventos").addClass("d-none");
         $("#ubicacion_" + element.id).addClass("active");
         $(".evento_button").removeClass("active");
         $(".evento_button").removeClass("d-none");
-        $("#info_message").removeClass("d-none")
-        $("#info_div").addClass("d-none")
+        $("#info_message").removeClass("d-none");
+        $("#info_div").addClass("d-none");
         $(".evento_button").not(".ubicacion_" + element.id).addClass("d-none");
         if (element.cantidad_eventos == 0) {
-            $("#no_eventos").removeClass("d-none")
+            $("#no_eventos").removeClass("d-none");
         }
     }
-    initMap();
 
     function clickEvento(evento, ubicacion) {
         if (!$("#ubicacion_" + ubicacion).hasClass('active')) {
-            clickUbicacion(ubicacion)
+            clickUbicacion(ubicacion);
         }
         if (!$("#info_message").hasClass("d-none")) {
-            $("#info_message").addClass("d-none")
-            $("#info_div").removeClass("d-none")
+            $("#info_message").addClass("d-none");
+            $("#info_div").removeClass("d-none");
         }
         $(".evento_button").removeClass("active");
         $("#evento_" + evento.id).addClass("active");
@@ -240,9 +171,47 @@
         $("#fecha_info").html(evento.fecha);
     }
 
+    // function clickUbicacion(id) {
+    //     markers[id - 1].openPopup();
+    // }
+
     function clickUbicacion(id) {
-        google.maps.event.trigger(markers[id - 1], 'click');
+        $(".ubicaciones_button").removeClass("active");
+        $("#ubicacion_" + id).addClass("active");
+        $("#no_eventos").addClass("d-none");
+        $(".evento_button").removeClass("active");
+        $(".evento_button").removeClass("d-none");
+        $("#info_message").removeClass("d-none");
+        $("#info_div").addClass("d-none");
+        $(".evento_button").not(".ubicacion_" + id).addClass("d-none");
+
+        if (element.cantidad_eventos == 0) {
+            $("#no_eventos").removeClass("d-none");
+        }
+
+        markers[id - 1].openPopup();
     }
+
+    initMap();
 </script>
 <script src="{{ asset('assets/js/maps.js') }}"></script>
+<style>
+    .card {
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .card-title {
+            font-size: 1.2rem;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+    }
+</style>
 @endsection
