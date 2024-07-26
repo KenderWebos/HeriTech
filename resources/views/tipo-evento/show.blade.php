@@ -1,8 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" =>  $tipoEvento->name ?? "Ver Tipo de Evento", "title"=>$tipoEvento->name ?? "Ver Tipo de Evento", 'breadcrumbs'=>[["nombre"=>"Tipos de Evento", "ruta"=>"tipo-eventos.index"]]])
 
-@section('template_title')
-    {{ $tipoEvento->name ?? "{{ __('Show') Tipo Evento" }}
-@endsection
+
 
 @section('content')
     <section class="content container-fluid">
@@ -10,9 +8,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Tipo Evento</span>
-                        </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('tipo-eventos.index') }}"> {{ __('Back') }}</a>
                         </div>

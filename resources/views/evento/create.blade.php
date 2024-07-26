@@ -1,8 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => "Crear Evento", "title"=>'Crear Evento', 'breadcrumbs'=>[["nombre"=>"Eventos", "ruta"=>"eventos.index"], ["nombre"=>"Crear", "ruta"=>"eventos.create"]]])
 
-@section('template_title')
-    Create Evento
-@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -12,9 +9,6 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Evento</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('eventos.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf

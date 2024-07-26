@@ -1,10 +1,5 @@
-@extends('layouts.app', ['class' => ''])
-
-@section('title', 'HeriTech')
-
+@extends('layouts.app', ["title_html" => "Ranking", "title"=>'Ranking', 'breadcrumbs'=>[["nombre"=>"Ranking", "ruta"=>"top"]]])
 @section('content')
-
-@include('layouts.navbars.auth.topnav', ['title' => 'TOP'])
 
 <div class="card">
     <div class="card-body">

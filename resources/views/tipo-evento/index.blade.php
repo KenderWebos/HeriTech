@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-Tipo Evento
-@endsection
+@extends('layouts.app',  ["title_html" => "Tipos de Evento", "title"=>'Tipos de Evento', 'breadcrumbs'=>[["nombre"=>"Tipos de Evento", "ruta"=>"tipo-evento.index"]]])
 
 @section('content')
 <div class="container-fluid">
@@ -13,12 +9,12 @@ Tipo Evento
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Tipo Evento') }}
+                            {{ __('Tabla') }}
                         </span>
 
                         <div class="float-right">
                             <a href="{{ route('tipo-eventos.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                {{ __('Create New') }}
+                                {{ __('Crear') }}
                             </a>
                         </div>
                     </div>
@@ -52,11 +48,11 @@ Tipo Evento
 
                                     <td>
                                         <form action="{{ route('tipo-eventos.destroy',$tipoEvento->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('tipo-eventos.show',$tipoEvento->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('tipo-eventos.edit',$tipoEvento->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('tipo-eventos.show',$tipoEvento->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('tipo-eventos.edit',$tipoEvento->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Borrar') }}</button>
                                         </form>
                                     </td>
                                 </tr>

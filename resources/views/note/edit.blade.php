@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Update Note
-@endsection
+@extends('layouts.app', ["title_html" => "Editar Apunte", "title"=>'Editar Apunte', 'breadcrumbs'=>[["nombre"=>"Apuntes", "ruta"=>"notes.index"], ["nombre"=>"Editar", "ruta"=>"notes.edit"]]])
 
 @section('content')
     <section class="content container-fluid">
@@ -12,9 +8,6 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Note</span>
-                    </div>
                     
                     <div class="card-body">
                         <form method="POST" action="{{ route('notes.update', $note->id) }}"  role="form" enctype="multipart/form-data">

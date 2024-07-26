@@ -1,8 +1,6 @@
-@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+@extends('layouts.app', ["title_html" => "Editar Perfil", "title"=>'Editar Perfil', 'breadcrumbs'=>[["nombre"=>"Perfil", "ruta"=>"profile"], ["nombre"=>"Editar", "ruta"=>"profile"]]])
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Mi Perfil'])
-
 <div class="card shadow-lg mx-4 mt-4">
     <div class="card-body p-3">
         <div class="row gx-4">
@@ -36,7 +34,7 @@
                     <div class="card-header pb-0">
                         <div class="d-flex align-items-center">
                             <p class="mb-0">Editar Perfil</p>
-                            <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
+                            <button type="submit" class="btn btn-primary btn-sm ms-auto">Guardar</button>
                         </div>
                     </div>
                     <div class="card-body">

@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => "Calendario", "title"=>'Calendario', 'breadcrumbs'=>[["nombre"=>"Calendario", "ruta"=>"calendar"]]])
+
 
 @section('content')
 
-@include('layouts.navbars.auth.topnav', ['title' => 'Calendar'])
 
 <center>
     <center>

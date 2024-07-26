@@ -1,22 +1,11 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Editar Usuario
-@endsection
+@extends('layouts.app', ["title_html" => "Editar Usuario", "title"=>'Editar Usuario', 'breadcrumbs'=>[["nombre"=>"Usuario", "ruta"=>"users.index"], ["nombre"=>"Crear", "ruta"=>"users.edit"]]])
 
 @section('content')
-
-@include('layouts.navbars.auth.topnav', ['title' => 'Editar Usuario'])
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
-
                 @includeif('partials.errors')
-
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Editar Usuario</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}

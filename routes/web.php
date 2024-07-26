@@ -30,6 +30,7 @@ Route::resource('mesas', MesaController::class);
 Route::resource('reservas', ReservaController::class);
 Route::post('reservas/{id}/rechazar', [ReservaController::class, 'rechazar'])->name('reservas.rechazar');
 
+
 Route::get("/a", function () {
 	return view('a');
 });
