@@ -93,7 +93,7 @@ Route::get('/evento/solicitudes/crear', [App\Http\Controllers\EventoController::
 Route::get('/evento/solicitudes/ver', [App\Http\Controllers\EventoController::class, 'ver_solicitudes'])->name('evento.ver_solicitudes')->middleware('can:Gestor solicitud de eventos');
 Route::post('/evento/solicitudes/action', [App\Http\Controllers\EventoController::class, 'accion_solicitud'])->name('evento.accion_solicitud')->middleware('can:Gestor solicitud de eventos');
 
-Route::get('/maptesting', [App\Http\Controllers\EventoController::class, 'ver_eventos_mapa'])->name('eventos.vermapa')->middleware('can:Gestor solicitud de eventos');
+Route::get('/maptesting', [App\Http\Controllers\EventoController::class, 'ver_eventos_mapa'])->name('eventos.vermapa');
 
 Route::get('/calendargo', [App\Http\Controllers\CalendarGoController::class, 'index'])->name('calendargo');
 Route::get('/mimateria', [App\Http\Controllers\MiMateriaController::class, 'index'])->name('mimateria');
