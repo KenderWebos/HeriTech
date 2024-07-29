@@ -1,21 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => "Crear Solicitud de Evento", "title"=>'Crear Solicitud de Evento', 'breadcrumbs'=>[["nombre"=>"Crear Solicitud de Evento", "ruta"=>"evento.crear_solicitudes"]]])
 
-@section('template_title')
-    Crear Solicitud de Eventos
-@endsection
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Crear Solicitud de Evento'])
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-
                 @includeif('partials.errors')
-
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Crear Solicitud de Eventos</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('eventos.store') }}" role="form"
                             enctype="multipart/form-data">

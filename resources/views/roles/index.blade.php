@@ -1,10 +1,6 @@
-@extends('layouts.app')
-
-@section('title', 'HeriTech')
+@extends('layouts.app', ["title_html" => "Roles", "title"=>'Roles', 'breadcrumbs'=>[["nombre"=>"Roles", "ruta"=>"roles.index"]]])
 
 @section('content')
-
-@include('layouts.navbars.auth.topnav', ['title' => 'Roles'])
 
 <div class="container-fluid">
     <div class="row">
@@ -14,12 +10,12 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Roles') }}
+                            {{ __('Tabla') }}
                         </span>
 
                          <div class="float-right">
                             <a href="{{ route('roles.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                              {{ __('Crear nuevo rol') }}
+                              {{ __('Crear') }}
                             </a>
                           </div>
                     </div>

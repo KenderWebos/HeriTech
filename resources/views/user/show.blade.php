@@ -1,8 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => $user->name ?? 'Ver Usuario', "title"=> $user->name ?? 'Ver Usuario', 'breadcrumbs'=>[["nombre"=>"Usuario", "ruta"=>"users.index"]]])
 
-@section('template_title')
-    {{ $user->name ?? 'Show User' }}
-@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -10,9 +7,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Mostrar Usuario</span>
-                        </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('users.index') }}">Atras</a>
                         </div>

@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    {{ $evento->name ?? 'Show Evento' }}
-@endsection
+@extends('layouts.app', ["title_html" => $evento->name ?? 'Ver Evento' , "title"=>$evento->name ?? 'Ver Evento', 'breadcrumbs'=>[["nombre"=>"Eventos", "ruta"=>"eventos.index"]]])
 
 @section('content')
     <section class="content container-fluid">
@@ -10,9 +6,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Evento</span>
-                        </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('eventos.index') }}"> Back</a>
                         </div>

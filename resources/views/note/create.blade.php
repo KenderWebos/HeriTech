@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Create Note
-@endsection
+@extends('layouts.app', ["title_html" => "Crear Apunte", "title"=>'Crear Apunte', 'breadcrumbs'=>[["nombre"=>"Apuntes", "ruta"=>"notes.index"], ["nombre"=>"Crear", "ruta"=>"notes.create"]]])
 
 @section('content')
     <section class="content container-fluid">
@@ -12,9 +8,6 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Note</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('notes.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf

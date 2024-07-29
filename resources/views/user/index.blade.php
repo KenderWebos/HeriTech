@@ -1,12 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => "Usuarios", "title"=>'Usuarios', 'breadcrumbs'=>[["nombre"=>"Usuario", "ruta"=>"users.index"]]])
 
-@section('template_title')
-    Usuarios
-@endsection
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Usuarios'])
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -15,13 +10,13 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Usuarios') }}
+                                {{ __('Tabla') }}
                             </span>
 
                             <div class="float-right">
                                 <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    {{ __('Crear nuevo usuario') }}
+                                    {{ __('Crear') }}
                                 </a>
                             </div>
                         </div>
@@ -63,9 +58,9 @@
                                             <td>
                                             <td>
                                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#rolesModify"
-                                                        data-bs-whatever="{{ $user->id }}">
+                                                    <button type="button" class="btn btn-primary btn-sm"
+                                                        data-bs-toggle="modal" data-bs-target="#rolesModify"
+                                                        onClick="retrieve_user_data({{Auth::user()->id}} ,{{ $user }}, {{ $user->roles }})">
                                                         Modificar Roles
                                                     </button>
                                                     <a class="btn btn-sm btn-primary "
@@ -104,13 +99,13 @@
                     <form action="{{ route('users.modify_rol') }}" method="POST">
                         @csrf
                         <input type="hidden" id="id" name="id" class="id_user" value="">
-                        <select class="form-select" id="roles" name="roles[]" multiple aria-label="multiple select example">
-                            @foreach ($roles as $role)
-                                <option value="{{ $role->name }}">{{ $role->name }}</option>
-                            @endforeach
-                        </select>
-
-
+                        @foreach ($roles as $role)
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input rolesCheck" type="checkbox" id="rol_{{ $role->id }}" name="roles[]"
+                                    value="{{ $role->name }}">
+                                <label class="form-check-label" for="rol_{{ $role->id }}">{{ $role->name }}</label>
+                            </div>
+                        @endforeach
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -123,13 +118,20 @@
 
     <script>
         var rolesModify = document.getElementById('rolesModify')
-        rolesModify.addEventListener('show.bs.modal', function(event) {
-            var button = event.relatedTarget
-            var recipient = button.getAttribute('data-bs-whatever')
 
+        function retrieve_user_data(admin,user, roles) {
+            console.log(user.roles)
             var modalBodyInput = rolesModify.querySelector('.modal-body .id_user')
-
-            modalBodyInput.value = recipient
-        })
+            modalBodyInput.value = user.id
+            $(".rolesCheck").removeAttr('checked')
+            $("#rol_1").removeAttr("disabled");
+            user.roles.forEach(role => {
+                console.log("Role numero "+role.id)
+                $("#rol_"+role.id).attr("checked", true)
+            });
+            if(user.id == admin){
+                $("#rol_1").attr("disabled", true);
+            }
+        }
     </script>
 @endsection

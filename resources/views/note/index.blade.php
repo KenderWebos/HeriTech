@@ -1,13 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => "Apuntes", "title"=>'Apuntes', 'breadcrumbs'=>[["nombre"=>"Apuntes", "ruta"=>"notes.index"]]])
 
-@section('template_title')
-Note
-@endsection
+
 
 @section('content')
-
-@include('layouts.navbars.auth.topnav', ['title' => 'Apuntes'])
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -21,7 +16,7 @@ Note
 
                         <div class="float-right">
                             <a href="{{ route('notes.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                {{ __('Create New') }}
+                                {{ __('Crear') }}
                             </a>
                         </div>
                     </div>
@@ -61,11 +56,11 @@ Note
 
                                     <td>
                                         <form action="{{ route('notes.destroy',$note->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('notes.show',$note->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('notes.edit',$note->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('notes.show',$note->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('notes.edit',$note->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Borrar</button>
                                         </form>
                                     </td>
                                 </tr>

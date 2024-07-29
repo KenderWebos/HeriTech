@@ -1,11 +1,6 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Evento
-@endsection
+@extends('layouts.app', ["title_html" => "Solicitudes de Eventos", "title"=>'Solicitudes de Eventos', 'breadcrumbs'=>[["nombre"=>"Solicitud de Evento", "ruta"=>"evento.ver_solicitudes"]]])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Solicitud de Eventos'])
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -14,7 +9,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Ver Solicitudes de Eventos') }}
+                                {{ __('Tabla') }}
                             </span>
                         </div>
                     </div>

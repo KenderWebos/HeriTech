@@ -1,8 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => "Editar Tipo de Evento", "title"=>'Editar Tipo de Evento', 'breadcrumbs'=>[["nombre"=>"Tipos de Evento", "ruta"=>"tipo-eventos.index"], ["nombre"=>"Editar", "ruta"=>"tipo-eventos.edit"]]])
 
-@section('template_title')
-    {{ __('Update') }} Tipo Evento
-@endsection
+
 
 @section('content')
     <section class="content container-fluid">
@@ -12,9 +10,6 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Tipo Evento</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('tipo-eventos.update', $tipoEvento->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}

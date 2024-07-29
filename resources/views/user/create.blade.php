@@ -1,11 +1,6 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Crear Usuario
-@endsection
+@extends('layouts.app', ["title_html" => "Crear Usuario", "title"=>'Crear Usuario', 'breadcrumbs'=>[["nombre"=>"Usuario", "ruta"=>"users.index"], ["nombre"=>"Crear", "ruta"=>"users.create"]]])
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Crear Usuario'])
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">

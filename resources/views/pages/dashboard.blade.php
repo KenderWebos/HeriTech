@@ -1,7 +1,7 @@
-@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+@extends('layouts.app', ["title_html" => "Inicio", "title"=>'Inicio'])
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Inicio'])
+
 <div class="container-fluid py-4">
 
     @role('administrador')

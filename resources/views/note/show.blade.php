@@ -1,8 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => $note->name ?? 'Ver Apunte', "title"=>$note->name ?? 'Ver Apunte', 'breadcrumbs'=>[["nombre"=>"Apuntes", "ruta"=>"notes.index"]]])
 
-@section('template_title')
-    {{ $note->name ?? 'Show Note' }}
-@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -10,9 +7,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Note</span>
-                        </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('notes.index') }}"> Back</a>
                         </div>

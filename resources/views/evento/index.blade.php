@@ -1,12 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app', ["title_html" => "Eventos", "title"=>'Eventos', 'breadcrumbs'=>[["nombre"=>"Eventos", "ruta"=>"eventos.index"]]])
 
-@section('template_title')
-    Evento
-@endsection
 
 @section('content')
-
-@include('layouts.navbars.auth.topnav', ['title' => 'Eventos'])
 
     <div class="container-fluid">
         <div class="row">
@@ -16,12 +11,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Evento') }}
+                                {{ __('Tabla') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('eventos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear') }}
                                 </a>
                               </div>
                         </div>
@@ -40,10 +35,10 @@
                                         <th>No</th>
                                         
 										<th>Fecha</th>
-										<th>Titulo</th>
-										<th>Descripcion</th>
-										<th>Duracion</th>
-										<th>Ubicacion</th>
+										<th>Título</th>
+										<th>Descripción</th>
+										<th>Duración</th>
+										<th>Ubicación</th>
 										<th>Latitud</th>
 										<th>Longitud</th>
 
@@ -65,11 +60,11 @@
 
                                             <td>
                                                 <form action="{{ route('eventos.destroy',$evento->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('eventos.show',$evento->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('eventos.edit',$evento->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('eventos.show',$evento->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('eventos.edit',$evento->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>

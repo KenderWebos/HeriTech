@@ -38,7 +38,7 @@
         </div>
 
     </div>
-    <div class="box-footer mt20">
+    <div class="box-footer mt-3">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>

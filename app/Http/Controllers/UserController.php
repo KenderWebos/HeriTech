@@ -127,6 +127,6 @@ class UserController extends Controller
         $user = User::find($request->id);
         $user->syncRoles($request->roles);
         return redirect()->route('users.index')
-            ->with('success', 'User deleted successfully');
+            ->with('success', 'Los roles fueron modificados de manera exitosa');
     }
 }
