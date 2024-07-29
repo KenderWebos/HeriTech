@@ -25,7 +25,7 @@ class EventoFactory extends Factory
         $estado_solicitud = $this->faker->boolean();
         $revisado = $this->faker->boolean();
         $duracion = $this->faker->numberBetween(30,120);
-        $id_ubicacion = $this->faker->numberBetween(1,9);
+        $id_ubicacion = $this->faker->numberBetween(1,17);
         return [
             'fecha' => $this->faker->dateTimeBetween('-1 month', '+1 month'),
             'titulo' => $titulo,

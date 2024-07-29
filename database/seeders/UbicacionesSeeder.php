@@ -29,7 +29,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Biblioteca 📖​📚​',
             'latitud' => '-36.798226244052096',
             'longitud' => '-73.05541881765998',
-            'descripcion' => '🚩 https://www.sibucsc.cl/', 
+            'descripcion' => '🚩 https://www.sibucsc.cl/',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -38,7 +38,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Facultad de Periodismo 📰📜',
             'latitud' => '-36.79880614208516',
             'longitud' => '-73.0553061648709',
-            'descripcion' => '🚩?', 
+            'descripcion' => '🚩 Facultad de Periodismo',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -47,7 +47,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Facultad de Ingeniería ⚙️🏗️',
             'latitud' => '-36.797403640362816',
             'longitud' => '-73.05567899184173',
-            'descripcion' => '🚩 https://www.instagram.com/facultadingenieriaucsc/', 
+            'descripcion' => '🚩 https://www.instagram.com/facultadingenieriaucsc/',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -56,7 +56,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Edificio Tomas Moro 🗣️📚',
             'latitud' => '-36.798718083712934',
             'longitud' => '-73.05388861733778',
-            'descripcion' => '🚩?', 
+            'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -65,7 +65,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Edificio Central 🏢✍️',
             'latitud' => '-36.79777203806005',
             'longitud' => '-73.05815325057253',
-            'descripcion' => '🚩?', 
+            'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -74,16 +74,16 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Ciencias Económicas y Administrativas 💼📊',
             'latitud' => '-36.79866658792822',
             'longitud' => '-73.0564607766401',
-            'descripcion' => '🚩?', 
+            'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        
+
         DB::table('ubicaciones')->insert([
             'nombre' => 'Capilla ⛪',
             'latitud' => '-36.79740686206734',
             'longitud' => '-73.0560799820812',
-            'descripcion' => '🚩?', 
+            'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -92,7 +92,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Facultad de Educación 👩‍🏫📘',
             'latitud' => '-36.79831859841869',
             'longitud' => '-73.05404284435055',
-            'descripcion' => '🚩?', 
+            'descripcion' => '🚩?',
             'id_institucion' => 1,
             'created_at' => now(),
             'updated_at' => now()
@@ -132,21 +132,39 @@ class UbicacionesSeeder extends Seeder
             'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
-        ]);     
+        ]);
 
         DB::table('ubicaciones')->insert([
             'nombre' => 'Gestion Financiera 🧐​💲​​',
             'latitud' => '-36.79887594620405',
             'longitud' => '-73.05458729824358',
-            'descripcion' => '🚩?',
+            'descripcion' => '🚩 Abierto de Lunes a Viernes de 9:00 AM a 1:00 PM',
             'created_at' => now(),
             'updated_at' => now()
-        ]);        
+        ]);
 
         DB::table('ubicaciones')->insert([
             'nombre' => 'Cancha Futbol UCSC ⚽​​​',
             'latitud' => '-36.798140253149754',
             'longitud' => '-73.05865436064585',
+            'descripcion' => '🚩?',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('ubicaciones')->insert([
+            'nombre' => 'Direccion de innovacion 💡​​​',
+            'latitud' => '-36.79672196617284',
+            'longitud' => '-73.06001208287155',
+            'descripcion' => '🚩?',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('ubicaciones')->insert([
+            'nombre' => 'Cowork innovacion UCSC ☕🛠️​​​',
+            'latitud' => '-36.79697313211106',
+            'longitud' => '-73.060030680764',
             'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()

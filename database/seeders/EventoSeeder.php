@@ -27,6 +27,6 @@ class EventoSeeder extends Seeder
         // ]);
 
         // Crea más usuarios de ejemplo utilizando el factory
-        Evento::factory()->count(10)->create();
+        Evento::factory()->count(30)->create();
     }
 }

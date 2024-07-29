@@ -55,12 +55,20 @@
         <div class="col-12 col-md-4 mb-3">
             <div class="card shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Ubicaciones</h5>
+                    <h5 class="card-title">🗺️ Ubicaciones</h5>
                     <div class="list-group list-group-flush">
                         @foreach ($ubicaciones as $ubicacion)
+
                         <button type="button" class="list-group-item list-group-item-action ubicaciones_button" id="ubicacion_{{ $ubicacion->id }}" onclick="clickUbicacion({{ $ubicacion->id }})">{{ $ubicacion->nombre }}
-                            <span class="badge badge-dark badge-pill">{{$ubicacion->cantidad_eventos}}</span>
+
+                            @if ($ubicacion->cantidad_eventos > 0)
+                            <span class="badge badge-dark badge-pill rounded-pill bg-danger">
+                                {{$ubicacion->cantidad_eventos}}
+                            </span>
+                            @endif
+
                         </button>
+
                         @endforeach
                     </div>
                 </div>
@@ -69,11 +77,11 @@
         <div class="col-12 col-md-4 mb-3">
             <div class="card shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Eventos</h5>
+                    <h5 class="card-title">📣 Eventos</h5>
                     <span class="d-none" id="no_eventos">No hay Eventos</span>
                     <div class="list-group list-group-flush">
                         @foreach ($eventos as $evento)
-                        <button type="button" class="list-group-item list-group-item-action evento_button ubicacion_{{ $evento->ubicacion->id }}" id="evento_{{ $evento->id }}" onclick="clickEvento({{ $evento }},{{ $evento->id_ubicacion }})">{{ $evento->titulo }}</button>
+                        <button type="button" class="list-group-item list-group-item-action evento_button ubicacion_{{ $evento->ubicacion->id }}" id="evento_{{ $evento->id }}" onclick="clickEvento({{ $evento }},{{ $evento->id_ubicacion }})">📍 {{ $evento->titulo }}</button>
                         @endforeach
                     </div>
                 </div>
@@ -82,14 +90,14 @@
         <div class="col-12 col-md-4 mb-3">
             <div class="card shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Información del Evento</h5>
+                    <h5 class="card-title">🧾 Detalles</h5>
                     <span id="info_message">Seleccione un evento para obtener información</span>
                     <div class="d-none" id="info_div">
                         <h6 class="text-center"><span id="info_titulo">Titulo</span></h6>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><span id="info_descripcion">Descripcion</span></li>
-                            <li class="list-group-item">Duración: <span id="duracion_info">120</span> minutos</li>
-                            <li class="list-group-item">Fecha: <span id="fecha_info">12-07-2024</span></li>
+                            <li class="list-group-item">📣 <span id="info_descripcion">Descripcion</span></li>
+                            <li class="list-group-item">📅 Inicio: <span id="fecha_info">12-07-2024</span></li>
+                            <li class="list-group-item">⏲️ Duracion: <span id="duracion_info">120</span> minutos</li>
                         </ul>
                     </div>
                 </div>
@@ -98,14 +106,23 @@
     </div>
 </div>
 
-
 <script>
     let map;
     let markers = [];
     let currentPopup;
 
+    let customEmojiIcon = ["🤸🏽‍♀️​", "📚", "📰​", "⚙️", "🗣️​", "	🏢", "💼​", "⛪", "👩‍🏫​", "🩺", "✝️", "🔬", "🍔", "💲", "⚽", "💡", "☕"];
+    // let customEmojiIcon = ["🤸🏽‍♀️🏌🏻‍♂️​", "📖📚", "📰📜​", "⚙️🏗️", "🗣️📚​", "	🏢✍️", "💼📊​", "⛪", "👩‍🏫📘​", "🩺⚕️", "📖✝️", "🔬🧪", "😋🍔", "🧐💲", "⚽", "💡", "☕🛠️"];
+
+    var emojiIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: '<div class="bg-primary" style="font-size: 24px;">😘</div>',
+        iconSize: [30, 42],
+        iconAnchor: [15, 20]
+    });
+
     function initMap() {
-        map = L.map('map').setView([-36.798217652937225, -73.05635759079199], 18);
+        map = L.map('map').setView([-36.79760196604004, -73.05678963913543], 17);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19
@@ -116,17 +133,30 @@
 
     function initMarkers() {
         const ubications = @json($ubicaciones);
-        ubications.forEach(element => {
-            const marker = L.marker([element.latitud, element.longitud]).addTo(map);
+        ubications.forEach((element, index) => {
+            const marker = L.marker([element.latitud, element.longitud], {
+                icon: L.divIcon({
+                    className: 'custom-div-icon',
+                    html: '<div class="" style="font-size: 24px;">' + customEmojiIcon[index] + '</div>',
+                    iconSize: [30, 42],
+                    iconAnchor: [15, 20]
+                })
+            }).addTo(map);
             markers.push(marker);
 
-            const popupContent = `<div id="content">
+            const popupContent = `
+            <center>
+            <div id="content">
                 <h4 id="firstHeading" class="firstHeading">${element.nombre}</h4>
                 <div id="bodyContent">
-                    <h5> Cantidad de Eventos: ${element.cantidad_eventos} </h5><br>
+                    <span class="badge badge-dark badge-pill rounded-pill bg-danger">
+                        ${element.cantidad_eventos} eventos
+                    </span>
+                    <hr>
                     <p>${element.descripcion}</p>
                 </div>
-            </div>`;
+            </div>
+            </center>`;
 
             marker.bindPopup(popupContent);
 

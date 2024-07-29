@@ -128,7 +128,7 @@
                     <span class="nav-link-text ms-1">Calendario</span>
                 </a>
             </li>
-            @can('Gestionar Eventos')
+            <!-- @can('Gestionar Eventos')
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'top') == true ? 'active' : '' }}" href="{{ url('top') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -137,7 +137,7 @@
                     <span class="nav-link-text ms-1">TOP Estudiantes</span>
                 </a>
             </li>
-            @endcan
+            @endcan -->
 
             @can('Crear solicitud de eventos')
             <li class="nav-item">
@@ -150,14 +150,14 @@
             </li>
             @endcan
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == '/' ? 'active' : '' }}" href="{{ route('evento.crear_solicitudes') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         >
                     </div>
                     <img style="width:100px" src="{{ asset('images/heritech/musicat-logo.png') }}" alt="a simple ht_logo">
                 </a>
-            </li>
+            </li> -->
 
             <!-- <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'proposito') == true ? 'active' : '' }}" href="{{ route('proposito') }}">
