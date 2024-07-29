@@ -108,24 +108,24 @@
               <span class="nav-main-link-name">Calendario</span>
             </a>
           </li>
-          <li class="nav-main-item">
+          <!-- <li class="nav-main-item">
             <a class="nav-main-link {{ str_contains(request()->url(), 'notes') == true ? 'active' : '' }}" href="{{ url('notes') }}">
               <i class="nav-main-link-icon fa fa-book"></i>
               <span class="nav-main-link-name">Apuntes</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-main-item">
             <a class="nav-main-link {{ str_contains(request()->url(), 'map') == true ? 'active' : '' }}" href="{{ url('maptesting') }}">
               <i class="nav-main-link-icon fa fa-map"></i>
               <span class="nav-main-link-name">Mapa</span>
             </a>
           </li>
-          <li class="nav-main-item">
+          <!-- <li class="nav-main-item">
             <a class="nav-main-link {{ str_contains(request()->url(), 'top') == true ? 'active' : '' }}" href="{{ url('top') }}">
               <i class="nav-main-link-icon fa fa-crown"></i>
               <span class="nav-main-link-name">Ranking</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
       <!-- END Side Navigation -->
