@@ -32,7 +32,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Biblioteca',
             'latitud' => '-36.798226244052096',
             'longitud' => '-73.05541881765998',
-            'codigo' => '04',
+            'codigo' => '12',
             'icono_primario' => '📖',
             'icono_secundario' => '​📚',
             'descripcion' => '🚩 https://www.sibucsc.cl/',
@@ -44,7 +44,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Facultad de Periodismo',
             'latitud' => '-36.79880614208516',
             'longitud' => '-73.0553061648709',
-            'codigo' => '04',
+            'codigo' => '02',
             'icono_primario' => '📰',
             'icono_secundario' => '​📜',
             'descripcion' => '🚩 Facultad de Periodismo',
@@ -68,7 +68,7 @@ class UbicacionesSeeder extends Seeder
             'nombre' => 'Edificio Tomas Moro',
             'latitud' => '-36.798718083712934',
             'longitud' => '-73.05388861733778',
-            'codigo' => '07',
+            'codigo' => '13',
             'icono_primario' => '🗣️',
             'icono_secundario' => '​📚',
             'descripcion' => '🚩?',
@@ -114,6 +114,7 @@ class UbicacionesSeeder extends Seeder
         DB::table('ubicaciones')->insert([
             'nombre' => 'Facultad de Educación',
             'latitud' => '-36.79831859841869',
+            'codigo' => '11',
             'longitud' => '-73.05404284435055',
             'descripcion' => '🚩?',
             'icono_primario' => '👩‍🏫',
@@ -125,6 +126,7 @@ class UbicacionesSeeder extends Seeder
 
         DB::table('ubicaciones')->insert([
             'nombre' => 'Facultad de Medicina',
+            'codigo' => '06',
             'latitud' => '-36.79774375229419',
             'longitud' => '-73.0547476835958',
             'descripcion' => '🚩?',
@@ -136,6 +138,7 @@ class UbicacionesSeeder extends Seeder
 
         DB::table('ubicaciones')->insert([
             'nombre' => 'Facultad de Estudios Teológicos y Filosofía',
+            'codigo' => '09',
             'latitud' => '-36.79808345535758',
             'longitud' => '-73.05479528055814',
             'descripcion' => '🚩?',
@@ -147,6 +150,7 @@ class UbicacionesSeeder extends Seeder
 
         DB::table('ubicaciones')->insert([
             'nombre' => 'Facultad de Ciencias',
+            'codigo' => '03',
             'latitud' => '-36.79787411596616',
             'longitud' => '-73.05570048318586',
             'descripcion' => '🚩?',
@@ -158,6 +162,7 @@ class UbicacionesSeeder extends Seeder
 
         DB::table('ubicaciones')->insert([
             'nombre' => 'Casino',
+            'codigo' => '15',
             'latitud' => '-36.79846365714816',
             'longitud' => '-73.05691074715712',
             'descripcion' => '🚩?',

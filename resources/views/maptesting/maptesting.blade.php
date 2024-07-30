@@ -56,11 +56,17 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">🗺️ Ubicaciones</h5>
-                    <input class="form-control form-control-sm mb-2 d-none" type="text" id="buscar_ubicacion" oninput="myFunction()" placeholder="Buscar" aria-label=".form-control-sm example">
-                    <div class="list-group list-group-flush">
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="text" id="buscar_ubicacion" oninput="find_ubicacion(this.value)" placeholder="Buscar" aria-label=".form-control-sm example">
+                        <select class="form-select form-select-sm" id="busqueda_t">
+                            <option selected value="nombre">Nombre</option>
+                            <option value="codigo">Código</option>
+                        </select>
+                    </div>
+                    <div class="list-group list-group-flush" id="div_ubicaciones">
                         @foreach ($ubicaciones as $ubicacion)
 
-                        <button type="button" class="list-group-item list-group-item-action ubicaciones_button" id="ubicacion_{{ $ubicacion->id }}" onclick="clickUbicacion({{ $ubicacion }})">{{ $ubicacion->nombre }} {{ $ubicacion->icono_primario }}{{ $ubicacion->icono_secundario }}
+                        <button type="button" class="list-group-item list-group-item-action ubicaciones_button" id="ubicacion_{{ $ubicacion->id }}" nombre="{{strtolower($ubicacion->nombre)}}" codigo="{{$ubicacion->codigo}}" onclick="clickUbicacion({{ $ubicacion }})">{{ $ubicacion->nombre }} {{ $ubicacion->icono_primario }}{{ $ubicacion->icono_secundario }}
 
                             @if ($ubicacion->cantidad_eventos > 0)
                             <span class="badge badge-dark badge-pill rounded-pill bg-danger">
@@ -179,20 +185,28 @@
         });
     }
 
-    function find_ubicacion(){
-
+    function find_ubicacion(value){
+        const tipo = document.getElementById("busqueda_t").value;
+        value = value.toLowerCase();
+        var buttons = document.querySelectorAll(".ubicaciones_button");
+        buttons.forEach(elem => {
+            elem.classList.remove('d-none')
+            if((tipo=="codigo" && elem.getAttribute("codigo").indexOf(value) == -1) || (tipo=="nombre" && elem.getAttribute("nombre").normalize('NFD').replace(/[\u0300-\u036f]/g, '').indexOf(value.normalize('NFD').replace(/[\u0300-\u036f]/g, '')) ==-1)){
+                elem.classList.add('d-none')
+            }
+        })
     }
 
     function clickMarkerEvent(element) {
         $(".ubicaciones_button").removeClass("active");
         $("#no_eventos").addClass("d-none");
-        $("#ubicacion_" + element.ubicacion.id).addClass("active");
+        $("#ubicacion_" + element.id).addClass("active");
         $(".evento_button").removeClass("active");
         $(".evento_button").removeClass("d-none");
         $("#info_message").removeClass("d-none");
         $("#info_div").addClass("d-none");
-        markers[element.ubicacion.id - 1].openPopup();
-        $(".evento_button").not(".ubicacion_" + element.ubicacion.id).addClass("d-none");
+        markers[markerPosition.indexOf(element.id)].openPopup();
+        $(".evento_button").not(".ubicacion_" + element.id).addClass("d-none");
         if (element.cantidad_eventos == 0) {
             $("#no_eventos").removeClass("d-none");
         }
@@ -200,7 +214,7 @@
 
     function clickEvento(evento, ubicacion) {
         if (!$("#ubicacion_" + ubicacion).hasClass('active')) {
-            clickMarkerEvent(evento);
+            clickMarkerEvent(evento.ubicacion);
         }
         if (!$("#info_message").hasClass("d-none")) {
             $("#info_message").addClass("d-none");
