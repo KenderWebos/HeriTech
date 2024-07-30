@@ -2,8 +2,8 @@
     <div class="box-body">
         <div class="form-group">
             <label for="fecha" class="form-label">Fecha</label>
-            <input type="text" id="fecha" name="fecha"
-                class="js-datepicker form-control {{ $errors->has('fecha') ? 'is-invalid' : '' }}" value="{{ old('fecha') }}" required>
+            <input type="date" id="fecha" name="fecha"
+                class="form-control {{ $errors->has('fecha') ? 'is-invalid' : '' }}" value="{{ old('fecha') }}" required>
             @error('fecha')
                 <div class="invalid-feedback">{{$message}}</div>
             @enderror

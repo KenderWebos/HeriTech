@@ -56,10 +56,11 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">🗺️ Ubicaciones</h5>
+                    <input class="form-control form-control-sm mb-2 d-none" type="text" id="buscar_ubicacion" oninput="myFunction()" placeholder="Buscar" aria-label=".form-control-sm example">
                     <div class="list-group list-group-flush">
                         @foreach ($ubicaciones as $ubicacion)
 
-                        <button type="button" class="list-group-item list-group-item-action ubicaciones_button" id="ubicacion_{{ $ubicacion->id }}" onclick="clickUbicacion({{ $ubicacion->id }})">{{ $ubicacion->nombre }}
+                        <button type="button" class="list-group-item list-group-item-action ubicaciones_button" id="ubicacion_{{ $ubicacion->id }}" onclick="clickUbicacion({{ $ubicacion }})">{{ $ubicacion->nombre }} {{ $ubicacion->icono_primario }}{{ $ubicacion->icono_secundario }}
 
                             @if ($ubicacion->cantidad_eventos > 0)
                             <span class="badge badge-dark badge-pill rounded-pill bg-danger">
@@ -91,12 +92,13 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">🧾 Detalles</h5>
-                    <span id="info_message">Seleccione un evento para obtener información</span>
+                    <span id="info_message">Seleccione un evento para obtener su información</span>
                     <div class="d-none" id="info_div">
-                        <h6 class="text-center"><span id="info_titulo">Titulo</span></h6>
+                        <h6 class="text-center"><span id="info_titulo">Título</span></h6>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">📣 <span id="info_descripcion">Descripcion</span></li>
-                            <li class="list-group-item">📅 Inicio: <span id="fecha_info">12-07-2024</span></li>
+                            <li class="list-group-item">📣 <span id="info_descripcion">Descripción</span></li>
+                            <li class="list-group-item">📅 Fecha: <span class="fecha_hora_info" id="fecha_info">12-07-2024</span></li>
+                            <li class="list-group-item">⌚ Hora: <span class="fecha_hora_info" id="hora_info">00:00 AM</span></li>
                             <li class="list-group-item">⏲️ Duracion: <span id="duracion_info">120</span> minutos</li>
                         </ul>
                     </div>
@@ -110,10 +112,7 @@
     let map;
     let markers = [];
     let currentPopup;
-
-    let customEmojiIcon = ["🤸🏽‍♀️​", "📚", "📰​", "⚙️", "🗣️​", "	🏢", "💼​", "⛪", "👩‍🏫​", "🩺", "✝️", "🔬", "🍔", "💲", "⚽", "💡", "☕"];
-    // let customEmojiIcon = ["🤸🏽‍♀️🏌🏻‍♂️​", "📖📚", "📰📜​", "⚙️🏗️", "🗣️📚​", "	🏢✍️", "💼📊​", "⛪", "👩‍🏫📘​", "🩺⚕️", "📖✝️", "🔬🧪", "😋🍔", "🧐💲", "⚽", "💡", "☕🛠️"];
-
+    let markerPosition = [];
     var emojiIcon = L.divIcon({
         className: 'custom-div-icon',
         html: '<div class="bg-primary" style="font-size: 24px;">😘</div>',
@@ -137,12 +136,12 @@
             const marker = L.marker([element.latitud, element.longitud], {
                 icon: L.divIcon({
                     className: 'custom-div-icon',
-                    html: '<div class="" style="font-size: 24px;">' + customEmojiIcon[index] + '</div>',
+                    html: '<div class="" style="font-size: 24px;">' + element.icono_primario + '</div>',
                     iconSize: [30, 42],
                     iconAnchor: [15, 20]
                 })
             }).addTo(map);
-            markers.push(marker);
+            
 
             const popupContent = `
             <center>
@@ -167,18 +166,33 @@
                 currentPopup = marker;
                 clickMarkerEvent(element);
             });
+            marker.getPopup().on("remove", function () {
+                $(".ubicaciones_button").removeClass("active");
+                $("#no_eventos").addClass("d-none");
+                $(".evento_button").removeClass("active");
+                $(".evento_button").removeClass("d-none");
+                $("#info_message").removeClass("d-none");
+                $("#info_div").addClass("d-none");
+            });
+            markers.push(marker);
+            markerPosition.push(element.id)
         });
+    }
+
+    function find_ubicacion(){
+
     }
 
     function clickMarkerEvent(element) {
         $(".ubicaciones_button").removeClass("active");
         $("#no_eventos").addClass("d-none");
-        $("#ubicacion_" + element.id).addClass("active");
+        $("#ubicacion_" + element.ubicacion.id).addClass("active");
         $(".evento_button").removeClass("active");
         $(".evento_button").removeClass("d-none");
         $("#info_message").removeClass("d-none");
         $("#info_div").addClass("d-none");
-        $(".evento_button").not(".ubicacion_" + element.id).addClass("d-none");
+        markers[element.ubicacion.id - 1].openPopup();
+        $(".evento_button").not(".ubicacion_" + element.ubicacion.id).addClass("d-none");
         if (element.cantidad_eventos == 0) {
             $("#no_eventos").removeClass("d-none");
         }
@@ -186,7 +200,7 @@
 
     function clickEvento(evento, ubicacion) {
         if (!$("#ubicacion_" + ubicacion).hasClass('active')) {
-            clickUbicacion(ubicacion);
+            clickMarkerEvent(evento);
         }
         if (!$("#info_message").hasClass("d-none")) {
             $("#info_message").addClass("d-none");
@@ -194,32 +208,28 @@
         }
         $(".evento_button").removeClass("active");
         $("#evento_" + evento.id).addClass("active");
-
         $("#info_titulo").html(evento.titulo);
         $("#info_descripcion").html(evento.descripcion);
         $("#duracion_info").html(evento.duracion);
         $("#fecha_info").html(evento.fecha);
+        $("#hora_info").html(evento.hora);
     }
 
-    // function clickUbicacion(id) {
-    //     markers[id - 1].openPopup();
-    // }
 
-    function clickUbicacion(id) {
+    function clickUbicacion(element) {
+        markers[markerPosition.indexOf(element.id)].openPopup();
         $(".ubicaciones_button").removeClass("active");
-        $("#ubicacion_" + id).addClass("active");
+        $("#ubicacion_" + element.id).addClass("active");
         $("#no_eventos").addClass("d-none");
         $(".evento_button").removeClass("active");
         $(".evento_button").removeClass("d-none");
         $("#info_message").removeClass("d-none");
         $("#info_div").addClass("d-none");
-        $(".evento_button").not(".ubicacion_" + id).addClass("d-none");
+        $(".evento_button").not(".ubicacion_" + element.id).addClass("d-none");
 
         if (element.cantidad_eventos == 0) {
             $("#no_eventos").removeClass("d-none");
         }
-
-        markers[id - 1].openPopup();
     }
 
     initMap();

@@ -19,6 +19,12 @@ return new class extends Migration
             $table->string('descripcion')->nullable();
             $table->string('latitud')->nullable();
             $table->string('longitud')->nullable();
+
+            $table->string('codigo')->nullable();
+            $table->string('icono_primario')->nullable()->default('');
+            $table->string('icono_secundario')->nullable()->default('');
+            $table->string('icono_terciario')->nullable()->default('');
+
             $table->timestamps();
         
             $table->unsignedBigInteger('id_institucion')->nullable();

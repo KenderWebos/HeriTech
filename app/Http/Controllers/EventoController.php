@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Ubicaciones;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 /**
  * Class EventoController
  * @package App\Http\Controllers
@@ -151,17 +152,24 @@ class EventoController extends Controller
     }
 
     public function ver_eventos_mapa(){
-        $eventos = Evento::with('ubicacion')->where('estado_solicitud', '=', true)->where('revisado', '=', true)->orderBy('fecha', 'desc');
+        Carbon::setLocale('es');
+        $eventos = Evento::with('ubicacion')->where('estado_solicitud', '=', true)->whereDate('fecha', '>=', Carbon::now()->toDateTimeString())->where('revisado', '=', true)->orderBy('fecha', 'desc');
+        
         $ubicaciones = Ubicaciones::leftJoinSub($eventos, 'eventos_disponibles', function(JoinClause $join){
             $join->on('ubicaciones.id', '=', 'eventos_disponibles.id_ubicacion');
-        })->select('ubicaciones.id', 'ubicaciones.nombre', 'ubicaciones.descripcion', 'ubicaciones.latitud', 'ubicaciones.longitud', db::raw('count(eventos_disponibles.id) as cantidad_eventos'))
-        ->groupBy('ubicaciones.id', 'ubicaciones.nombre', 'ubicaciones.descripcion', 'ubicaciones.latitud', 'ubicaciones.longitud')
+        })->select('ubicaciones.id', 'ubicaciones.nombre', 'ubicaciones.descripcion', 'ubicaciones.latitud', 'ubicaciones.longitud', 'ubicaciones.icono_primario', 'ubicaciones.icono_secundario', 'ubicaciones.icono_terciario', 'ubicaciones.codigo', db::raw('count(eventos_disponibles.id) as cantidad_eventos'))
+        ->groupBy('ubicaciones.id', 'ubicaciones.nombre', 'ubicaciones.descripcion', 'ubicaciones.latitud', 'ubicaciones.longitud', 'ubicaciones.icono_primario','ubicaciones.icono_secundario', 'ubicaciones.icono_terciario', 'ubicaciones.codigo')->orderBy('cantidad_eventos', 'DESC')
         ->get()->map(function(Ubicaciones $ubicacion){
             $ubicacion->latitud = floatval($ubicacion->latitud);
             $ubicacion->longitud = floatval($ubicacion->longitud);
             return $ubicacion;
         });
-        $eventos = $eventos->get();
+        $eventos = $eventos->get()->map(function(Evento $evento){
+            $dt = Carbon::parse($evento->fecha);
+            $evento->fecha = $dt->translatedFormat('d \\de F \\de\\l Y');
+            $evento->hora = $dt->translatedFormat('h:i A');
+            return $evento;
+        });
         $gmap = env('GOOGLE_MAPS_API_KEY', false);
         return view('maptesting.maptesting', compact('eventos', 'gmap', 'ubicaciones'));
     }

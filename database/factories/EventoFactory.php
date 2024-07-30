@@ -27,7 +27,7 @@ class EventoFactory extends Factory
         $duracion = $this->faker->numberBetween(30,120);
         $id_ubicacion = $this->faker->numberBetween(1,17);
         return [
-            'fecha' => $this->faker->dateTimeBetween('-1 month', '+1 month'),
+            'fecha' => $this->faker->dateTimeBetween('+1 month', '+2 month'),
             'titulo' => $titulo,
             'descripcion' => "a simple event for ".$titulo."",
             'duracion' => $duracion,
