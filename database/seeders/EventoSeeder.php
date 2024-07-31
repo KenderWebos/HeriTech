@@ -18,13 +18,18 @@ class EventoSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('evento')->insert([
-        //     'fecha' => now(),
-        //     'titulo' => 'some random event',
-        //     'descripcion' => 'some random event content',
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
+        DB::table('eventos')->insert([
+            'fecha' => now(),
+            'titulo' => "Modelos de Negocio",
+            'descripcion' => "La DINN ofrece un taller abierto sobre Modelos de negocio",
+            'duracion' => 60,
+            'id_ubicacion' => 17,
+            'estado_solicitud' => True,
+            'revisado' => True,
+            'id_generador'=> 1,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
 
         // Crea más usuarios de ejemplo utilizando el factory
         Evento::factory()->count(30)->create();

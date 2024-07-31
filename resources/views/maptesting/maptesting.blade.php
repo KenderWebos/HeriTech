@@ -113,12 +113,6 @@
     let markers = [];
     let currentPopup;
     let markerPosition = [];
-    var emojiIcon = L.divIcon({
-        className: 'custom-div-icon',
-        html: '<div class="bg-primary" style="font-size: 24px;">😘</div>',
-        iconSize: [30, 42],
-        iconAnchor: [15, 20]
-    });
 
     function initMap() {
         map = L.map('map').setView([-36.79760196604004, -73.05678963913543], 17);

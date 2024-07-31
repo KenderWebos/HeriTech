@@ -33,8 +33,8 @@ class UbicacionesSeeder extends Seeder
             'latitud' => '-36.798226244052096',
             'longitud' => '-73.05541881765998',
             'codigo' => '04',
-            'icono_primario' => '📖',
-            'icono_secundario' => '​📚',
+            'icono_primario' => '📚',
+            'icono_secundario' => '📖​',
             'descripcion' => '🚩 https://www.sibucsc.cl/',
             'created_at' => now(),
             'updated_at' => now()
@@ -69,8 +69,8 @@ class UbicacionesSeeder extends Seeder
             'latitud' => '-36.798718083712934',
             'longitud' => '-73.05388861733778',
             'codigo' => '07',
-            'icono_primario' => '🗣️',
-            'icono_secundario' => '​📚',
+            'icono_primario' => '🌐​',
+            'icono_secundario' => '​🎓',
             'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
@@ -139,8 +139,8 @@ class UbicacionesSeeder extends Seeder
             'latitud' => '-36.79808345535758',
             'longitud' => '-73.05479528055814',
             'descripcion' => '🚩?',
-            'icono_primario' => '📖',
-            'icono_secundario' => '​✝️',
+            'icono_primario' => '✝️',
+            'icono_secundario' => '📖​',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -161,8 +161,8 @@ class UbicacionesSeeder extends Seeder
             'latitud' => '-36.79846365714816',
             'longitud' => '-73.05691074715712',
             'descripcion' => '🚩?',
-            'icono_primario' => '😋',
-            'icono_secundario' => '​🍔',
+            'icono_primario' => '🍔',
+            'icono_secundario' => '😋​',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -172,8 +172,8 @@ class UbicacionesSeeder extends Seeder
             'latitud' => '-36.79887594620405',
             'longitud' => '-73.05458729824358',
             'descripcion' => '🚩 Abierto de Lunes a Viernes de 9:00 AM a 1:00 PM',
-            'icono_primario' => '🧐',
-            'icono_secundario' => '​​💲',
+            'icono_primario' => '💲',
+            'icono_secundario' => '​​🧐',
             'created_at' => now(),
             'updated_at' => now()
         ]);
