@@ -108,60 +108,20 @@
     </div>
     @endrole
 
-    <div class="row mt-4">
-        <div class="col-xl-6 col-sm-12 mb-4">
-            <!-- EVENTOS -->
-            <div class="row">
-
-            </div>
-            <div class="card">
-                <div class="card-body text-center">
-
-                    <p class="card-title">
-                        <i class="far fa-calendar-alt"></i>
-                        Eventos
-                        <i class="far fa-calendar-alt"></i>
-                    </p>
-
-                    <div class="text-end">
-                        <span> <a target="_blank" href="{{ route('calendargo') }}">Ir al Calendario</a> </span>
-                    </div>
-
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Titulo</th>
-                                    <th scope="col">Dias restantes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($events as $event)
-                                <tr>
-                                    <td>{{$event->fecha}}</td>
-                                    <td>{{$event->titulo}}</td>
-                                    <td>{{$event->days_left}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-6 col-sm-12 mb-4">
+    <div class="row">
+        <div class="col-xl-12 col-sm-12 mb-12">
             <div class="row">
                 <!-- RELOJ -->
                 <div class="card mb-4">
                     <div class="card-body text-center d-flex justify-content-center">
                         <div>
-                            <h3><i class="ni ni-time-alarm"></i></h3>
+                            <!-- <h3><i class="ni ni-time-alarm"></i></h3> -->
+                            <h2 id="current-date-info"></h2>
+
                             <h3 id="current-time">
                                 {{ $current_date }}
                             </h3>
+
                         </div>
                     </div>
 
@@ -262,7 +222,53 @@
 
     </div>
 
+    <div class="row">
+        <div class="col">
+            <!-- EVENTOS -->
+            <div class="card">
+                <div class="card-body text-center">
 
+                    <p class="card-title">
+                        <i class="far fa-calendar-alt"></i>
+                        Eventos
+                        <i class="far fa-calendar-alt"></i>
+                    </p>
+
+                    <div class="text-end">
+                        <span> <a target="_blank" href="{{ route('calendargo') }}">Ir al Calendario</a> </span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Titulo</th>
+                                    <th scope="col">Dias restantes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($events as $event)
+                                <tr>
+                                    <td>{{$event->fecha}}</td>
+                                    <td>{{$event->titulo}}</td>
+                                    <td>{{$event->days_left}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-xl-6 col-sm-12 mb-4">
+            
+        </div>
+    </div>
 
     <!-- WSP DIRECT -->
 
@@ -380,13 +386,8 @@
     actualizarHora();
     var idActualizar = setInterval(actualizarHora, 1000);
 
-    // actualizarHorasBarra();
-    // setInterval(actualizarHorasBarra, 60000);
-
-
     function actualizarHora() {
         var fecha = new Date();
-        var Mañana = false;
 
         var pHora = document.getElementById("current-time");
         var pMensaje = document.getElementById("current-date-info");
@@ -403,19 +404,16 @@
 
         pHora.textContent = "| " + hora + " :  " + minutos + " : " + segundos + " |";
 
-        /*
-        if (fecha.getHours() % 24 >= 12) {
-            pMensaje.textContent = "Recuerda que es de tarde.";
-            Mañana = false;
-        } else {
-            pMensaje.textContent = "Recuerda que es de mañana.";
-            Mañana = true;
+        hora_actual = fecha.getHours() % 24;
+
+        if (hora_actual <= 8 || hora_actual >= 20) {
+            pMensaje.textContent = "🌑​";
+        } else if (hora_actual > 8 && hora_actual <= 12) {
+            pMensaje.textContent = "🌄";
+        } else if (hora_actual > 12 || hora_actual < 8) {
+            pMensaje.textContent = "☀️";
         }
 
-        if (fecha.getHours() % 12 >= 10 && fecha.getHours() % 12 <= 12 && !Mañana) {
-            pMensaje.textContent += (" [a mimir...]");
-        }
-        */
     }
 
     // Define las constantes para el inicio y fin del día (en horas)

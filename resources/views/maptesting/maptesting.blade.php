@@ -121,7 +121,7 @@
     let markerPosition = [];
 
     function initMap() {
-        map = L.map('map').setView([-36.79760196604004, -73.05678963913543], 17);
+        map = L.map('map').setView([-36.797924685386086, -73.05677576277975], 17);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19
