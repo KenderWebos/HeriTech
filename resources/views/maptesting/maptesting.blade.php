@@ -189,9 +189,12 @@
         const tipo = document.getElementById("busqueda_t").value;
         value = value.toLowerCase();
         var buttons = document.querySelectorAll(".ubicaciones_button");
+        if(tipo=="codigo"){
+            value = parseInt(value)
+        }
         buttons.forEach(elem => {
             elem.classList.remove('d-none')
-            if((tipo=="codigo" && elem.getAttribute("codigo").indexOf(value) == -1) || (tipo=="nombre" && elem.getAttribute("nombre").normalize('NFD').replace(/[\u0300-\u036f]/g, '').indexOf(value.normalize('NFD').replace(/[\u0300-\u036f]/g, '')) ==-1)){
+            if((tipo=="codigo" && !isNaN(value) && parseInt(elem.getAttribute("codigo")) != value) || (tipo=="nombre" && elem.getAttribute("nombre").normalize('NFD').replace(/[\u0300-\u036f]/g, '').indexOf(value.normalize('NFD').replace(/[\u0300-\u036f]/g, '')) ==-1)){
                 elem.classList.add('d-none')
             }
         })
