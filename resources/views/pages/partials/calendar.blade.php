@@ -16,7 +16,7 @@
 
                             <iframe style="width:100%; height:1000px" src="{{ url('calendargo') }}" frameborder="0"></iframe>
 
-                            <div class="table-responsive">
+                            <!-- <div class="table-responsive">
                                 <table id="datatable" class="table table-striped table-hover text-center">
                                     <thead>
                                         <tr>
@@ -39,10 +39,7 @@
                                             <td>{{ strftime("%d de %B", strtotime($evento->fecha)) }}</td>
                                             <td>{{ $evento->descripcion }}</td>
                                             <td>{{ $evento->titulo }}</td>
-                                            <td>
-                                                <!-- <button type="button" class="btn btn-primary">
-                                                    <i class="fa fa-pencil-square-o"></i>
-                                                </button> -->
+                                            <td>    
                                                 <div class="col-1">
                                                     <form action="{{ route('evento.borrar', $evento->id) }}" method="POST">
                                                         @csrf
@@ -57,7 +54,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> -->
 
                             <!-- <h5 class="card-title">Calendar 📅</h5>
                             <small>

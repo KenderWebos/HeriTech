@@ -6,7 +6,7 @@
 
     @role('administrador')
     <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
@@ -166,7 +166,7 @@
                     </div>
 
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-success" id="current-time-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" id="current-time-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
 
                     <div class="row">
@@ -189,74 +189,77 @@
 
     <div class="row mt-4">
         <div class="col-md-4 mb-5">
-            <a href="http://167.99.128.137/info-test/7" class="card h-100 text-decoration-none ">
+            <a target="_blank" href="{{route("eventos.vermapa")}}" class="card h-100 text-decoration-none ">
 
                 <div class="card-header text-center" cursorshover="true">
-                    <i class="fas fa-solid fa-code" data-toggle="tooltip" title="Vista Web"></i>
-                    <p class="card-text" cursorshover="true"> Ejecucion externa</p>
+                    <i class="fas fa-solid fa-star" data-toggle="tooltip" title="Vista Web"></i>
+
+                    <p class="card-text" cursorshover="true"> Dificultad! </p>
                 </div>
 
                 <div class="card-body text-center" cursorshover="true">
 
-                    <h2 class="card-title mt-3" cursorshover="true">2 -
-                        Metacognition</h2>
-                    <p class="card-text"> Perceptual Discrimination</p>
-                    <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
+                    <h2 class="card-title mt-3" cursorshover="true">🗺️ Mapa UCSC</h2>
+                    <p class="card-text"> Navega por los principales edificios de la UCSC y visualiza los eventos que tiene cada edificio</p>
+                    <!-- <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
                         15 minutos</p>
                     <div class="card-footer ">
                         <p class="card-text"><i class="fa-solid fa-globe"></i> Fuente:
                             GitHub</p>
-                    </div>
+                    </div> -->
                 </div>
             </a>
         </div>
 
         <div class="col-md-4 mb-5">
-            <a href="http://167.99.128.137/info-test/7" class="card h-100 text-decoration-none ">
+            <a target="_blank" href="{{route("calendar")}}" class="card h-100 text-decoration-none ">
 
                 <div class="card-header text-center" cursorshover="true">
-                    <i class="fas fa-solid fa-code" data-toggle="tooltip" title="Vista Web"></i>
-                    <p class="card-text" cursorshover="true"> Ejecucion externa</p>
+                    <i class="fas fa-solid fa-star" data-toggle="tooltip" title="Vista Web"></i>
+                    <i class="fas fa-solid fa-star" data-toggle="tooltip" title="Vista Web"></i>
+
+                    <p class="card-text" cursorshover="true"> Dificultad! </p>
                 </div>
 
                 <div class="card-body text-center" cursorshover="true">
 
-                    <h2 class="card-title mt-3" cursorshover="true">2 -
-                        Metacognition</h2>
-                    <p class="card-text"> Perceptual Discrimination</p>
-                    <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
+                    <h2 class="card-title mt-3" cursorshover="true">📅 Calendario UCSC</h2>
+                    <p class="card-text"> Ve el Calendario de los eventos de la UCSC</p>
+                    <!-- <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
                         15 minutos</p>
                     <div class="card-footer ">
                         <p class="card-text"><i class="fa-solid fa-globe"></i> Fuente:
                             GitHub</p>
-                    </div>
+                    </div> -->
                 </div>
             </a>
         </div>
 
         <div class="col-md-4 mb-5">
-            <a href="http://167.99.128.137/info-test/7" class="card h-100 text-decoration-none ">
+            <a target="_blank" href="{{route("eventos.vermapa")}}" class="card h-100 text-decoration-none ">
 
                 <div class="card-header text-center" cursorshover="true">
-                    <i class="fas fa-solid fa-code" data-toggle="tooltip" title="Vista Web"></i>
-                    <p class="card-text" cursorshover="true"> Ejecucion externa</p>
+                    <i class="fas fa-solid fa-star" data-toggle="tooltip" title="Vista Web"></i>
+                    <i class="fas fa-solid fa-star" data-toggle="tooltip" title="Vista Web"></i>
+                    <i class="fas fa-solid fa-star" data-toggle="tooltip" title="Vista Web"></i>
+
+                    <p class="card-text" cursorshover="true"> Dificultad! </p>
                 </div>
 
                 <div class="card-body text-center" cursorshover="true">
 
-                    <h2 class="card-title mt-3" cursorshover="true">2 -
-                        Metacognition</h2>
-                    <p class="card-text"> Perceptual Discrimination</p>
-                    <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
+                    <h2 class="card-title mt-3" cursorshover="true">📱 Realidad Aumentada APP</h2>
+                    <p class="card-text"> Descarga la APP de REALIDAD AUMENTADA que muestra la UCSC</p>
+                    <!-- <p class="card-text"><i class="fas fa-clock"></i> Duración estimada:
                         15 minutos</p>
                     <div class="card-footer ">
                         <p class="card-text"><i class="fa-solid fa-globe"></i> Fuente:
                             GitHub</p>
-                    </div>
+                    </div> -->
                 </div>
             </a>
         </div>
-        
+
     </div>
 
 

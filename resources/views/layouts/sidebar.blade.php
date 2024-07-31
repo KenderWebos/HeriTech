@@ -5,10 +5,10 @@
         <!-- Logo -->
         <a class="fw-semibold text-white tracking-wide" href="/">
           <span class="smini-visible">
-            H<span class="opacity-75">T</span>
+            A<span class="opacity-75">C</span>
           </span>
           <span class="smini-hidden">
-            Heri<span class="opacity-75">Tech</span>
+            ARC<span class="opacity-75">ampus</span>
           </span>
         </a>
         <!-- END Logo -->
