@@ -196,7 +196,7 @@
         </div>
 
         <div class="col-md-4 mb-5">
-            <a target="_blank" href="{{route("eventos.vermapa")}}" class="card h-100 text-decoration-none ">
+            <a target="_blank" href="https://drive.google.com/drive/folders/1RluoA1wjW6vxGaG49c4_A3B-m7Os-Vo-?usp=sharing" class="card h-100 text-decoration-none ">
 
                 <div class="card-header text-center" cursorshover="true">
                     <i class="fas fa-solid fa-star" data-toggle="tooltip" title="Vista Web"></i>
