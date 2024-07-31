@@ -32,8 +32,8 @@ class UbicacionesSeeder extends Seeder
             'latitud' => '-36.798226244052096',
             'longitud' => '-73.05541881765998',
             'codigo' => '9',
-            'icono_primario' => '📖',
-            'icono_secundario' => '​📚',
+            'icono_primario' => '📚',
+            'icono_secundario' => '📖',
             'descripcion' => '🚩 https://www.sibucsc.cl/',
             'created_at' => now(),
             'updated_at' => now()
@@ -68,8 +68,8 @@ class UbicacionesSeeder extends Seeder
             'latitud' => '-36.798718083712934',
             'longitud' => '-73.05388861733778',
             'codigo' => '13',
-            'icono_primario' => '🗣️',
-            'icono_secundario' => '​📚',
+            'icono_primario' => '🌐​',
+            'icono_secundario' => '​🎓',
             'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
