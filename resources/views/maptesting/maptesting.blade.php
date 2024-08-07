@@ -7,7 +7,20 @@
 <!-- Incluir los archivos CSS y JS de Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
+<style>
+    .emoji_icon{
+        font-size: 24px;
+    }
+    .outline{
+        text-shadow:
+            0 0 1px rgb(0, 0, 0), 
+            -1px -1px 1px rgb(0, 0, 0), 
+            -1px 1px 1px rgb(0, 0, 0), 
+            1px 1px 1px rgb(0, 0, 0), 
+            1px -1px 1px rgb(0, 0, 0);
+        position: relative;
+    }
+</style>
 <!-- <center>
     <a class="navbar-brand m-0" href="{{ route('home') }}">
         <img style="width:140px" src="{{ asset('images/heritech/ht_logo.png') }}" alt="a simple ht_logo">
@@ -58,15 +71,11 @@
                     <h5 class="card-title">🗺️ Ubicaciones</h5>
                     <div class="input-group mb-3">
                         <input class="form-control" type="text" id="buscar_ubicacion" oninput="find_ubicacion(this.value)" placeholder="Buscar" aria-label=".form-control-sm example">
-                        <select class="form-select form-select-sm" id="busqueda_t">
-                            <option selected value="nombre">Nombre</option>
-                            <option value="codigo">Código</option>
-                        </select>
                     </div>
                     <div class="list-group list-group-flush" id="div_ubicaciones">
                         @foreach ($ubicaciones as $ubicacion)
 
-                        <button type="button" class="list-group-item list-group-item-action ubicaciones_button" id="ubicacion_{{ $ubicacion->id }}" nombre="{{strtolower($ubicacion->nombre)}}" codigo="{{$ubicacion->codigo}}" onclick="clickUbicacion({{ $ubicacion }})">{{ $ubicacion->nombre }} {{ $ubicacion->icono_primario }}{{ $ubicacion->icono_secundario }}
+                        <button type="button" class="list-group-item list-group-item-action ubicaciones_button" id="ubicacion_{{ $ubicacion->id }}" nombre="{{strtolower($ubicacion->nombre)}}" codigo="{{$ubicacion->codigo}}" onclick="clickUbicacion({{ $ubicacion }})">{{ $ubicacion->nombre }}<span class="outline"> {{ $ubicacion->icono_primario }}{{ $ubicacion->icono_secundario }} </span>
 
                             @if ($ubicacion->cantidad_eventos > 0)
                             <span class="badge badge-dark badge-pill rounded-pill bg-danger">
@@ -142,7 +151,7 @@
             const marker = L.marker([element.latitud, element.longitud], {
                 icon: L.divIcon({
                     className: 'custom-div-icon',
-                    html: '<div class="" style="font-size: 24px;">' + element.icono_primario + '</div>',
+                    html: '<span class="emoji_icon outline">' + element.icono_primario + '</span>',
                     iconSize: [30, 42],
                     iconAnchor: [15, 20]
                 })
@@ -186,15 +195,14 @@
     }
 
     function find_ubicacion(value){
-        const tipo = document.getElementById("busqueda_t").value;
-        value = value.toLowerCase();
+        value_number = parseInt(value)
+        value_text = value.toLowerCase();
+        console.log(value_text + " " + value_number)
+        console.log("isnan? " + !isNaN(value_number))
         var buttons = document.querySelectorAll(".ubicaciones_button");
-        if(tipo=="codigo"){
-            value = parseInt(value)
-        }
         buttons.forEach(elem => {
             elem.classList.remove('d-none')
-            if((tipo=="codigo" && !isNaN(value) && parseInt(elem.getAttribute("codigo")) != value) || (tipo=="nombre" && elem.getAttribute("nombre").normalize('NFD').replace(/[\u0300-\u036f]/g, '').indexOf(value.normalize('NFD').replace(/[\u0300-\u036f]/g, '')) ==-1)){
+            if((!isNaN(value_number) && (parseInt(elem.getAttribute("codigo")) != value_number)) ||  (isNaN(value_number) && elem.getAttribute("nombre").normalize('NFD').replace(/[\u0300-\u036f]/g, '').indexOf(value_text.normalize('NFD').replace(/[\u0300-\u036f]/g, '')) ==-1)){
                 elem.classList.add('d-none')
             }
         })

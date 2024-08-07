@@ -120,7 +120,7 @@ class EventoController extends Controller
         return view('evento.solicitudes.crear', compact('evento', 'ubicaciones'));
     }
     public function ver_solicitudes(){
-        $eventos = Evento::with(['user', 'ubicacion'])->orderBy('revisado', 'ASC')->paginate()->through(function(Evento $evento){
+        $eventos = Evento::with(['user', 'ubicacion'])->orderBy('revisado', 'ASC')->orderBy('fecha', 'DESC')->paginate()->through(function(Evento $evento){
             if(isset($evento->user->username)){
                 $evento->usuario = $evento->user->username;
             }else{
@@ -144,11 +144,7 @@ class EventoController extends Controller
             $accion = "aceptada";
         }
         $evento->save();
-        if(!isset($evento->user->firstname) && !isset($evento->user->lastname)){
-            $evento->user->firstname = "Usuario";
-            $evento->user->lastname = "";
-        }
-        return redirect()->route('evento.ver_solicitudes')->with('success', 'La solicitud de evento con título "'.$evento->titulo.'" creado por '.$evento->user->firstname.''.$evento->user->lastname.' ha sido '.$accion);
+        return redirect()->route('evento.ver_solicitudes')->with('success', 'La solicitud de evento con título "'.$evento->titulo.'" ha sido '.$accion);
     }
 
     public function ver_eventos_mapa(){
