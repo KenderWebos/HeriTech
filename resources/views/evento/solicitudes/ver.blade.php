@@ -70,11 +70,13 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                
                             </table>
+                            {!! $eventos->links() !!}
                         </div>
                     </div>
                 </div>
-                {!! $eventos->links() !!}
+                
             </div>
         </div>
     </div>
