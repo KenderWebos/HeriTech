@@ -266,7 +266,7 @@
 
     <div class="row mt-4">
         <div class="col-xl-6 col-sm-12 mb-4">
-            
+
         </div>
     </div>
 
@@ -408,9 +408,9 @@
 
         if (hora_actual <= 8 || hora_actual >= 20) {
             pMensaje.textContent = "🌑​";
-        } else if (hora_actual > 8 && hora_actual <= 12) {
+        } else if (hora_actual > 8 && hora_actual < 12) {
             pMensaje.textContent = "🌄";
-        } else if (hora_actual > 12 || hora_actual < 8) {
+        } else if (hora_actual >= 12 || hora_actual < 8) {
             pMensaje.textContent = "☀️";
         }
 
@@ -482,14 +482,6 @@
 </script>
 
 <script>
-    // function youtube_search() {
-    //     query = document.getElementById("input-youtube-search").value;
-    //     var url = "https://www.youtube.com/results?search_query=" + query; //+ "&max-results=1&v=2&alt=jsonc"
-
-    //     window.open(url);
-    //     document.getElementById("input-youtube-search").value = "";
-    // }
-
     document.getElementById('btn-youtube-search').addEventListener('click', function() {
         var query = document.getElementById('input-youtube-search').value;
         if (query) {
@@ -498,27 +490,5 @@
         }
     });
 </script>
-@endpush
 
-@push('js')
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: ['dayGrid'],
-            events: [
-                // Add your events here
-                // Example event:
-                {
-                    title: 'Event 1',
-                    start: '2023-10-15'
-                },
-                // Add more events as needed
-            ]
-        });
-
-        calendar.render();
-    });
-</script> -->
 @endpush

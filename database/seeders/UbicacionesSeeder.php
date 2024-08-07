@@ -17,24 +17,13 @@ class UbicacionesSeeder extends Seeder
     public function run()
     {
         DB::table('ubicaciones')->insert([
-            'nombre' => 'Gimnasio',
-            'latitud' => '-36.798217652937225',
-            'longitud' => '-73.05635759079199',
-            'icono_primario' => '🤸🏽‍♀️',
-            'icono_secundario' => '🏌🏻‍♂️',
-            'descripcion' => '🚩 https://www.instagram.com/deportesucsc/ 🚩 https://www.instagram.com/p/C5okvYqvVGJ/?img_index=1',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('ubicaciones')->insert([
-            'nombre' => 'Biblioteca Central',
-            'latitud' => '-36.798226244052096',
-            'longitud' => '-73.05541881765998',
-            'codigo' => '9',
-            'icono_primario' => '📚',
-            'icono_secundario' => '📖',
-            'descripcion' => '🚩 https://www.sibucsc.cl/',
+            'nombre' => 'Facultad de Comunicacion, Historia y Ciencias Sociales',
+            'latitud' => '-36.79829893791028,',
+            'longitud' => '-73.05454607358608',
+            'icono_primario' => '💬',
+            'icono_secundario' => '📜',
+            'codigo' => '1',
+            'descripcion' => '🚩',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -52,6 +41,18 @@ class UbicacionesSeeder extends Seeder
         ]);
 
         DB::table('ubicaciones')->insert([
+            'nombre' => 'Facultad de Ciencias',
+            'codigo' => '3',
+            'latitud' => '-36.79787411596616',
+            'longitud' => '-73.05570048318586',
+            'descripcion' => '🚩?',
+            'icono_primario' => '🔬',
+            'icono_secundario' => '​🧪',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('ubicaciones')->insert([
             'nombre' => 'Facultad de Ingeniería',
             'latitud' => '-36.797403640362816',
             'longitud' => '-73.05567899184173',
@@ -62,50 +63,63 @@ class UbicacionesSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
-
+        
         DB::table('ubicaciones')->insert([
-            'nombre' => 'Edificio Tomás Moro',
-            'latitud' => '-36.798718083712934',
-            'longitud' => '-73.05388861733778',
-            'codigo' => '13',
-            'icono_primario' => '🌐​',
-            'icono_secundario' => '​🎓',
+            'nombre' => 'DARA',
+            'codigo' => '5',
+            'latitud' => '-36.79799257474181',
+            'longitud' => '-73.05664553617568',
+            'icono_primario' => '🖥️',
+            'icono_secundario' => '​​💻​',
             'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('ubicaciones')->insert([
-            'nombre' => 'Edificio Central',
-            'latitud' => '-36.79777203806005',
-            'longitud' => '-73.05815325057253',
-            'codigo' => '9',
-            'icono_primario' => '🏢',
-            'icono_secundario' => '​✍️',
+            'nombre' => 'Facultad de Medicina',
+            'codigo' => '6',
+            'latitud' => '-36.79774375229419',
+            'longitud' => '-73.0547476835958',
             'descripcion' => '🚩?',
+            'icono_primario' => '🩺',
+            'icono_secundario' => '​⚕️',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('ubicaciones')->insert([
             'nombre' => 'Facultad de Ciencias Económicas y Administrativas',
+            'codigo' => '7',
             'latitud' => '-36.79866658792822',
             'longitud' => '-73.0564607766401',
             'icono_primario' => '💼',
             'icono_secundario' => '​📊',
-            'codigo' => '7',
             'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('ubicaciones')->insert([
-            'nombre' => 'Capilla',
+            'nombre' => 'Biblioteca Central',
+            'codigo' => '9',
+            'latitud' => '-36.798226244052096',
+            'longitud' => '-73.05541881765998',
+            'icono_primario' => '📚',
+            'icono_secundario' => '📖',
+            'descripcion' => '🚩 https://www.sibucsc.cl/',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('ubicaciones')->insert([
+            'nombre' => 'Facultad de Estudios Teológicos y Filosofía',
             'codigo' => '10',
-            'latitud' => '-36.79740686206734',
-            'longitud' => '-73.0560799820812',
-            'icono_primario' => '⛪',
+            'latitud' => '-36.79808345535758',
+            'longitud' => '-73.05479528055814',
             'descripcion' => '🚩?',
+            'icono_primario' => '✝️',
+            'icono_secundario' => '📖​',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -124,37 +138,37 @@ class UbicacionesSeeder extends Seeder
         ]);
 
         DB::table('ubicaciones')->insert([
-            'nombre' => 'Facultad de Medicina',
-            'codigo' => '6',
-            'latitud' => '-36.79774375229419',
-            'longitud' => '-73.0547476835958',
+            'nombre' => 'Edificio Tomás Moro',
+            'codigo' => '13',
+            'latitud' => '-36.798718083712934',
+            'longitud' => '-73.05388861733778',
+            'icono_primario' => '🌐​',
+            'icono_secundario' => '​🎓',
             'descripcion' => '🚩?',
-            'icono_primario' => '🩺',
-            'icono_secundario' => '​⚕️',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('ubicaciones')->insert([
-            'nombre' => 'Facultad de Estudios Teológicos y Filosofía',
-            'codigo' => '9',
-            'latitud' => '-36.79808345535758',
-            'longitud' => '-73.05479528055814',
-            'descripcion' => '🚩?',
-            'icono_primario' => '✝️',
-            'icono_secundario' => '📖​',
+            'nombre' => 'Gimnasio',
+            'latitud' => '-36.798217652937225',
+            'longitud' => '-73.05635759079199',
+            'icono_primario' => '💪🏻',
+            'icono_secundario' => '🤸🏽‍♀️',
+            'icono_terciario' => '🏌🏻‍♂️',
+            'descripcion' => '🚩 https://www.instagram.com/deportesucsc/ 🚩 https://www.instagram.com/p/C5okvYqvVGJ/?img_index=1',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('ubicaciones')->insert([
-            'nombre' => 'Facultad de Ciencias',
-            'codigo' => '3',
-            'latitud' => '-36.79787411596616',
-            'longitud' => '-73.05570048318586',
+            'nombre' => 'Edificio Central',
+            'latitud' => '-36.79777203806005',
+            'longitud' => '-73.05815325057253',
+            'codigo' => '14',
+            'icono_primario' => '🏢',
+            'icono_secundario' => '​✍️',
             'descripcion' => '🚩?',
-            'icono_primario' => '🔬',
-            'icono_secundario' => '​🧪',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -178,6 +192,16 @@ class UbicacionesSeeder extends Seeder
             'descripcion' => '🚩 Abierto de Lunes a Viernes de 9:00 AM a 1:00 PM',
             'icono_primario' => '💲',
             'icono_secundario' => '​​🧐',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('ubicaciones')->insert([
+            'nombre' => 'Capilla',
+            'latitud' => '-36.79740686206734',
+            'longitud' => '-73.0560799820812',
+            'icono_primario' => '⛪',
+            'descripcion' => '🚩?',
             'created_at' => now(),
             'updated_at' => now()
         ]);

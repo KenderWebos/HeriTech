@@ -19,7 +19,7 @@ class EventoSeeder extends Seeder
     public function run()
     {
         DB::table('eventos')->insert([
-            'fecha' => now(),
+            'fecha' => now()->addHours(24),
             'titulo' => "Modelos de Negocio",
             'descripcion' => "La DINN ofrece un taller abierto sobre Modelos de negocio",
             'duracion' => 60,
